@@ -1,0 +1,49 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c111c"/>
+      <stop offset="100%" stop-color="#060910"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="16" fill="url(#p2Grad)" stroke="#1e293b" stroke-width="1.5"/>
+  <path d="M 0 60 H 600 M 0 120 H 600 M 0 180 H 600 M 0 240 H 600" stroke="#334155" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Hreflang Architecture Tree -->
+  <rect x="40" y="45" width="520" height="270" rx="12" fill="#111824" stroke="#334155" stroke-width="1.5"/>
+  <text x="65" y="75" fill="#f8fafc" font-family="sans-serif" font-weight="700" font-size="13">DACH Multilingual Architecture (de-DE | de-AT | de-CH)</text>
+
+  <!-- Root Node -->
+  <rect x="230" y="95" width="140" height="36" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="300" y="118" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">Domain Root /</text>
+
+  <!-- Tree Connectors -->
+  <path d="M 300 131 V 155 M 140 155 H 460 M 140 155 V 175 M 300 155 V 175 M 460 155 V 175" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- Regional Clusters -->
+  <g transform="translate(60, 175)">
+    <rect width="150" height="110" rx="8" fill="#0a0f18" stroke="#1e293b"/>
+    <rect x="10" y="10" width="50" height="18" rx="4" fill="#00e5a3" fill-opacity="0.2"/>
+    <text x="35" y="23" fill="#00e5a3" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">de-DE</text>
+    <text x="12" y="48" fill="#94a3b8" font-family="sans-serif" font-size="10">Target: Germany</text>
+    <text x="12" y="66" fill="#94a3b8" font-family="sans-serif" font-size="10">hreflang="de-DE"</text>
+    <text x="12" y="86" fill="#38bdf8" font-family="monospace" font-size="9">> Canonical: Self</text>
+  </g>
+
+  <g transform="translate(225, 175)">
+    <rect width="150" height="110" rx="8" fill="#0a0f18" stroke="#1e293b"/>
+    <rect x="10" y="10" width="50" height="18" rx="4" fill="#38bdf8" fill-opacity="0.2"/>
+    <text x="35" y="23" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">de-AT</text>
+    <text x="12" y="48" fill="#94a3b8" font-family="sans-serif" font-size="10">Target: Austria</text>
+    <text x="12" y="66" fill="#94a3b8" font-family="sans-serif" font-size="10">hreflang="de-AT"</text>
+    <text x="12" y="86" fill="#38bdf8" font-family="monospace" font-size="9">> Canonical: Self</text>
+  </g>
+
+  <g transform="translate(390, 175)">
+    <rect width="150" height="110" rx="8" fill="#0a0f18" stroke="#1e293b"/>
+    <rect x="10" y="10" width="50" height="18" rx="4" fill="#a78bfa" fill-opacity="0.2"/>
+    <text x="35" y="23" fill="#a78bfa" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">de-CH</text>
+    <text x="12" y="48" fill="#94a3b8" font-family="sans-serif" font-size="10">Target: Switzerland</text>
+    <text x="12" y="66" fill="#94a3b8" font-family="sans-serif" font-size="10">hreflang="de-CH"</text>
+    <text x="12" y="86" fill="#38bdf8" font-family="monospace" font-size="9">> Canonical: Self</text>
+  </g>
+</svg>

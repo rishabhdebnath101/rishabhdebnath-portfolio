@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Rishabh Debnath | SEO & GEO Specialist</title>
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090d12;
+      --surface: #0f151e;
+      --card: #131b26;
+      --border: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #00e5a3;
+      --accent-sub: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .resume-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    h1 { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .title { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; }
+    .contact-info { font-size: 0.88rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 16px; }
+    .contact-info a { color: var(--text-muted); text-decoration: none; }
+    .contact-info a:hover { color: var(--accent); }
+    .section { margin-bottom: 32px; }
+    .section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .item { margin-bottom: 20px; }
+    .item-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .item-role { font-weight: 700; font-size: 1.05rem; color: #fff; }
+    .item-date { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); }
+    .item-sub { color: var(--accent-sub); font-size: 0.9rem; margin-bottom: 8px; }
+    .item-desc { font-size: 0.9rem; color: var(--text-muted); }
+    .item-desc ul { padding-left: 20px; margin-top: 6px; }
+    .item-desc li { margin-bottom: 4px; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .skill-box {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .skill-box h4 { font-size: 0.9rem; color: #fff; margin-bottom: 6px; }
+    .skill-box p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+    .actions-bar {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #090d12; }
+    .btn-primary:hover { background: #10f0b0; }
+    .btn-outline { background: transparent; border-color: var(--border); color: #fff; }
+    .btn-outline:hover { border-color: var(--accent); }
+    @media print {
+      body { background: #fff; color: #000; padding: 0; }
+      .resume-container { border: none; box-shadow: none; padding: 0; background: #fff; }
+      .actions-bar { display: none; }
+      h1, .item-role, .skill-box h4 { color: #000; }
+      .title, .section-title { color: #00875a; }
+      .contact-info, .item-desc, .skill-box p, .item-date { color: #444; }
+      .skill-box { background: #f8f9fa; border-color: #ddd; }
+    }
+    @media (max-width: 600px) {
+      .resume-container { padding: 24px; }
+      .header { flex-direction: column; gap: 16px; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <header class="header">
+      <div>
+        <h1>Rishabh Debnath</h1>
+        <div class="title">SEO &amp; Generative Engine Optimization (GEO) Specialist</div>
+        <div class="contact-info">
+          <span>📧 contact@rishabhdebnath.com</span>
+          <span>🔗 linkedin.com/in/rishabh-debnath-seo</span>
+          <span>🌐 Remote / International Consulting</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-title">Executive Summary</div>
+      <p class="item-desc">
+        English Language graduate turned search strategist specializing in technical SEO, multi-location search, entity mapping, and Generative Engine Optimization (GEO). Focused on building clean site architecture, resolving indexing bottlenecks, structuring Schema.org markup, and ensuring brands achieve citation dominance across traditional search engines and conversational AI platforms (ChatGPT Search, Perplexity, Google AI Overviews).
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Specialized Capabilities</div>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h4>Technical SEO &amp; Auditing</h4>
+          <p>Crawl budget optimization, indexation governance, log file analysis, Core Web Vitals remediation, hreflang multi-region configuration.</p>
+        </div>
+        <div class="skill-box">
+          <h4>Generative Engine Optimization (GEO)</h4>
+          <p>AI search entity seeding, Schema.org JSON-LD engineering, information-dense content structuring for LLM source synthesis.</p>
+        </div>
+        <div class="skill-box">
+          <h4>Semantic &amp; Local SEO</h4>
+          <p>Google Business Profile optimization, localized citation integrity, intent-driven keyword clustering, topical authority silos.</p>
+        </div>
+        <div class="skill-box">
+          <h4>Analytics &amp; Audit Tooling</h4>
+          <p>Google Search Console, Google Analytics 4, Screaming Frog SEO Spider, Semrush, Ahrefs, PageSpeed Insights, Cloudflare.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Selected Case Study Engagements</div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-role">Olympia Fitness Studio — Local SEO &amp; GEO Optimization</span>
+          <span class="item-date">Case Study</span>
+        </div>
+        <div class="item-sub">Local Map Pack &amp; AI Search Entity Seeding</div>
+        <div class="item-desc">
+          <ul>
+            <li>Restructured Google Business Profile categories, localized attributes, and geo-targeted service landing pages.</li>
+            <li>Engineered custom ExerciseGym JSON-LD schema with geocoordinates and operating schedules.</li>
+            <li>Established citation presence in AI search engines (Perplexity, ChatGPT), securing +140% local actions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <span class="item-role">German Regional Enterprise — DACH Technical SEO</span>
+          <span class="item-date">Case Study</span>
+        </div>
+        <div class="item-sub">Multilingual Regional Expansion &amp; Hreflang Configuration</div>
+        <div class="item-desc">
+          <ul>
+            <li>Audited and repaired reciprocal hreflang tags across de-DE, de-AT, and de-CH language-region targets.</li>
+            <li>Eliminated 400+ redirect chains and reduced server response time (TTFB) below 280ms.</li>
+            <li>Mapped German compound noun transactional keywords, yielding +115% top-10 visibility in the DACH region.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <span class="item-role">Specialty Direct-to-Consumer E-commerce Store</span>
+          <span class="item-date">Case Study</span>
+        </div>
+        <div class="item-sub">Faceted Navigation Control &amp; Product Schema Graph</div>
+        <div class="item-desc">
+          <ul>
+            <li>Pruned 18,000+ duplicate parametric facet URLs, resolving index bloat and consolidating authority.</li>
+            <li>Automated nested Product and MerchantReturnPolicy JSON-LD schema across 3,000+ catalog items.</li>
+            <li>Achieved +94% non-brand category organic traffic growth and +73% organic search revenue.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Education &amp; Credentials</div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-role">Bachelor of Arts in English Language</span>
+          <span class="item-date">Graduate Degree</span>
+        </div>
+        <div class="item-sub">Focus: Linguistic Structures, Semantics &amp; Discourse Analysis</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <span class="item-role">Industry Certifications</span>
+          <span class="item-date">Verified</span>
+        </div>
+        <div class="item-desc">
+          HubSpot Digital Marketing &amp; Inbound • Google Skillshop GA4 Certification • Semrush Academy Technical SEO Master
+        </div>
+      </div>
+    </section>
+
+    <div class="actions-bar">
+      <a href="index.html" class="btn btn-outline">← Back to Portfolio</a>
+      <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </div>
+</body>
+</html>

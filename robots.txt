@@ -1,0 +1,6 @@
+﻿# robots.txt for Rishabh Debnath Portfolio
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://rishabhdebnath.com/sitemap.xml
