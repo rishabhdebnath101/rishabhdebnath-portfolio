@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Rishabh Debnath — SEO & GEO Specialist Portfolio
  * Interactive Logic: Modals, Scrollspy, Dynamic Rendering & UI Actions
  */
@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderScroll();
   initNavigation();
   initProjectsRender();
+  initApproachRender();
   initSkillsRender();
   initCertificationsRender();
   initBlogRender();
@@ -16,14 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* --------------------------------------------------------------------------
-   1. Header Scroll & Blur Effect
+   1. Header Scroll & Glass Effect
    -------------------------------------------------------------------------- */
 function initHeaderScroll() {
   const header = document.getElementById("site-header");
   if (!header) return;
 
   const handleScroll = () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       header.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
@@ -48,7 +49,7 @@ function initNavigation() {
   // Scrollspy observer
   const observerOptions = {
     root: null,
-    rootMargin: "-20% 0px -70% 0px",
+    rootMargin: "-25% 0px -65% 0px",
     threshold: 0
   };
 
@@ -57,7 +58,8 @@ function initNavigation() {
       if (entry.isIntersecting) {
         const currentId = entry.target.getAttribute("id");
         navLinks.forEach((link) => {
-          if (link.getAttribute("href") === `#${currentId}`) {
+          const href = link.getAttribute("href");
+          if (href === `#${currentId}` || (currentId === "projects" && href === "#work")) {
             link.classList.add("active");
           } else {
             link.classList.remove("active");
@@ -113,8 +115,11 @@ function initProjectsRender() {
       return `
       <article class="project-card" data-project-id="${p.id}">
         <div class="project-media-wrap">
-          <img src="${p.image}" alt="${p.title} - SEO & GEO Case Study" loading="lazy" />
-          <span class="project-category-badge">${p.category}</span>
+          <img src="${p.image}" alt="${p.title} - ${p.projectType}" loading="lazy" />
+          <div class="project-badge-group">
+            <span class="project-category-badge">${p.category}</span>
+            <span class="project-type-badge">${p.projectType}</span>
+          </div>
         </div>
         <div class="project-body">
           <h3 class="project-title">${p.title}</h3>
@@ -123,7 +128,7 @@ function initProjectsRender() {
           <div class="project-tools">${toolsHtml}</div>
           <div class="project-footer">
             <button class="btn btn-secondary btn-sm open-case-study" data-id="${p.id}">
-              <span>View Case Study</span>
+              <span>View Methodology</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </button>
           </div>
@@ -143,15 +148,40 @@ function initProjectsRender() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Render Skills
+   4. Render "My Approach" Section
+   -------------------------------------------------------------------------- */
+function initApproachRender() {
+  const container = document.getElementById("approach-container");
+  if (!container || !PORTFOLIO_DATA.approach) return;
+
+  container.innerHTML = PORTFOLIO_DATA.approach
+    .map((a) => {
+      const tagsHtml = a.tags.map((t) => `<span class="tool-chip">${t}</span>`).join("");
+      return `
+      <div class="approach-process-card">
+        <div class="approach-step-num">${a.step}</div>
+        <h3 class="approach-process-title">${a.title}</h3>
+        <p class="approach-process-desc"><strong>${a.desc}</strong></p>
+        <p class="approach-process-desc" style="font-size: 0.88rem;">${a.details}</p>
+        <div class="approach-tags">${tagsHtml}</div>
+      </div>
+    `;
+    })
+    .join("");
+}
+
+/* --------------------------------------------------------------------------
+   5. Render Skills (4 Categories)
    -------------------------------------------------------------------------- */
 function initSkillsRender() {
-  const seoContainer = document.getElementById("skills-seo-container");
+  const techContainer = document.getElementById("skills-technical-container");
+  const contentContainer = document.getElementById("skills-content-container");
   const geoContainer = document.getElementById("skills-geo-container");
   const toolsContainer = document.getElementById("skills-tools-container");
 
-  if (seoContainer && PORTFOLIO_DATA.skills.seo) {
-    seoContainer.innerHTML = PORTFOLIO_DATA.skills.seo
+  const renderCards = (items) => {
+    if (!items) return "";
+    return items
       .map(
         (s) => `
       <div class="skill-item-card">
@@ -164,43 +194,24 @@ function initSkillsRender() {
     `
       )
       .join("");
-  }
+  };
 
+  if (techContainer && PORTFOLIO_DATA.skills.technical) {
+    techContainer.innerHTML = renderCards(PORTFOLIO_DATA.skills.technical);
+  }
+  if (contentContainer && PORTFOLIO_DATA.skills.content) {
+    contentContainer.innerHTML = renderCards(PORTFOLIO_DATA.skills.content);
+  }
   if (geoContainer && PORTFOLIO_DATA.skills.geo) {
-    geoContainer.innerHTML = PORTFOLIO_DATA.skills.geo
-      .map(
-        (s) => `
-      <div class="skill-item-card">
-        <div class="skill-item-top">
-          <span class="skill-name">${s.name}</span>
-          <span class="skill-level-badge">${s.level}</span>
-        </div>
-        <p class="skill-desc">${s.desc}</p>
-      </div>
-    `
-      )
-      .join("");
+    geoContainer.innerHTML = renderCards(PORTFOLIO_DATA.skills.geo);
   }
-
   if (toolsContainer && PORTFOLIO_DATA.skills.tools) {
-    toolsContainer.innerHTML = PORTFOLIO_DATA.skills.tools
-      .map(
-        (t) => `
-      <div class="skill-item-card">
-        <div class="skill-item-top">
-          <span class="skill-name">${t.name}</span>
-          <span class="skill-level-badge">${t.category}</span>
-        </div>
-        <p class="skill-desc">${t.desc}</p>
-      </div>
-    `
-      )
-      .join("");
+    toolsContainer.innerHTML = renderCards(PORTFOLIO_DATA.skills.tools);
   }
 }
 
 /* --------------------------------------------------------------------------
-   5. Render Certifications
+   6. Render Certifications
    -------------------------------------------------------------------------- */
 function initCertificationsRender() {
   const container = document.getElementById("certifications-container");
@@ -227,7 +238,7 @@ function initCertificationsRender() {
 }
 
 /* --------------------------------------------------------------------------
-   6. Render Blog Articles
+   7. Render Blog Articles
    -------------------------------------------------------------------------- */
 function initBlogRender() {
   const container = document.getElementById("blog-container");
@@ -244,7 +255,7 @@ function initBlogRender() {
       <h3 class="blog-title">${a.title}</h3>
       <p class="blog-excerpt">${a.excerpt}</p>
       <div class="blog-link">
-        <span>Read Analysis</span>
+        <span>Read Note</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </div>
     </article>
@@ -261,10 +272,9 @@ function initBlogRender() {
 }
 
 /* --------------------------------------------------------------------------
-   7. Modals (Case Study, Resume, Article)
+   8. Modals (Case Study, Resume, Article)
    -------------------------------------------------------------------------- */
 function initModals() {
-  const genericModal = document.getElementById("generic-modal");
   const modalCloseBtns = document.querySelectorAll(".close-modal-trigger");
 
   const closeModal = () => {
@@ -304,7 +314,7 @@ function openCaseStudyModal(id) {
   const bodyEl = document.getElementById("case-modal-body");
 
   titleEl.textContent = project.title;
-  subtitleEl.textContent = `${project.category} • Case Study Breakdown`;
+  subtitleEl.textContent = `${project.projectType} • ${project.category}`;
 
   const d = project.details;
 
@@ -328,16 +338,16 @@ function openCaseStudyModal(id) {
     <div class="case-section-block">
       <h4 class="case-block-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-        Client Overview & Problem Diagnostics
+        Scenario & Problem Diagnostics
       </h4>
-      <p>${d.clientOverview}</p>
+      <p>${d.overview}</p>
       <ul class="case-list">${problemsList}</ul>
     </div>
 
     <div class="case-section-block">
       <h4 class="case-block-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        Keyword & Search Intent Architecture
+        Keyword & Intent Strategy
       </h4>
       <ul class="case-list">${keywordList}</ul>
     </div>
@@ -345,7 +355,7 @@ function openCaseStudyModal(id) {
     <div class="case-section-block">
       <h4 class="case-block-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
-        Generative Engine Optimization (GEO) & Entity Strategy
+        GEO & Entity Schema Architecture
       </h4>
       <ul class="case-list">${geoList}</ul>
     </div>
@@ -353,7 +363,7 @@ function openCaseStudyModal(id) {
     <div class="case-section-block">
       <h4 class="case-block-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        Technical Foundation & Performance Implementation
+        Technical Implementation & Performance
       </h4>
       <ul class="case-list">${techList}</ul>
     </div>
@@ -361,7 +371,7 @@ function openCaseStudyModal(id) {
     <div class="case-section-block">
       <h4 class="case-block-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        Key Outcomes & Performance Baseline
+        Demonstration Learnings & Target Benchmarks
       </h4>
       <div class="modal-metrics-grid">${metricsHtml}</div>
     </div>
@@ -404,7 +414,7 @@ function openResumeModal() {
 }
 
 /* --------------------------------------------------------------------------
-   8. Contact Form Handling
+   9. Contact Form Handling
    -------------------------------------------------------------------------- */
 function initContactForm() {
   const form = document.getElementById("portfolio-contact-form");
@@ -423,21 +433,20 @@ function initContactForm() {
       return;
     }
 
-    // Direct mailto fallback link generation
     const mailtoLink = `mailto:contact@rishabhdebnath.com?subject=${encodeURIComponent(
-      subject || "SEO / GEO Consulting Inquiry"
+      subject || "SEO / GEO Opportunity Inquiry"
     )}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
     showToast("Message prepared! Opening your email client...", "success");
     setTimeout(() => {
       window.location.href = mailtoLink;
       form.reset();
-    }, 900);
+    }, 800);
   });
 }
 
 /* --------------------------------------------------------------------------
-   9. Copy & Clipboard Actions
+   10. Copy & Clipboard Actions
    -------------------------------------------------------------------------- */
 function initCopyActions() {
   const copyEmailBtns = document.querySelectorAll(".copy-email-trigger");
@@ -457,7 +466,7 @@ function initCopyActions() {
 }
 
 /* --------------------------------------------------------------------------
-   10. Toast Notification System
+   11. Toast Notification System
    -------------------------------------------------------------------------- */
 function showToast(message) {
   let container = document.querySelector(".toast-container");
@@ -471,19 +480,17 @@ function showToast(message) {
   toast.className = "toast";
   toast.innerHTML = `
     <div class="toast-icon">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
     </div>
     <span>${message}</span>
   `;
 
   container.appendChild(toast);
 
-  // Trigger animation
   setTimeout(() => toast.classList.add("show"), 20);
 
-  // Remove toast after 3.5s
   setTimeout(() => {
     toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 400);
-  }, 3500);
+    setTimeout(() => toast.remove(), 350);
+  }, 3200);
 }
