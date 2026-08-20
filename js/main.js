@@ -242,33 +242,33 @@ function initCertificationsRender() {
    -------------------------------------------------------------------------- */
 function initBlogRender() {
   const container = document.getElementById("blog-container");
-  if (!container || !PORTFOLIO_DATA.articles) return;
+  const articlesList = (typeof BLOG_DATA !== "undefined" && BLOG_DATA.articles) 
+    ? BLOG_DATA.articles 
+    : (PORTFOLIO_DATA.articles || []);
 
-  container.innerHTML = PORTFOLIO_DATA.articles
+  if (!container || !articlesList.length) return;
+
+  container.innerHTML = articlesList
     .map(
       (a) => `
-    <article class="blog-card" data-article-id="${a.id}">
+    <article class="blog-card" data-article-slug="${a.slug}">
+      <a href="${a.url || `blog/${a.slug}/`}" class="blog-card-link-overlay" aria-label="Read analysis on ${a.title}"></a>
       <div class="blog-meta">
         <span class="blog-category">${a.category}</span>
         <span class="blog-readtime">${a.readTime}</span>
       </div>
-      <h3 class="blog-title">${a.title}</h3>
-      <p class="blog-excerpt">${a.excerpt}</p>
+      <h3 class="blog-title">
+        <a href="${a.url || `blog/${a.slug}/`}">${a.title}</a>
+      </h3>
+      <p class="blog-excerpt">${a.excerpt || a.description}</p>
       <div class="blog-link">
-        <span>Read Note</span>
+        <span>Read Analysis</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </div>
     </article>
   `
     )
     .join("");
-
-  container.querySelectorAll(".blog-card").forEach((card) => {
-    card.addEventListener("click", (e) => {
-      const id = e.currentTarget.getAttribute("data-article-id");
-      openArticleModal(id);
-    });
-  });
 }
 
 /* --------------------------------------------------------------------------
@@ -375,32 +375,6 @@ function openCaseStudyModal(id) {
       </h4>
       <div class="modal-metrics-grid">${metricsHtml}</div>
     </div>
-  `;
-
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function openArticleModal(id) {
-  const article = PORTFOLIO_DATA.articles.find((a) => a.id === id);
-  if (!article) return;
-
-  const modal = document.getElementById("article-modal");
-  const titleEl = document.getElementById("article-modal-title");
-  const subtitleEl = document.getElementById("article-modal-subtitle");
-  const bodyEl = document.getElementById("article-modal-body");
-
-  titleEl.textContent = article.title;
-  subtitleEl.textContent = `${article.category} • ${article.readTime}`;
-
-  const takeawaysHtml = article.keyTakeaways.map((t) => `<li>${t}</li>`).join("");
-
-  bodyEl.innerHTML = `
-    <div class="takeaways-box">
-      <h4>Key Takeaways</h4>
-      <ul>${takeawaysHtml}</ul>
-    </div>
-    ${article.fullContent}
   `;
 
   modal.classList.add("active");

@@ -280,100 +280,48 @@ const PORTFOLIO_DATA = {
 
   articles: [
     {
-      id: "building-first-seo-portfolio",
-      title: "What I Learned Building My First SEO Portfolio Website",
-      category: "Personal Reflection",
-      readTime: "4 min read",
-      excerpt: "Why treating your own website as an SEO lab is the best way to understand crawl mechanics, structured data, and Core Web Vitals in practice.",
-      keyTakeaways: [
-        "Building from scratch reveals how HTML semantics directly impact search bot parsing.",
-        "Performance optimization is easiest when baked into the markup from day one.",
-        "Real personal projects provide concrete learning grounds for testing Schema.org structured data."
-      ],
-      fullContent: `
-        <p class="article-lead">When I started building this portfolio, I wanted it to be more than a digital business card. I wanted it to serve as a live sandbox for testing technical SEO principles, Schema.org graphs, and fast rendering.</p>
-        
-        <h3>1. Clean Semantic Markup Comes First</h3>
-        <p>Before touching complex tools or scripts, the foundational HTML hierarchy must be pristine. A single clean <code>&lt;h1&gt;</code>, semantic sections, and accessible button/link elements create an effortless structure for search engine crawlers.</p>
-        
-        <h3>2. Handcrafting Schema vs. Relying on Plugins</h3>
-        <p>Writing JSON-LD structured data manually taught me how entities connect. Linking a <code>Person</code> schema to <code>knowsAbout</code> topics and verified profile URLs (<code>sameAs</code>) creates an unambiguous data layer for both Google Knowledge Graph and AI models.</p>
-        
-        <h3>3. The Speed Advantage</h3>
-        <p>By keeping dependencies minimal, deferring non-critical assets, and using modern CSS variables, page load times drop to fractions of a second. Fast sites provide a superior experience for human visitors and avoid crawl budget bottlenecks.</p>
-      `
-    },
-    {
-      id: "how-ai-engines-select-sources",
-      title: "How AI Search Engines Decide Which Sources To Trust",
+      id: "the-shift-from-traditional-seo-to-geo",
+      slug: "the-shift-from-traditional-seo-to-geo",
+      title: "The Shift from Traditional SEO to GEO: How LLMs Select Sources",
       category: "Generative Engine Optimization",
-      readTime: "5 min read",
-      excerpt: "An exploration into how generative engines like Perplexity and ChatGPT Search parse web content, evaluate information density, and attribute citations.",
-      keyTakeaways: [
-        "LLMs evaluate content for high information density, clear definitions, and unambiguous factual claims.",
-        "Direct answers placed near section headers have a significantly higher probability of retrieval.",
-        "Clear entity markup (Schema.org) acts as a reliable machine-readable summary for AI crawlers."
-      ],
-      fullContent: `
-        <p class="article-lead">Traditional search engines rank pages based on link graphs and keyword signals. Generative AI engines (Perplexity, ChatGPT Search, Google AI Overviews) synthesize answers by performing Retrieval-Augmented Generation (RAG) across authoritative web passages.</p>
-        
-        <h3>1. Information Density Over Fluff</h3>
-        <p>Generative models prioritize passages that deliver immediate factual clarity. Articles filled with filler phrases or repetitive keyword variations are often filtered out by embedding re-rankers in favor of concise, well-structured definitions.</p>
-        
-        <h3>2. The Role of Structural Formatting</h3>
-        <p>Lists, tables, and concise introductory paragraphs make it easier for AI retrieval models to parse relationships between entities. When content is organized logically with clear headings, LLMs can extract and cite claims with higher confidence scores.</p>
-        
-        <h3>3. Preparing Content for Generative Search</h3>
-        <p>To make content citability-friendly: state key conclusions directly in the first paragraph, provide verified citations or data sources, and maintain structured Schema markup across all main entity pages.</p>
-      `
+      readTime: "7 min read",
+      publishedDate: "2026-08-15",
+      updatedDate: "2026-08-19",
+      url: "blog/the-shift-from-traditional-seo-to-geo/",
+      excerpt: "An architectural deep-dive into how large language models perform retrieval-augmented generation (RAG), score information density, and choose authoritative citations over legacy keyword signals."
     },
     {
-      id: "seo-beyond-rankings-entities",
-      title: "SEO Beyond Rankings: Understanding Entities and Meaning",
+      id: "entity-based-seo",
+      slug: "entity-based-seo",
+      title: "Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings",
       category: "Semantic SEO",
-      readTime: "5 min read",
-      excerpt: "How search algorithms shifted from string matching to understanding entities, topics, and relationships — and what it means for modern SEO.",
-      keyTakeaways: [
-        "An entity is a distinct, singular concept in a Knowledge Graph, not merely a keyword string.",
-        "Topical depth is achieved by thoroughly covering related sub-entities rather than repeating a single phrase.",
-        "Connecting your content to recognized entities helps search engines establish context and topical authority."
-      ],
-      fullContent: `
-        <p class="article-lead">For years, SEO was taught as a game of keyword density and exact-match phrases. Today, modern search engines operate on semantic understanding powered by Knowledge Graphs and machine learning models.</p>
-        
-        <h3>1. What is an Entity?</h3>
-        <p>An entity is a unique, well-defined person, place, concept, or organization. In the eyes of a search engine, 'Technical SEO' is not just a phrase; it is an entity related to concepts like <em>Crawl Budget</em>, <em>HTTP Status Codes</em>, and <em>Indexation</em>.</p>
-        
-        <h3>2. Designing for Semantic Relevance</h3>
-        <p>When covering a topic, search engines look for the natural co-occurrence of related concepts that a genuine practitioner would discuss. Writing with natural linguistic clarity and covering all relevant sub-topics is far more effective than forcing repetitive keywords.</p>
-        
-        <h3>3. Practical Steps for Entity Clarity</h3>
-        <p>Define concepts clearly at the beginning of sections, use descriptive subheadings, and link related articles internally into coherent topic clusters.</p>
-      `
+      readTime: "6 min read",
+      publishedDate: "2026-08-10",
+      updatedDate: "2026-08-18",
+      url: "blog/entity-based-seo/",
+      excerpt: "How modern search engines construct Knowledge Graphs, map semantic concepts, and prioritize unambiguous entities and topical authority over keyword frequency."
     },
     {
-      id: "auditing-core-web-vitals",
-      title: "Auditing Core Web Vitals & Technical Crawlability: A Practical Checklist",
+      id: "technical-seo-audit-checklist",
+      slug: "technical-seo-audit-checklist",
+      title: "Technical SEO Audit Checklist for Modern Web Architecture",
       category: "Technical SEO",
-      readTime: "6 min read",
-      excerpt: "A step-by-step diagnostic workflow for identifying indexation bottlenecks, crawl waste, and user experience hurdles on modern websites.",
-      keyTakeaways: [
-        "Verify that internal navigation uses standard semantic <a> links for reliable bot discovery.",
-        "Monitor LCP and INP metrics on mobile viewports to prevent user interaction delays.",
-        "Clean up redirect chains and canonical tags to preserve crawl budget and consolidate authority."
-      ],
-      fullContent: `
-        <p class="article-lead">Technical SEO provides the foundation that allows all other marketing efforts to succeed. If search bots cannot efficiently crawl or index your pages, great content goes undiscovered.</p>
-        
-        <h3>1. The Crawlability Foundation</h3>
-        <p>Ensure that all important pages are accessible within 3 clicks from the homepage. Review your robots.txt to confirm that vital CSS and JavaScript assets are not accidentally blocked, and verify that XML sitemaps only contain canonical 200-status URLs.</p>
-        
-        <h3>2. Core Web Vitals & Real-World Experience</h3>
-        <p>Page speed is not just a ranking signal; it directly influences conversion rates. Optimizing Largest Contentful Paint (LCP) by compressing images and deferring non-essential scripts ensures that visitors can interact with your content immediately.</p>
-        
-        <h3>3. Ongoing Maintenance</h3>
-        <p>Regularly run site crawls using tools like Screaming Frog to catch 404 errors, redirect loops, and broken internal links before they impact search visibility.</p>
-      `
+      readTime: "8 min read",
+      publishedDate: "2026-08-05",
+      updatedDate: "2026-08-19",
+      url: "blog/technical-seo-audit-checklist/",
+      excerpt: "A diagnostic framework for auditing crawl efficiency, indexation governance, faceted navigation traps, log file health, and Core Web Vitals across modern web platforms."
+    },
+    {
+      id: "optimizing-for-ai-search",
+      slug: "optimizing-for-ai-search",
+      title: "Optimizing for Perplexity, ChatGPT Search & Google AI Overviews",
+      category: "AI Search Optimization",
+      readTime: "7 min read",
+      publishedDate: "2026-08-01",
+      updatedDate: "2026-08-19",
+      url: "blog/optimizing-for-ai-search/",
+      excerpt: "Practical tactics to structure content for direct passage retrieval, conversational query matching, and citation acquisition in Perplexity, ChatGPT Search, and Google AI Overviews."
     }
   ]
 };

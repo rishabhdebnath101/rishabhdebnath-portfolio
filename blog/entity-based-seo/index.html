@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings | Rishabh Debnath</title>
+  <meta name="description"
+    content="Understand how modern search algorithms use Knowledge Graphs, Wikidata concepts, and Schema.org entities to understand topics and establish semantic authority." />
+  <meta name="keywords"
+    content="Entity-Based SEO, Semantic SEO, Knowledge Graph, Schema.org JSON-LD, Wikidata, DBpedia, Topical Authority, Things Not Strings, Google NLP" />
+  <meta name="author" content="Rishabh Debnath" />
+  <link rel="canonical" href="https://rishabhdebnath.com/blog/entity-based-seo/" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/logo.svg" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings" />
+  <meta property="og:description"
+    content="Learn how search algorithms shifted from string matching to Knowledge Graph entities, and how to build semantic topical depth for modern search." />
+  <meta property="og:url" content="https://rishabhdebnath.com/blog/entity-based-seo/" />
+  <meta property="og:image" content="https://rishabhdebnath.com/assets/images/logo.svg" />
+  <meta property="article:published_time" content="2026-08-10T09:00:00+00:00" />
+  <meta property="article:modified_time" content="2026-08-18T16:00:00+00:00" />
+  <meta property="article:author" content="https://rishabhdebnath.com/#person" />
+  <meta property="article:section" content="Semantic SEO" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings" />
+  <meta name="twitter:description"
+    content="Semantic SEO guide on Knowledge Graph architecture, entity disambiguation, and topical authority." />
+  <meta name="twitter:image" content="https://rishabhdebnath.com/assets/images/logo.svg" />
+
+  <!-- Typography: Google Fonts (Sora, Inter, IBM Plex Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/blog.css" />
+
+  <!-- Structured Data: Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://rishabhdebnath.com/#person",
+        "name": "Rishabh Debnath",
+        "jobTitle": "SEO & Generative Engine Optimization (GEO) Specialist",
+        "url": "https://rishabhdebnath.com",
+        "image": "https://rishabhdebnath.com/assets/images/logo.svg",
+        "sameAs": [
+          "https://linkedin.com/in/rishabh-debnath-seo",
+          "https://github.com/rishabhdebnath"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rishabhdebnath.com/#website",
+        "url": "https://rishabhdebnath.com",
+        "name": "Rishabh Debnath Portfolio",
+        "publisher": {
+          "@id": "https://rishabhdebnath.com/#person"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://rishabhdebnath.com/blog/entity-based-seo/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://rishabhdebnath.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://rishabhdebnath.com/#blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Entity-Based SEO",
+            "item": "https://rishabhdebnath.com/blog/entity-based-seo/"
+          }
+        ]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": "https://rishabhdebnath.com/blog/entity-based-seo/#article",
+        "isPartOf": {
+          "@id": "https://rishabhdebnath.com/#website"
+        },
+        "headline": "Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings",
+        "description": "Understand how modern search algorithms use Knowledge Graphs, Wikidata concepts, and Schema.org entities to understand topics and establish semantic authority.",
+        "datePublished": "2026-08-10T09:00:00+00:00",
+        "dateModified": "2026-08-18T16:00:00+00:00",
+        "mainEntityOfPage": "https://rishabhdebnath.com/blog/entity-based-seo/",
+        "author": {
+          "@id": "https://rishabhdebnath.com/#person"
+        },
+        "publisher": {
+          "@id": "https://rishabhdebnath.com/#person"
+        },
+        "articleSection": "Semantic SEO",
+        "inLanguage": "en-US",
+        "keywords": [
+          "Entity-Based SEO",
+          "Semantic SEO",
+          "Knowledge Graph",
+          "Schema.org",
+          "Topical Authority",
+          "Wikidata"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://rishabhdebnath.com/blog/entity-based-seo/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an entity in SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An entity is a unique, well-defined concept, person, place, organization, or object in a machine-readable Knowledge Graph that is language-agnostic and distinct from raw text strings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do search engines identify entities on a web page?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Search engines use Natural Language Processing (NLP) models to extract named entities and context clues, combined with explicit Schema.org JSON-LD markup and sameAs identifiers pointing to external knowledge bases like Wikidata and Wikipedia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is entity optimization better than keyword stuffing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Keyword stuffing only repeats identical characters without adding context. Entity optimization covers the semantic relationships, related attributes, and sub-topics that naturally accompany an authoritative subject matter, providing real value for users and clear signals for search algorithms."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Technical Ambient Grid Overlay -->
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Header / Sticky Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="../../" class="brand-link" aria-label="Rishabh Debnath Home">
+        <img src="../../assets/images/logo.svg" alt="Rishabh Debnath Logo" class="brand-logo" width="34" height="34" />
+        <div class="brand-meta">
+          <span class="brand-name">Rishabh Debnath</span>
+          <span class="brand-subtitle">SEO &amp; GEO Specialist</span>
+        </div>
+      </a>
+
+      <!-- Center Navigation -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="../../" class="nav-link">Home</a>
+        <a href="../../#about" class="nav-link">About</a>
+        <a href="../../#work" class="nav-link">Work</a>
+        <a href="../../#approach" class="nav-link">Approach</a>
+        <a href="../../#skills" class="nav-link">Skills</a>
+        <a href="../../#blog" class="nav-link active">Blog</a>
+        <a href="../../resume.html" class="nav-link">Resume</a>
+      </nav>
+
+      <!-- Header Right CTA -->
+      <div class="header-actions">
+        <a href="../../#contact" class="btn btn-primary btn-sm">Let's Talk</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open mobile menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobile-drawer" aria-label="Mobile Menu">
+    <div class="mobile-drawer-header">
+      <div class="brand-link">
+        <img src="../../assets/images/logo.svg" alt="Rishabh Debnath Logo" class="brand-logo" width="28" height="28" />
+        <div class="brand-meta">
+          <span class="brand-name">Rishabh Debnath</span>
+          <span class="brand-subtitle">SEO &amp; GEO Specialist</span>
+        </div>
+      </div>
+      <button class="modal-close-btn" id="close-drawer" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="../../" class="mobile-nav-link">Home</a>
+      <a href="../../#about" class="mobile-nav-link">About</a>
+      <a href="../../#work" class="mobile-nav-link">Work</a>
+      <a href="../../#approach" class="mobile-nav-link">Approach</a>
+      <a href="../../#skills" class="mobile-nav-link">Skills</a>
+      <a href="../../#blog" class="mobile-nav-link">Blog</a>
+      <a href="../../resume.html" class="mobile-nav-link">Resume</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="../../#contact" class="btn btn-primary" style="width: 100%;">Let's Talk</a>
+    </div>
+  </aside>
+
+  <!-- Main Article Content -->
+  <main class="article-page">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../../">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../#blog">Blog</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current" aria-current="page">Entity-Based SEO</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-category-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span>Semantic SEO</span>
+        </div>
+        <h1 class="article-h1">Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings</h1>
+        <p class="article-lead">
+          Search algorithms have evolved from basic string matching to deep semantic graph comprehension. Understanding how Knowledge Graphs and entities function is the key to building resilient organic and AI search authority.
+        </p>
+
+        <!-- Article Metadata Bar -->
+        <div class="article-meta-bar">
+          <div class="author-meta-group">
+            <div class="author-avatar">RD</div>
+            <div class="author-info-text">
+              <span class="author-name">Rishabh Debnath</span>
+              <span class="author-role">SEO &amp; GEO Specialist</span>
+            </div>
+          </div>
+          <div class="article-timestamps">
+            <div class="timestamp-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Published: Aug 10, 2026</span>
+            </div>
+            <div class="timestamp-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>6 min read</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Layout Grid (Main Column + Sticky TOC) -->
+      <div class="article-layout-grid">
+        
+        <!-- Main Column -->
+        <article class="article-main-column">
+
+          <!-- Key Takeaways Box -->
+          <div class="key-takeaways-card">
+            <div class="takeaways-header">
+              <span class="takeaways-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </span>
+              <h2 class="takeaways-title" style="margin: 0; border: none; padding: 0;">Key Takeaways</h2>
+            </div>
+            <ul class="takeaways-list">
+              <li><strong>Entities are Language-Agnostic:</strong> An entity represents a singular concept connected to real-world attributes, independent of specific words or localized phrasing.</li>
+              <li><strong>Knowledge Graph Triples:</strong> Search engines represent real-world facts using Subject-Predicate-Object triples (e.g., <code>[Rishabh Debnath] → [specializesIn] → [GEO]</code>).</li>
+              <li><strong>Schema Disambiguation:</strong> Utilizing <code>sameAs</code> properties in JSON-LD markup links proprietary on-page concepts to authoritative Wikidata and Wikipedia nodes.</li>
+              <li><strong>Foundation for GEO:</strong> High-density entity coverage is what allows LLMs in <a href="../the-shift-from-traditional-seo-to-geo/">Generative Engine Optimization</a> to verify source credibility.</li>
+            </ul>
+          </div>
+
+          <!-- Prose Article Body -->
+          <div class="article-body">
+            <h2 id="things-not-strings">1. The "Things, Not Strings" Paradigm Shift</h2>
+            <p>
+              In 2012, Google announced its Knowledge Graph with a landmark motto: <em>"Things, not strings."</em> This marked a turning point in search engine history. Before this shift, a search engine treated queries like "Albert Einstein" or "technical SEO audit" as literal string matches—simply scanning the web index for matching sequences of alphanumeric characters.
+            </p>
+            <p>
+              Today, modern search engines and transformer-based LLMs operate in semantic vector space. They recognize that an <strong>entity</strong> is a distinct, real-world concept with defined attributes and verifiable relationships to other entities.
+            </p>
+
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Definition: What is an Entity?
+              </div>
+              <p>
+                An <strong>entity</strong> is a uniquely identifiable, well-defined node in a Knowledge Graph—such as a person, organization, geographical place, or technical concept—characterized by specific attributes and semantic connections to other nodes.
+              </p>
+            </div>
+
+            <h2 id="how-knowledge-graphs-represent-meaning">2. How Knowledge Graphs Represent Meaning</h2>
+            <p>
+              Knowledge Graphs store human knowledge in mathematical data structures called <strong>triples</strong>. A triple consists of:
+            </p>
+            <ul>
+              <li><strong>Subject:</strong> The primary entity (e.g., <code>Core Web Vitals</code>)</li>
+              <li><strong>Predicate:</strong> The directional relationship (e.g., <code>isMetricOf</code>)</li>
+              <li><strong>Object:</strong> The connected entity (e.g., <code>Page Experience</code>)</li>
+            </ul>
+            <p>
+              When search algorithms crawl your website, they do not just read text; they attempt to extract valid triples. When your content consistently mentions related entities (such as <em>Largest Contentful Paint</em>, <em>Crawl Budget</em>, <em>HTTP 301</em>), search engines assign your page higher topical depth scores.
+            </p>
+
+            <h2 id="disambiguation-with-schema">3. Entity Disambiguation with Schema.org JSON-LD</h2>
+            <p>
+              Ambiguity is the enemy of search indexation. If you mention "Apple", do you mean the fruit, the technology company, or a record label?
+            </p>
+            <p>
+              By handcrafting Schema.org JSON-LD, you can provide explicit disambiguation using the <code>sameAs</code> property, pointing directly to authoritative knowledge bases such as Wikidata.
+            </p>
+
+            <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rishabh Debnath",
+  "jobTitle": "SEO & Generative Engine Optimization Specialist",
+  "sameAs": [
+    "https://linkedin.com/in/rishabh-debnath-seo",
+    "https://github.com/rishabhdebnath"
+  ],
+  "knowsAbout": [
+    "https://www.wikidata.org/wiki/Q180711", /* Search Engine Optimization */
+    "https://www.wikidata.org/wiki/Q2539",    /* Machine Learning */
+    "https://www.wikidata.org/wiki/Q11660"   /* Artificial Intelligence */
+  ]
+}</code></pre>
+
+            <h2 id="topical-depth-vs-keyword-density">4. Topical Depth vs. Keyword Density</h2>
+            <p>
+              In traditional SEO, practitioners calculated "keyword density" percentages. In entity-based SEO, the key metric is <strong>topical coverage completeness</strong>.
+            </p>
+
+            <div class="article-table-wrap">
+              <table class="article-table">
+                <thead>
+                  <tr>
+                    <th>Dimension</th>
+                    <th>Legacy Keyword SEO</th>
+                    <th>Entity-Based Semantic SEO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Targeting</strong></td>
+                    <td>Exact-match keyword phrases repeated throughout the copy.</td>
+                    <td>Topical entity clusters and semantic attribute relationships.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Measurement</strong></td>
+                    <td>Keyword frequency percentages (e.g., 2.5% density).</td>
+                    <td>Information completeness, entity co-occurrence, and contextual clarity.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Internal Linking</strong></td>
+                    <td>Exact-match anchor texts placed randomly.</td>
+                    <td>Hierarchical hub-and-spoke models passing topical context.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>AI Readiness</strong></td>
+                    <td>Often stripped out by LLM passage re-rankers.</td>
+                    <td>Selected as primary citation source by AI models (<a href="../the-shift-from-traditional-seo-to-geo/">GEO</a>).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 id="actionable-steps-for-semantic-authority">5. Actionable Steps to Build Semantic Authority</h2>
+            <p>
+              To structure your web properties for semantic search and generative retrieval:
+            </p>
+            <ol>
+              <li><strong>Map Core Entities:</strong> Before writing, list the 5–10 core entities that an industry expert would discuss when explaining your topic.</li>
+              <li><strong>Author Direct Definitions:</strong> Open each section with unambiguous statements that directly define the subject.</li>
+              <li><strong>Connect Internal Knowledge:</strong> Link related articles in a coherent topical cluster (e.g., linking from semantic concepts to <a href="../technical-seo-audit-checklist/">Technical SEO Audits</a>).</li>
+              <li><strong>Validate JSON-LD Graphs:</strong> Test your structured data regularly using Schema.org validator and Google Rich Results tools.</li>
+            </ol>
+          </div>
+
+          <!-- FAQ Section -->
+          <section class="faq-section" id="faq">
+            <h2 class="faq-title" style="border: none; padding: 0; margin-bottom: 20px;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item active">
+              <button class="faq-question" aria-expanded="true">
+                <span>What is an entity in SEO?</span>
+                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>An entity is a unique, well-defined concept, person, place, organization, or object in a machine-readable Knowledge Graph that is language-agnostic and distinct from raw text strings.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>How do search engines identify entities on a web page?</span>
+                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>Search engines use Natural Language Processing (NLP) models to extract named entities and context clues, combined with explicit Schema.org JSON-LD markup and sameAs identifiers pointing to external knowledge bases like Wikidata and Wikipedia.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Why is entity optimization better than keyword stuffing?</span>
+                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>Keyword stuffing only repeats identical characters without adding context. Entity optimization covers the semantic relationships, related attributes, and sub-topics that naturally accompany an authoritative subject matter, providing real value for users and clear signals for search algorithms.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Author Bio Box -->
+          <div class="author-bio-card">
+            <div class="author-bio-avatar">RD</div>
+            <div class="author-bio-content">
+              <div class="author-bio-header">
+                <span class="author-bio-name">Rishabh Debnath</span>
+                <span class="author-bio-role">SEO &amp; Generative Engine Optimization Specialist</span>
+              </div>
+              <p class="author-bio-desc">
+                Specializing in technical SEO, Knowledge Graph engineering, and generative AI search visibility. Focused on building crawlable, entity-rich web architectures that excel across Google Search and LLM answer engines.
+              </p>
+              <div class="author-bio-links">
+                <a href="https://linkedin.com/in/rishabh-debnath-seo" target="_blank" rel="noopener noreferrer">
+                  <span>LinkedIn</span> ↗
+                </a>
+                <a href="https://github.com/rishabhdebnath" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub</span> ↗
+                </a>
+                <a href="../../#contact">
+                  <span>Contact</span> →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Box -->
+          <div class="article-cta-box">
+            <h3 class="cta-title">Explore More SEO &amp; AI Search Insights</h3>
+            <p class="cta-desc">
+              Want to engineer structured entity graphs and build undeniable topical authority for your brand? Let's connect.
+            </p>
+            <div class="cta-buttons">
+              <a href="../../#contact" class="btn btn-primary btn-sm">Let's Discuss Your Project</a>
+              <a href="../../#skills" class="btn btn-secondary btn-sm">Explore Core Skills</a>
+            </div>
+          </div>
+
+          <!-- Related Articles Grid -->
+          <section class="related-articles-section">
+            <div class="related-header">
+              <span class="related-tag">Continue Reading</span>
+              <h3 class="related-title">Related Notes &amp; Analysis</h3>
+            </div>
+            <div class="related-grid">
+              
+              <article class="blog-card">
+                <a href="../the-shift-from-traditional-seo-to-geo/" class="blog-card-link-overlay" aria-label="Read The Shift to GEO article"></a>
+                <div class="blog-meta">
+                  <span class="blog-category">Generative Engine Optimization</span>
+                  <span class="blog-readtime">7 min read</span>
+                </div>
+                <h4 class="blog-title"><a href="../the-shift-from-traditional-seo-to-geo/">The Shift from Traditional SEO to GEO: How LLMs Select Sources</a></h4>
+                <p class="blog-excerpt">An architectural deep-dive into how large language models perform retrieval-augmented generation and score information density.</p>
+                <div class="blog-link">
+                  <span>Read Analysis</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </article>
+
+              <article class="blog-card">
+                <a href="../technical-seo-audit-checklist/" class="blog-card-link-overlay" aria-label="Read Technical SEO Audit article"></a>
+                <div class="blog-meta">
+                  <span class="blog-category">Technical SEO</span>
+                  <span class="blog-readtime">8 min read</span>
+                </div>
+                <h4 class="blog-title"><a href="../technical-seo-audit-checklist/">Technical SEO Audit Checklist for Modern Web Architecture</a></h4>
+                <p class="blog-excerpt">A diagnostic framework for auditing crawl efficiency, indexation governance, and Core Web Vitals across modern web platforms.</p>
+                <div class="blog-link">
+                  <span>Read Analysis</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+        </article>
+
+        <!-- Sidebar Sticky Table of Contents -->
+        <aside class="article-sidebar">
+          <div class="toc-card">
+            <div class="toc-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+              <span>Table of Contents</span>
+            </div>
+            <ul class="toc-list">
+              <li><a href="#things-not-strings" class="toc-link">1. "Things, Not Strings" Paradigm</a></li>
+              <li><a href="#how-knowledge-graphs-represent-meaning" class="toc-link">2. Knowledge Graph Meaning</a></li>
+              <li><a href="#disambiguation-with-schema" class="toc-link">3. Schema.org Disambiguation</a></li>
+              <li><a href="#topical-depth-vs-keyword-density" class="toc-link">4. Topical Depth vs Keyword Density</a></li>
+              <li><a href="#actionable-steps-for-semantic-authority" class="toc-link">5. Steps to Build Semantic Authority</a></li>
+              <li><a href="#faq" class="toc-link">Frequently Asked Questions</a></li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../../assets/images/logo.svg" alt="Rishabh Debnath Logo" class="footer-brand-logo" width="36" height="36" />
+          <div class="footer-meta">
+            <span class="footer-brand-name">Rishabh Debnath</span>
+            <span class="footer-brand-subtitle">SEO &amp; Generative Engine Optimization Specialist</span>
+          </div>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/rishabh-debnath-seo" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="https://github.com/rishabhdebnath" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+          <a href="mailto:contact@rishabhdebnath.com" class="social-btn" aria-label="Email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Rishabh Debnath. All rights reserved.</div>
+        <button class="back-to-top-btn" id="back-to-top">
+          <span>Back to Top</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page Interactivity Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const header = document.getElementById("site-header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) header?.classList.add("scrolled");
+        else header?.classList.remove("scrolled");
+      }, { passive: true });
+
+      const mobileToggle = document.getElementById("mobile-toggle");
+      const mobileDrawer = document.getElementById("mobile-drawer");
+      const drawerBackdrop = document.getElementById("drawer-backdrop");
+      const closeDrawerBtn = document.getElementById("close-drawer");
+
+      const toggleDrawer = (open) => {
+        if (open) {
+          mobileDrawer?.classList.add("active");
+          drawerBackdrop?.classList.add("active");
+          document.body.style.overflow = "hidden";
+        } else {
+          mobileDrawer?.classList.remove("active");
+          drawerBackdrop?.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      };
+
+      mobileToggle?.addEventListener("click", () => toggleDrawer(true));
+      closeDrawerBtn?.addEventListener("click", () => toggleDrawer(false));
+      drawerBackdrop?.addEventListener("click", () => toggleDrawer(false));
+
+      document.getElementById("back-to-top")?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq-item");
+          const isOpen = item.classList.contains("active");
+          document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("active"));
+          if (!isOpen) item.classList.add("active");
+        });
+      });
+
+      const headings = document.querySelectorAll(".article-body h2[id], .faq-section[id]");
+      const tocLinks = document.querySelectorAll(".toc-link");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            tocLinks.forEach((link) => {
+              if (link.getAttribute("href") === `#${id}`) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            });
+          }
+        });
+      }, { rootMargin: "-20% 0px -70% 0px" });
+
+      headings.forEach((h) => observer.observe(h));
+    });
+  </script>
+</body>
+
+</html>

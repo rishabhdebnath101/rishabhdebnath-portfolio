@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Shift from Traditional SEO to GEO: How LLMs Select Sources | Rishabh Debnath</title>
+  <meta name="description"
+    content="An architectural analysis of how large language models (LLMs) select, evaluate, and cite web sources in AI search engines through RAG and information density." />
+  <meta name="keywords"
+    content="Generative Engine Optimization, GEO, SEO vs GEO, LLM Search, RAG, Information Density, Schema.org, AI Citations, Perplexity, ChatGPT Search, Knowledge Graph" />
+  <meta name="author" content="Rishabh Debnath" />
+  <link rel="canonical" href="https://rishabhdebnath.com/blog/the-shift-from-traditional-seo-to-geo/" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/logo.svg" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Shift from Traditional SEO to GEO: How LLMs Select Sources" />
+  <meta property="og:description"
+    content="Discover how AI search engines synthesize answers using Retrieval-Augmented Generation (RAG) and how to optimize web content for LLM citation algorithms." />
+  <meta property="og:url" content="https://rishabhdebnath.com/blog/the-shift-from-traditional-seo-to-geo/" />
+  <meta property="og:image" content="https://rishabhdebnath.com/assets/images/logo.svg" />
+  <meta property="article:published_time" content="2026-08-15T09:00:00+00:00" />
+  <meta property="article:modified_time" content="2026-08-19T14:30:00+00:00" />
+  <meta property="article:author" content="https://rishabhdebnath.com/#person" />
+  <meta property="article:section" content="Generative Engine Optimization" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Shift from Traditional SEO to GEO: How LLMs Select Sources" />
+  <meta name="twitter:description"
+    content="Architectural deep-dive into LLM citation selection, RAG pipelines, and information density scoring for modern web publishers." />
+  <meta name="twitter:image" content="https://rishabhdebnath.com/assets/images/logo.svg" />
+
+  <!-- Typography: Google Fonts (Sora, Inter, IBM Plex Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/blog.css" />
+
+  <!-- Structured Data: Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://rishabhdebnath.com/#person",
+        "name": "Rishabh Debnath",
+        "jobTitle": "SEO & Generative Engine Optimization (GEO) Specialist",
+        "url": "https://rishabhdebnath.com",
+        "image": "https://rishabhdebnath.com/assets/images/logo.svg",
+        "sameAs": [
+          "https://linkedin.com/in/rishabh-debnath-seo",
+          "https://github.com/rishabhdebnath"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rishabhdebnath.com/#website",
+        "url": "https://rishabhdebnath.com",
+        "name": "Rishabh Debnath Portfolio",
+        "publisher": {
+          "@id": "https://rishabhdebnath.com/#person"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://rishabhdebnath.com/blog/the-shift-from-traditional-seo-to-geo/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://rishabhdebnath.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://rishabhdebnath.com/#blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "The Shift from Traditional SEO to GEO",
+            "item": "https://rishabhdebnath.com/blog/the-shift-from-traditional-seo-to-geo/"
+          }
+        ]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": "https://rishabhdebnath.com/blog/the-shift-from-traditional-seo-to-geo/#article",
+        "isPartOf": {
+          "@id": "https://rishabhdebnath.com/#website"
+        },
+        "headline": "The Shift from Traditional SEO to GEO: How LLMs Select Sources",
+        "description": "An architectural analysis of how large language models (LLMs) select, evaluate, and cite web sources in AI search engines through RAG and information density.",
+        "datePublished": "2026-08-15T09:00:00+00:00",
+        "dateModified": "2026-08-19T14:30:00+00:00",
+        "mainEntityOfPage": "https://rishabhdebnath.com/blog/the-shift-from-traditional-seo-to-geo/",
+        "author": {
+          "@id": "https://rishabhdebnath.com/#person"
+        },
+        "publisher": {
+          "@id": "https://rishabhdebnath.com/#person"
+        },
+        "articleSection": "Generative Engine Optimization",
+        "inLanguage": "en-US",
+        "keywords": [
+          "Generative Engine Optimization",
+          "GEO",
+          "RAG Architecture",
+          "LLM Source Selection",
+          "Semantic SEO",
+          "AI Search Citations"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://rishabhdebnath.com/blog/the-shift-from-traditional-seo-to-geo/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the primary difference between SEO and GEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Traditional SEO focuses on optimizing pages to rank in ten blue link lists based on PageRank and keyword matching. Generative Engine Optimization (GEO) focuses on structuring content with high information density and clear entity relationships so large language models can retrieve, summarize, and cite it within synthesized conversational answers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do LLMs choose which web pages to cite?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "LLM search engines use Retrieval-Augmented Generation (RAG). They convert user prompts into semantic vector embeddings, retrieve the most relevant passages from trusted web indexes, score them for factual accuracy and information density, and select the highest-scoring passages for synthesis and direct citation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Schema.org structured data still matter in GEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Schema.org JSON-LD is even more critical in GEO. Structured data provides an unambiguous machine-readable layer that helps knowledge graphs and AI retrieval crawlers map entity relationships and verify claims without ambiguity."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Technical Ambient Grid Overlay -->
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Header / Sticky Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="../../" class="brand-link" aria-label="Rishabh Debnath Home">
+        <img src="../../assets/images/logo.svg" alt="Rishabh Debnath Logo" class="brand-logo" width="34" height="34" />
+        <div class="brand-meta">
+          <span class="brand-name">Rishabh Debnath</span>
+          <span class="brand-subtitle">SEO &amp; GEO Specialist</span>
+        </div>
+      </a>
+
+      <!-- Center Navigation -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="../../" class="nav-link">Home</a>
+        <a href="../../#about" class="nav-link">About</a>
+        <a href="../../#work" class="nav-link">Work</a>
+        <a href="../../#approach" class="nav-link">Approach</a>
+        <a href="../../#skills" class="nav-link">Skills</a>
+        <a href="../../#blog" class="nav-link active">Blog</a>
+        <a href="../../resume.html" class="nav-link">Resume</a>
+      </nav>
+
+      <!-- Header Right CTA -->
+      <div class="header-actions">
+        <a href="../../#contact" class="btn btn-primary btn-sm">Let's Talk</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open mobile menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobile-drawer" aria-label="Mobile Menu">
+    <div class="mobile-drawer-header">
+      <div class="brand-link">
+        <img src="../../assets/images/logo.svg" alt="Rishabh Debnath Logo" class="brand-logo" width="28" height="28" />
+        <div class="brand-meta">
+          <span class="brand-name">Rishabh Debnath</span>
+          <span class="brand-subtitle">SEO &amp; GEO Specialist</span>
+        </div>
+      </div>
+      <button class="modal-close-btn" id="close-drawer" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="../../" class="mobile-nav-link">Home</a>
+      <a href="../../#about" class="mobile-nav-link">About</a>
+      <a href="../../#work" class="mobile-nav-link">Work</a>
+      <a href="../../#approach" class="mobile-nav-link">Approach</a>
+      <a href="../../#skills" class="mobile-nav-link">Skills</a>
+      <a href="../../#blog" class="mobile-nav-link">Blog</a>
+      <a href="../../resume.html" class="mobile-nav-link">Resume</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="../../#contact" class="btn btn-primary" style="width: 100%;">Let's Talk</a>
+    </div>
+  </aside>
+
+  <!-- Main Article Content -->
+  <main class="article-page">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../../">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../#blog">Blog</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current" aria-current="page">The Shift from Traditional SEO to GEO</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-category-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="12 6 12 12 16 14"></polygon>
+          </svg>
+          <span>Generative Engine Optimization</span>
+        </div>
+        <h1 class="article-h1">The Shift from Traditional SEO to GEO: How LLMs Select Sources</h1>
+        <p class="article-lead">
+          Traditional search engines index pages to rank ten blue links; generative AI engines synthesize multi-source answers in real time. Here is how Retrieval-Augmented Generation (RAG) and information density scoring have reshaped the rules of digital discovery.
+        </p>
+
+        <!-- Article Metadata Bar -->
+        <div class="article-meta-bar">
+          <div class="author-meta-group">
+            <div class="author-avatar">RD</div>
+            <div class="author-info-text">
+              <span class="author-name">Rishabh Debnath</span>
+              <span class="author-role">SEO &amp; GEO Specialist</span>
+            </div>
+          </div>
+          <div class="article-timestamps">
+            <div class="timestamp-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Published: Aug 15, 2026</span>
+            </div>
+            <div class="timestamp-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Layout Grid (Main Column + Sticky TOC) -->
+      <div class="article-layout-grid">
+        
+        <!-- Main Column -->
+        <article class="article-main-column">
+
+          <!-- Key Takeaways Box -->
+          <div class="key-takeaways-card">
+            <div class="takeaways-header">
+              <span class="takeaways-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </span>
+              <h2 class="takeaways-title" style="margin: 0; border: none; padding: 0;">Key Takeaways</h2>
+            </div>
+            <ul class="takeaways-list">
+              <li><strong>Passage-Level Retrieval:</strong> AI engines rank individual passages and factual assertions rather than entire URLs.</li>
+              <li><strong>Information Density Over Word Count:</strong> High signal-to-noise ratios and direct definitions win citation spots over long-form fluff.</li>
+              <li><strong>Entity Resolution:</strong> LLMs rely on connected Knowledge Graph entities (<a href="../entity-based-seo/">Entity-Based SEO</a>) to verify truth claims across consensus sources.</li>
+              <li><strong>Structural Answer Anchoring:</strong> Direct answer sentences positioned immediately under descriptive H2 headings achieve the highest retrieval confidence.</li>
+            </ul>
+          </div>
+
+          <!-- Prose Article Body -->
+          <div class="article-body">
+            <h2 id="from-links-to-synthesis">1. From Link Lists to Direct Synthesis</h2>
+            <p>
+              For more than two decades, search engine optimization operated on a straightforward premise: crawl web documents, index keyword tokens, calculate PageRank authority through backlinks, and present a ranked list of ten blue links.
+            </p>
+            <p>
+              With the advent of generative AI engines—such as Perplexity, ChatGPT Search, and Google AI Overviews—the discovery paradigm has fundamentally changed. Users no longer scan multiple tabs to stitch together disparate facts. Instead, generative engines perform <strong>Retrieval-Augmented Generation (RAG)</strong> to synthesize a unified, conversational answer from multiple authoritative passages.
+            </p>
+
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Core Definition: Generative Engine Optimization (GEO)
+              </div>
+              <p>
+                <strong>GEO</strong> is the discipline of structuring website architecture, semantic entity graphs, and factual passage density so that large language models (LLMs) can reliably ingest, verify, and cite your domain as a primary reference in generated responses.
+              </p>
+            </div>
+
+            <h2 id="how-rag-pipelines-evaluate-sources">2. How RAG Pipelines Evaluate Web Sources</h2>
+            <p>
+              To rank inside an AI overview or conversational response, your content must survive a multi-stage filtering pipeline. Here is how modern generative retrieval systems operate under the hood:
+            </p>
+
+            <div class="article-table-wrap">
+              <table class="article-table">
+                <thead>
+                  <tr>
+                    <th>Pipeline Stage</th>
+                    <th>Mechanism</th>
+                    <th>Optimization Objective</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1. Query Expansion</strong></td>
+                    <td>Deconstructs user prompt into sub-queries and vector embeddings.</td>
+                    <td>Target semantic intent variants and conversational questions.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2. Dense Passage Retrieval</strong></td>
+                    <td>Retrieves candidate text chunks based on cosine similarity in vector space.</td>
+                    <td>Author clear, self-contained paragraphs (120–180 words) with explicit subject nouns.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3. Re-Ranking &amp; Verification</strong></td>
+                    <td>Cross-checks entity claims against Knowledge Graph databases (Wikidata, trusted nodes).</td>
+                    <td>Implement structured <a href="../entity-based-seo/">Schema.org JSON-LD</a> and factual citations.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4. Synthesis &amp; Citation</strong></td>
+                    <td>Generates final response, attaching bracketed attribution citations to extracted claims.</td>
+                    <td>Maintain high information density with unambiguous definitions.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 id="information-density-factor">3. The Information Density Factor</h2>
+            <p>
+              In traditional SEO, marketers often inflated article word counts to signal "comprehensiveness" to search algorithms. In GEO, this tactic is counterproductive.
+            </p>
+            <p>
+              LLM context windows and attention mechanisms prioritize <strong>information density</strong>: the proportion of verifiable, factual claims per sentence relative to conversational padding. When a transformer model generates token embeddings for a passage, paragraphs loaded with introspective filler, repetitive adverbs, and rhetorical questions receive lower semantic weight during the re-ranking phase.
+            </p>
+
+            <pre><code>// Example: High-Density vs Low-Density Passage Structuring
+// LOW DENSITY (Filtered out by RAG re-rankers):
+"In this modern day and age, everyone knows that speed is very crucial for your digital website, and you should always think about making things faster."
+
+// HIGH DENSITY (Selected for citation):
+"Largest Contentful Paint (LCP) measures perceived loading speed, requiring a threshold under 2.5 seconds to pass Google Core Web Vitals criteria."</code></pre>
+
+            <h2 id="entity-authority-and-knowledge-graphs">4. Entity Authority and Knowledge Graphs</h2>
+            <p>
+              How do AI engines know whether a source is credible enough to cite? Unlike Google's classic PageRank, which evaluated raw hyperlink graphs, LLM source selection relies heavily on <strong>Entity Authority</strong>.
+            </p>
+            <p>
+              When an engine parses your website, it maps the entities on your page—such as your organization name, products, certifications, and authors—against external knowledge graphs. By linking your structured data to verified repositories via <code>sameAs</code> arrays, you provide mathematical confirmation of your brand's legitimacy.
+            </p>
+            <p>
+              To explore how search engines transition from simple keyword strings to rich semantic objects, read my deep dive on <a href="../entity-based-seo/">Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings</a>.
+            </p>
+
+            <h2 id="practical-geo-framework">5. A 4-Step Practical GEO Implementation Framework</h2>
+            <p>
+              To adapt your content for generative discovery, implement this four-part checklist:
+            </p>
+            <ol>
+              <li><strong>Adopt the Inverted Pyramid Layout:</strong> Place the direct, factual answer to the core user question within the first 40 words following each major H2 heading.</li>
+              <li><strong>Use Semantic Data Formats:</strong> Organize comparative data into standard HTML tables and numbered step lists. LLMs parse tabular data with near-zero hallucination rates.</li>
+              <li><strong>Audit Technical Crawl Paths:</strong> AI search bots like GPTBot and PerplexityBot must be allowed in your <a href="../technical-seo-audit-checklist/">robots.txt</a> with sub-300ms server response times.</li>
+              <li><strong>Maintain Handcrafted JSON-LD:</strong> Explicitly declare <code>author</code>, <code>publisher</code>, and <code>about</code> entities to clarify topical authority.</li>
+            </ol>
+
+            <p>
+              For granular tactics on ranking across specific conversational engines, continue to <a href="../optimizing-for-ai-search/">Optimizing for Perplexity, ChatGPT Search &amp; Google AI Overviews</a>.
+            </p>
+          </div>
+
+          <!-- FAQ Section -->
+          <section class="faq-section" id="faq">
+            <h2 class="faq-title" style="border: none; padding: 0; margin-bottom: 20px;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item active">
+              <button class="faq-question" aria-expanded="true">
+                <span>What is the primary difference between traditional SEO and GEO?</span>
+                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>Traditional SEO focuses on optimizing pages to rank in ten blue link lists based on PageRank and keyword matching. Generative Engine Optimization (GEO) focuses on structuring content with high information density and clear entity relationships so large language models can retrieve, summarize, and cite it within synthesized conversational answers.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>How do LLMs choose which web pages to cite?</span>
+                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>LLM search engines use Retrieval-Augmented Generation (RAG). They convert user prompts into semantic vector embeddings, retrieve the most relevant passages from trusted web indexes, score them for factual accuracy and information density, and select the highest-scoring passages for synthesis and direct citation.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Does Schema.org structured data still matter in GEO?</span>
+                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, Schema.org JSON-LD is even more critical in GEO. Structured data provides an unambiguous machine-readable layer that helps knowledge graphs and AI retrieval crawlers map entity relationships and verify claims without ambiguity.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Author Bio Box -->
+          <div class="author-bio-card">
+            <div class="author-bio-avatar">RD</div>
+            <div class="author-bio-content">
+              <div class="author-bio-header">
+                <span class="author-bio-name">Rishabh Debnath</span>
+                <span class="author-bio-role">SEO &amp; Generative Engine Optimization Specialist</span>
+              </div>
+              <p class="author-bio-desc">
+                Specializing in technical SEO, Knowledge Graph engineering, and generative AI search visibility. Focused on building crawlable, entity-rich web architectures that excel across Google Search and LLM answer engines.
+              </p>
+              <div class="author-bio-links">
+                <a href="https://linkedin.com/in/rishabh-debnath-seo" target="_blank" rel="noopener noreferrer">
+                  <span>LinkedIn</span> ↗
+                </a>
+                <a href="https://github.com/rishabhdebnath" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub</span> ↗
+                </a>
+                <a href="../../#contact">
+                  <span>Contact</span> →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Box -->
+          <div class="article-cta-box">
+            <h3 class="cta-title">Explore More SEO &amp; AI Search Insights</h3>
+            <p class="cta-desc">
+              Looking to audit your technical architecture or optimize your digital brand for Generative Engine discovery? Let's connect and analyze your search footprint.
+            </p>
+            <div class="cta-buttons">
+              <a href="../../#contact" class="btn btn-primary btn-sm">Let's Discuss Your Project</a>
+              <a href="../../#work" class="btn btn-secondary btn-sm">View Case Studies</a>
+            </div>
+          </div>
+
+          <!-- Related Articles Grid -->
+          <section class="related-articles-section">
+            <div class="related-header">
+              <span class="related-tag">Continue Reading</span>
+              <h3 class="related-title">Related Notes &amp; Analysis</h3>
+            </div>
+            <div class="related-grid">
+              
+              <article class="blog-card">
+                <a href="../entity-based-seo/" class="blog-card-link-overlay" aria-label="Read Entity-Based SEO article"></a>
+                <div class="blog-meta">
+                  <span class="blog-category">Semantic SEO</span>
+                  <span class="blog-readtime">6 min read</span>
+                </div>
+                <h4 class="blog-title"><a href="../entity-based-seo/">Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings</a></h4>
+                <p class="blog-excerpt">How modern search engines construct Knowledge Graphs and prioritize unambiguous entities over keyword frequency.</p>
+                <div class="blog-link">
+                  <span>Read Analysis</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </article>
+
+              <article class="blog-card">
+                <a href="../optimizing-for-ai-search/" class="blog-card-link-overlay" aria-label="Read Optimizing for AI Search article"></a>
+                <div class="blog-meta">
+                  <span class="blog-category">AI Search Optimization</span>
+                  <span class="blog-readtime">7 min read</span>
+                </div>
+                <h4 class="blog-title"><a href="../optimizing-for-ai-search/">Optimizing for Perplexity, ChatGPT Search &amp; Google AI Overviews</a></h4>
+                <p class="blog-excerpt">Practical tactics to structure content for direct passage retrieval and citation acquisition in conversational AI engines.</p>
+                <div class="blog-link">
+                  <span>Read Analysis</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+        </article>
+
+        <!-- Sidebar Sticky Table of Contents -->
+        <aside class="article-sidebar">
+          <div class="toc-card">
+            <div class="toc-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+              <span>Table of Contents</span>
+            </div>
+            <ul class="toc-list">
+              <li><a href="#from-links-to-synthesis" class="toc-link">1. From Links to Direct Synthesis</a></li>
+              <li><a href="#how-rag-pipelines-evaluate-sources" class="toc-link">2. How RAG Evaluates Sources</a></li>
+              <li><a href="#information-density-factor" class="toc-link">3. Information Density Factor</a></li>
+              <li><a href="#entity-authority-and-knowledge-graphs" class="toc-link">4. Entity Authority &amp; Knowledge Graphs</a></li>
+              <li><a href="#practical-geo-framework" class="toc-link">5. Practical GEO Framework</a></li>
+              <li><a href="#faq" class="toc-link">Frequently Asked Questions</a></li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../../assets/images/logo.svg" alt="Rishabh Debnath Logo" class="footer-brand-logo" width="36" height="36" />
+          <div class="footer-meta">
+            <span class="footer-brand-name">Rishabh Debnath</span>
+            <span class="footer-brand-subtitle">SEO &amp; Generative Engine Optimization Specialist</span>
+          </div>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/rishabh-debnath-seo" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="https://github.com/rishabhdebnath" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+          <a href="mailto:contact@rishabhdebnath.com" class="social-btn" aria-label="Email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Rishabh Debnath. All rights reserved.</div>
+        <button class="back-to-top-btn" id="back-to-top">
+          <span>Back to Top</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page Interactivity Script (TOC Spy, Drawer, FAQ) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Header Scroll
+      const header = document.getElementById("site-header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) header?.classList.add("scrolled");
+        else header?.classList.remove("scrolled");
+      }, { passive: true });
+
+      // Mobile Drawer
+      const mobileToggle = document.getElementById("mobile-toggle");
+      const mobileDrawer = document.getElementById("mobile-drawer");
+      const drawerBackdrop = document.getElementById("drawer-backdrop");
+      const closeDrawerBtn = document.getElementById("close-drawer");
+
+      const toggleDrawer = (open) => {
+        if (open) {
+          mobileDrawer?.classList.add("active");
+          drawerBackdrop?.classList.add("active");
+          document.body.style.overflow = "hidden";
+        } else {
+          mobileDrawer?.classList.remove("active");
+          drawerBackdrop?.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      };
+
+      mobileToggle?.addEventListener("click", () => toggleDrawer(true));
+      closeDrawerBtn?.addEventListener("click", () => toggleDrawer(false));
+      drawerBackdrop?.addEventListener("click", () => toggleDrawer(false));
+
+      // Back to Top
+      document.getElementById("back-to-top")?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // FAQ Accordion
+      document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq-item");
+          const isOpen = item.classList.contains("active");
+          document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("active"));
+          if (!isOpen) item.classList.add("active");
+        });
+      });
+
+      // TOC Active ScrollSpy
+      const headings = document.querySelectorAll(".article-body h2[id], .faq-section[id]");
+      const tocLinks = document.querySelectorAll(".toc-link");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            tocLinks.forEach((link) => {
+              if (link.getAttribute("href") === `#${id}`) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            });
+          }
+        });
+      }, { rootMargin: "-20% 0px -70% 0px" });
+
+      headings.forEach((h) => observer.observe(h));
+    });
+  </script>
+</body>
+
+</html>
