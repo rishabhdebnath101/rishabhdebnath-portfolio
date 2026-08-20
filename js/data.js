@@ -54,7 +54,7 @@ const PORTFOLIO_DATA = {
       projectType: "Self-Initiated Case Study",
       category: "Technical & Regional SEO",
       tags: ["Technical SEO", "DACH Region", "Hreflang", "Structured Data", "Screaming Frog"],
-      image: "assets/images/project-german.svg",
+      image: "/assets/images/projects/project-german.svg",
       summary: "A practical study exploring how a regional German B2B engineering site could improve search visibility across Germany, Austria, and Switzerland through proper hreflang, German keyword intent mapping, and structured data.",
       tools: ["Screaming Frog", "Semrush (DE)", "Google Search Console", "PageSpeed Insights"],
       details: {
@@ -98,7 +98,7 @@ const PORTFOLIO_DATA = {
       projectType: "Self-Initiated Case Study",
       category: "Local SEO & GEO",
       tags: ["Local SEO", "Google Business Profile", "Citations", "LocalBusiness Schema", "AI Discovery"],
-      image: "assets/images/project-olympia.svg",
+      image: "/assets/images/projects/project-olympia.svg",
       summary: "A local SEO case study exploring how Olympia Fitness Studio could improve visibility in Google Maps, local organic search, and AI-powered recommendations through profile optimization, review signals, and LocalBusiness schema.",
       tools: ["Google Search Console", "Google Business Profile", "Ahrefs", "Schema.org"],
       details: {
@@ -141,7 +141,7 @@ const PORTFOLIO_DATA = {
       projectType: "Self-Initiated Case Study",
       category: "E-commerce SEO",
       tags: ["E-commerce", "Faceted Navigation", "Product Schema", "Internal Linking", "Ahrefs"],
-      image: "assets/images/project-ecommerce.svg",
+      image: "/assets/images/projects/project-ecommerce.svg",
       summary: "A technical SEO research project focused on common e-commerce indexing problems such as faceted navigation crawl bloat, product variant canonicalization, rich Product schema, and category internal linking.",
       tools: ["Ahrefs", "Google Search Console", "Screaming Frog", "Schema.org", "Shopify/Liquid"],
       details: {
@@ -184,7 +184,7 @@ const PORTFOLIO_DATA = {
       projectType: "Self-Initiated Case Study",
       category: "Publishing & News SEO",
       tags: ["News SEO", "Google News", "Crawl Efficiency", "NewsArticle Schema", "Core Web Vitals"],
-      image: "assets/images/project-news.svg",
+      image: "/assets/images/projects/project-news.svg",
       summary: "A publishing SEO case study exploring crawl efficiency, Google News readiness, NewsArticle schema, author E-E-A-T signals, and technical performance for a fast-moving news website.",
       tools: ["Google Search Console", "Screaming Frog", "Schema.org", "PageSpeed Insights"],
       details: {
