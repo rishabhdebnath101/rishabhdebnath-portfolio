@@ -310,50 +310,28 @@ code, .code-tag {
 
 /* Brand / Logo Group */
 .brand-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
   text-decoration: none;
-  transition: opacity var(--transition-fast);
-}
-
-.brand-link:hover {
-  opacity: 0.92;
+  line-height: 0;
 }
 
 .brand-logo {
-  height: 34px;
-  width: 34px;
+  width: 42px;
+  height: auto;
+  max-height: 48px;
   object-fit: contain;
-  border-radius: 8px;
-  transition: filter var(--transition-smooth), transform var(--transition-smooth);
+  display: block;
+  transform: scale(1);
+  filter: none;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.brand-link:hover .brand-logo {
-  filter: drop-shadow(0 0 8px rgba(0, 230, 184, 0.5));
+.brand-link:hover .brand-logo,
+.brand-logo:hover {
   transform: scale(1.04);
-}
-
-.brand-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.08rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.015em;
-}
-
-.brand-subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 5px rgba(0, 240, 190, 0.65)) drop-shadow(0 0 12px rgba(0, 150, 255, 0.35));
 }
 
 /* Center Navigation Bar */
@@ -1333,11 +1311,29 @@ textarea.form-control {
   gap: 14px;
 }
 
+.footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
 .footer-brand-logo {
-  height: 36px;
-  width: 36px;
+  width: 46px;
+  height: auto;
   object-fit: contain;
-  border-radius: 8px;
+  display: block;
+  transform: scale(1);
+  filter: none;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.footer-brand-link:hover .footer-brand-logo,
+.footer-brand-logo:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 5px rgba(0, 240, 190, 0.65)) drop-shadow(0 0 12px rgba(0, 150, 255, 0.35));
 }
 
 .footer-meta {
@@ -1348,15 +1344,17 @@ textarea.form-control {
 
 .footer-brand-name {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: #FFFFFF;
+  letter-spacing: -0.01em;
 }
 
 .footer-brand-subtitle {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   color: var(--text-secondary);
+  line-height: 1.4;
 }
 
 .footer-socials {
@@ -1413,6 +1411,10 @@ textarea.form-control {
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1024px) {
+  .brand-logo {
+    width: 40px;
+    height: auto;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -1440,8 +1442,8 @@ textarea.form-control {
     font-size: 15px;
   }
   .brand-logo {
-    height: 28px;
-    width: 28px;
+    width: 36px;
+    height: auto;
   }
   .main-nav {
     display: none;
@@ -1468,10 +1470,23 @@ textarea.form-control {
   .footer-bottom {
     flex-direction: column;
     gap: 18px;
+    align-items: center;
     text-align: center;
   }
   .footer-brand {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
   }
 }
