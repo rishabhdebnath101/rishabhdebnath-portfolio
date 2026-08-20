@@ -329,7 +329,7 @@ function initContactForm() {
       return;
     }
 
-    const mailtoLink = `mailto:contact@rishabhdebnath.com?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:rishabhdebnath101@gmail.com?subject=${encodeURIComponent(
       subject || "SEO / GEO Opportunity Inquiry"
     )}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
@@ -348,14 +348,14 @@ function initCopyActions() {
   const copyEmailBtns = document.querySelectorAll(".copy-email-trigger");
   copyEmailBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const email = "contact@rishabhdebnath.com";
+      const email = "rishabhdebnath101@gmail.com";
       navigator.clipboard
         .writeText(email)
         .then(() => {
           showToast("Email address copied to clipboard!");
         })
         .catch(() => {
-          showToast("contact@rishabhdebnath.com");
+          showToast("rishabhdebnath101@gmail.com");
         });
     });
   });

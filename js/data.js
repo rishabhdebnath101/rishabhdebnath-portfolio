@@ -10,10 +10,9 @@ const PORTFOLIO_DATA = {
     tagline: "I help businesses get discovered across Google Search and AI platforms.",
     supportingText: "I combine technical SEO, content strategy, and Generative Engine Optimization to improve how brands are understood by search engines and AI systems.",
     badge: "Open to SEO & Digital Marketing Opportunities",
-    email: "contact@rishabhdebnath.com",
+    email: "rishabhdebnath101@gmail.com",
     location: "Available for Remote & International Roles",
-    linkedin: "https://linkedin.com/in/rishabh-debnath-seo",
-    github: "https://github.com/rishabhdebnath",
+    github: "https://github.com/rishabhdebnath101",
     aboutNarrative: [
       "I started with language before I started with search. Studying English taught me how meaning, context, and structure influence communication. SEO became a natural extension of that curiosity — understanding how humans search and how machines interpret information.",
       "As search systems evolved from simple keyword matching toward Knowledge Graphs, semantic vector indexing, and generative AI models, my focus shifted toward technical architecture and entity optimization.",
