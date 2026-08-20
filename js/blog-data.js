@@ -10,50 +10,50 @@ const BLOG_DATA = {
   articles: [
     {
       slug: "the-shift-from-traditional-seo-to-geo",
-      title: "The Shift from Traditional SEO to GEO: How LLMs Select Sources",
-      category: "Generative Engine Optimization",
+      title: "SEO vs GEO: What Actually Changes in AI Search?",
+      category: "GEO",
       readTime: "7 min read",
       publishedDate: "2026-08-15",
       updatedDate: "2026-08-19",
       url: "blog/the-shift-from-traditional-seo-to-geo/",
       featured: true,
-      excerpt: "An architectural deep-dive into how large language models perform retrieval-augmented generation (RAG), score information density, and choose authoritative citations over legacy keyword signals.",
+      excerpt: "SEO still matters, but AI search changes how information is discovered and summarized. Here's what GEO adds, what stays the same, and what you should actually focus on.",
       tags: ["GEO", "RAG", "LLM Citations", "Information Density", "Knowledge Graph"]
     },
     {
       slug: "entity-based-seo",
-      title: "Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings",
-      category: "Semantic SEO",
+      title: "What Is Entity-Based SEO, and Why Does It Matter?",
+      category: "Entity SEO",
       readTime: "6 min read",
       publishedDate: "2026-08-10",
       updatedDate: "2026-08-18",
       url: "blog/entity-based-seo/",
       featured: true,
-      excerpt: "How modern search engines construct Knowledge Graphs, map semantic concepts, and prioritize unambiguous entities and topical authority over keyword frequency.",
+      excerpt: "Search engines try to understand people, brands, products, and places—not just keywords. This article explains entities in simple terms and where they fit into modern SEO.",
       tags: ["Entities", "Knowledge Graph", "Schema.org", "Wikidata", "Semantic Search"]
     },
     {
       slug: "technical-seo-audit-checklist",
-      title: "Technical SEO Audit Checklist for Modern Web Architecture",
+      title: "How I Approach a Technical SEO Audit",
       category: "Technical SEO",
       readTime: "8 min read",
       publishedDate: "2026-08-05",
       updatedDate: "2026-08-19",
       url: "blog/technical-seo-audit-checklist/",
       featured: true,
-      excerpt: "A diagnostic framework for auditing crawl efficiency, indexation governance, faceted navigation traps, log file health, and Core Web Vitals across modern web platforms.",
+      excerpt: "A practical look at the checks I use for crawling, indexing, Core Web Vitals, structured data, internal links, and other technical SEO issues.",
       tags: ["Technical SEO", "Crawl Budget", "Core Web Vitals", "Canonicals", "Log Analysis"]
     },
     {
       slug: "optimizing-for-ai-search",
-      title: "Optimizing for Perplexity, ChatGPT Search & Google AI Overviews",
-      category: "AI Search Optimization",
+      title: "How Can You Make Content Easier for AI Search to Understand?",
+      category: "AI Search",
       readTime: "7 min read",
       publishedDate: "2026-08-01",
       updatedDate: "2026-08-19",
       url: "blog/optimizing-for-ai-search/",
       featured: true,
-      excerpt: "Practical tactics to structure content for direct passage retrieval, conversational query matching, and citation acquisition in Perplexity, ChatGPT Search, and Google AI Overviews.",
+      excerpt: "There's no magic trick for getting cited by AI tools. But clear answers, strong structure, trustworthy information, and good technical SEO can make your content easier to interpret and retrieve.",
       tags: ["Perplexity", "ChatGPT Search", "AI Overviews", "Direct Answers", "GEO Tactics"]
     }
   ]

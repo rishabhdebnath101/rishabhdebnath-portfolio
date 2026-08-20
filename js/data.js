@@ -47,167 +47,175 @@ const PORTFOLIO_DATA = {
 
   projects: [
     {
-      id: "german-local-business",
+      id: "german-regional-b2b-seo",
+      slug: "german-regional-b2b-seo",
+      url: "work/german-regional-b2b-seo/",
       title: "German Regional B2B Website",
-      subtitle: "Self-Initiated Case Study • Multilingual Technical SEO & Directory Architecture",
+      subtitle: "Multilingual Technical SEO & Regional Search Architecture",
       projectType: "Self-Initiated Case Study",
-      category: "Technical & Multilingual SEO",
-      tags: ["Technical SEO", "DACH Region", "Hreflang Architecture", "Structured Data", "Screaming Frog"],
+      category: "Technical & Regional SEO",
+      tags: ["Technical SEO", "DACH Region", "Hreflang", "Structured Data", "Screaming Frog"],
       image: "assets/images/project-german.svg",
-      summary: "Self-initiated SEO case study exploring technical SEO, German compound keyword intent mapping, and multilingual search architecture for a German B2B website.",
-      tools: ["Screaming Frog", "Semrush (DE)", "Google Search Console", "PageSpeed Insights", "WordPress"],
+      summary: "A practical study exploring how a regional German B2B engineering site could improve search visibility across Germany, Austria, and Switzerland through proper hreflang, German keyword intent mapping, and structured data.",
+      tools: ["Screaming Frog", "Semrush (DE)", "Google Search Console", "PageSpeed Insights"],
       details: {
-        overview: "A self-initiated demonstration case study modeling a mid-sized German B2B engineering consultancy aiming to capture high-value search intent across Germany, Austria, and Switzerland (DACH).",
+        overview: "A self-initiated SEO case study exploring how a regional German B2B website could improve multilingual search visibility across Germany, Austria, and Switzerland.",
         problemsIdentified: [
-          "Improper hreflang tag implementation leading to regional duplicate content confusion between de-DE, de-AT, and de-CH pages.",
-          "German compound noun search terms misaligned with search intent and user query syntax.",
-          "Excessive server response time (TTFB > 1.4s) caused by unoptimized assets and database queries.",
-          "Absence of B2B Organization and ProfessionalService Schema.org structured data."
+          "Improper hreflang tag setup causing regional duplicate content confusion between de-DE, de-AT, and de-CH pages.",
+          "German compound noun search terms misaligned with real user search intent and query phrasing.",
+          "Slow server response times (TTFB > 1.2s) caused by unoptimized assets and server configuration.",
+          "Missing Organization and ProfessionalService Schema.org structured data to help search engines understand the business."
         ],
         keywordStrategy: [
-          "Mapped semantic keyword relationships for German technical terminology, prioritizing high-intent transactional compound nouns.",
-          "Constructed localized topical clusters separating DIN/ISO industrial standard guides from service landing pages."
+          "Mapped high-intent German compound terms and industry-specific keywords across technical service lines.",
+          "Grouped technical documentation and ISO standard guides separately from commercial service pages to prevent intent mismatch."
         ],
         geoStrategy: [
-          "Authored machine-readable JSON-LD entities linking company services, key personnel, and certifications directly to Wikidata concepts.",
-          "Structured German-language case breakdowns with clear problem-solution-result headers to support clear LLM summarization."
+          "Structured JSON-LD data linking company services, key personnel, and certifications clearly for search engines and AI tools.",
+          "Formatted key case takeaways with clear problem-solution summaries to make content easy for search engines and AI assistants to extract."
         ],
         technicalImprovements: [
-          "Identified and documented remediation for 400+ redirect chains and internal broken links via Screaming Frog crawl simulation.",
-          "Engineered reciprocal hreflang annotations across all language-region variants.",
-          "Optimized critical rendering paths and server caching recommendations to target sub-300ms TTFB."
+          "Audited internal links and redirect chains using Screaming Frog to identify crawl bottlenecks.",
+          "Designed reciprocal hreflang annotations across language and regional variants.",
+          "Recommended caching rules and asset compression to bring server response times into healthy ranges."
         ],
         outcomesPlaceholder: {
-          headline: "Demonstrated Technical & Semantic Improvements",
+          headline: "Key Learnings & Success Criteria",
           metrics: [
-            { label: "Target Keyword Footprint", value: "+115% Modeled DACH Top-10 Coverage" },
-            { label: "Crawl Health Index", value: "100% Validated Hreflang & Canonicals" },
-            { label: "Simulated PageSpeed", value: "98/100 Core Web Vitals Score" },
-            { label: "Information Density", value: "Fully Structured Entity Graph" }
+            { label: "Target Keyword Visibility", value: "Clear DACH Regional Intent Coverage" },
+            { label: "Crawl Health Target", value: "Clean Hreflang & Canonical Signals" },
+            { label: "Performance Goal", value: "Target: Sub-300ms Server Response (TTFB)" },
+            { label: "Information Structure", value: "Unambiguous Schema.org Entity Data" }
           ]
         }
       }
     },
     {
-      id: "olympia-fitness",
+      id: "olympia-local-seo",
+      slug: "olympia-local-seo",
+      url: "work/olympia-local-seo/",
       title: "Olympia Local Fitness Studio",
-      subtitle: "Self-Initiated Case Study • Local Search & Generative Engine Optimization",
+      subtitle: "Local Search, Google Maps & AI Discovery",
       projectType: "Self-Initiated Case Study",
       category: "Local SEO & GEO",
-      tags: ["Local SEO", "GEO Optimization", "Google Business Profile", "Entity Seeding", "Schema.org"],
+      tags: ["Local SEO", "Google Business Profile", "Citations", "LocalBusiness Schema", "AI Discovery"],
       image: "assets/images/project-olympia.svg",
-      summary: "Self-initiated local SEO and GEO case study detailing how a localized fitness studio can build map pack dominance and establish reliable AI citation presence.",
-      tools: ["Google Search Console", "Google Business Profile", "Ahrefs", "Schema.org", "Perplexity Search"],
+      summary: "A local SEO case study exploring how Olympia Fitness Studio could improve visibility in Google Maps, local organic search, and AI-powered recommendations through profile optimization, review signals, and LocalBusiness schema.",
+      tools: ["Google Search Console", "Google Business Profile", "Ahrefs", "Schema.org"],
       details: {
-        overview: "A demonstration project analyzing the local search footprint and AI engine citability for a neighborhood fitness and strength coaching studio in a competitive urban market.",
+        overview: "A local SEO case study exploring how Olympia Fitness Studio could improve visibility in Google Maps, local search, and AI-powered recommendations.",
         problemsIdentified: [
-          "Inconsistent NAP (Name, Address, Phone) citations across local business directories causing entity ambiguity.",
-          "Google Business Profile lacking localized service attributes, primary category alignment, and structured Q&A.",
-          "Thin localized landing pages with duplicate meta descriptions and zero structured LocalBusiness schema.",
-          "Zero citation footprint in AI search tools (Perplexity, ChatGPT Search) when answering local fitness recommendation queries."
+          "Inconsistent NAP (Name, Address, Phone) citations across local business directories creating confusion for search engines.",
+          "Google Business Profile missing key service attributes, secondary categories, and structured Q&A.",
+          "Thin localized landing pages with duplicate meta descriptions and no structured LocalBusiness schema.",
+          "Limited presence in conversational AI tools (Perplexity, ChatGPT Search) when users ask for local gym recommendations."
         ],
         keywordStrategy: [
-          "Targeted localized commercial queries: 'strength coaching studio near me', 'certified personal coach [district]', 'small group fitness classes'.",
-          "Formulated conversational question-based FAQs matching voice search and LLM prompts ('What is the best strength training studio for beginners in [District]?')."
+          "Researched local search queries such as 'strength training studio near me' and neighborhood-specific fitness phrases.",
+          "Structured question-and-answer FAQs matching common questions people ask before joining a local gym."
         ],
         geoStrategy: [
-          "Engineered ExerciseGym and LocalBusiness JSON-LD schema with exact geocoordinates, operating hours, amenities, and knowsAbout entity tags.",
-          "Structured factual entity blocks on primary service pages to serve as clean contextual extracts for LLM citation algorithms."
+          "Authored ExerciseGym and LocalBusiness JSON-LD schema with exact coordinates, opening hours, and offered services.",
+          "Created clear service description summaries to help AI search engines cite the studio accurately for relevant neighborhood queries."
         ],
         technicalImprovements: [
-          "Reduced Largest Contentful Paint (LCP) by deferring non-critical styles and implementing responsive WebP formats.",
-          "Implemented clean breadcrumb trails and self-referencing canonical tags to prevent geo-page cannibalization."
+          "Improved mobile page loading times by converting images to WebP and deferring non-essential scripts.",
+          "Set up clean canonical URLs and breadcrumb trails across localized training pages."
         ],
         outcomesPlaceholder: {
-          headline: "Demonstrated Local & AI Discovery Framework",
+          headline: "Key Learnings & Success Criteria",
           metrics: [
-            { label: "Local Map Pack Readiness", value: "Top-3 Position Framework" },
-            { label: "Local Citation Integrity", value: "100% NAP Consistency Model" },
-            { label: "AI Search Citability", value: "Structured for Perplexity & AI Overviews" },
-            { label: "Conversion Pathway", value: "Optimized Frictionless Booking Funnel" }
+            { label: "Google Maps Goal", value: "Target: Top-3 Local Map Pack Visibility" },
+            { label: "Citation Quality", value: "Goal: 100% NAP Consistency Across Core Directories" },
+            { label: "AI Search Citability", value: "Clear Structure for Perplexity & AI Summaries" },
+            { label: "User Experience", value: "Frictionless Class Booking & Inquiry Pathway" }
           ]
         }
       }
     },
     {
-      id: "ecommerce-seo",
+      id: "ecommerce-technical-seo",
+      slug: "ecommerce-technical-seo",
+      url: "work/ecommerce-technical-seo/",
       title: "Specialty D2C E-commerce Catalog",
-      subtitle: "Self-Initiated Case Study • Faceted Navigation & Product Schema Graph",
+      subtitle: "Faceted Navigation, Canonical Strategy & Product Schema",
       projectType: "Self-Initiated Case Study",
       category: "E-commerce SEO",
-      tags: ["E-commerce", "Faceted Navigation", "Product Schema", "Topical Authority", "Ahrefs"],
+      tags: ["E-commerce", "Faceted Navigation", "Product Schema", "Internal Linking", "Ahrefs"],
       image: "assets/images/project-ecommerce.svg",
-      summary: "Self-initiated study on resolving crawl traps in faceted navigation, consolidating product variants, and implementing rich Product and MerchantReturnPolicy schemas.",
-      tools: ["Ahrefs", "Google Merchant Center", "Screaming Frog", "Google Search Console", "Shopify/Liquid"],
+      summary: "A technical SEO research project focused on common e-commerce indexing problems such as faceted navigation crawl bloat, product variant canonicalization, rich Product schema, and category internal linking.",
+      tools: ["Ahrefs", "Google Search Console", "Screaming Frog", "Schema.org", "Shopify/Liquid"],
       details: {
-        overview: "A technical SEO research project analyzing catalog indexation issues on an e-commerce platform with over 3,000 SKUs experiencing parametric index bloat.",
+        overview: "A technical SEO research project focused on common e-commerce indexing problems such as faceted navigation, duplicate URLs, canonicalization, product schema, and internal linking.",
         problemsIdentified: [
-          "Faceted navigation generated thousands of duplicate, thin parameterized URLs indexed by search bots.",
-          "Product variant URLs conflicting with canonical parent products, causing ranking cannibalization.",
-          "Missing Product, AggregateRating, Offer, and MerchantReturnPolicy structured data.",
-          "Weak internal link architecture failing to pass link equity from informational guides to high-margin collection pages."
+          "Faceted navigation filters generated hundreds of duplicate parameterized URLs that wasted crawl budget.",
+          "Product color and size variants competing with main category and product pages for search rankings.",
+          "Missing or incomplete Product, Offer, and MerchantReturnPolicy structured data.",
+          "Informational blog guides failed to pass internal link equity to high-priority product category pages."
         ],
         keywordStrategy: [
-          "Audited multi-attribute search volumes to selectively index only high-volume facet combinations (e.g., Category + Brand) while canonicalizing filter combinations.",
-          "Created targeted category landing page templates for long-tail transactional terms."
+          "Audited search demand to index only high-value facet combinations (e.g., Category + Brand) while canonicalizing thin filter permutations.",
+          "Structured category and subcategory landing pages for specific product buyer search intents."
         ],
         geoStrategy: [
-          "Implemented comprehensive nested Product and Brand schema with stock availability, specifications, and return policies.",
-          "Structured product comparison tables and buyer guides to ensure LLM shopping assistants accurately cite product features."
+          "Implemented comprehensive Product schema with pricing, stock status, product specs, and return policies.",
+          "Formatted product specifications and comparison tables so AI shopping assistants can accurately read product features."
         ],
         technicalImprovements: [
-          "Designed AJAX filtering architecture with clean URL pushState and canonicalization rules, pruning unnecessary URLs from crawl queues.",
-          "Automated JSON-LD rich snippet generation across all product catalog templates."
+          "Recommended clean URL handling and canonical rules for faceted filters to keep crawl queues focused on valuable pages.",
+          "Structured automated JSON-LD rich snippet markup across product and collection templates."
         ],
         outcomesPlaceholder: {
-          headline: "Index Governance & Authority Architecture",
+          headline: "Key Learnings & Success Criteria",
           metrics: [
-            { label: "Index Bloat Reduction", value: "Pruned Low-Quality Parameter URLs" },
-            { label: "Rich Snippet Eligibility", value: "100% Validated Product Schema" },
-            { label: "Internal Linking Model", value: "Hub-and-Spoke Equity Flow" },
-            { label: "LLM Shopping Readiness", value: "Structured Attribute Matrix" }
+            { label: "Index Efficiency", value: "Target: Remove Low-Value Parameter URLs from Crawl" },
+            { label: "Rich Results Goal", value: "Valid Product & Pricing Schema for SERP Snippets" },
+            { label: "Internal Linking", value: "Hub-and-Spoke Link Flow from Guides to Collections" },
+            { label: "AI Shopping Clarity", value: "Structured Specs for AI Assistant Retrieval" }
           ]
         }
       }
     },
     {
-      id: "niche-news-website",
+      id: "digital-publishing-seo",
+      slug: "digital-publishing-seo",
+      url: "work/digital-publishing-seo/",
       title: "Digital Publishing & News Portal",
-      subtitle: "Self-Initiated Case Study • Google Discover Readiness & NewsArticle Schema",
+      subtitle: "Crawl Efficiency, Google News Readiness & NewsArticle Schema",
       projectType: "Self-Initiated Case Study",
       category: "Publishing & News SEO",
-      tags: ["News SEO", "Google Discover", "Crawl Budget", "NewsArticle Schema", "Core Web Vitals"],
+      tags: ["News SEO", "Google News", "Crawl Efficiency", "NewsArticle Schema", "Core Web Vitals"],
       image: "assets/images/project-news.svg",
-      summary: "Self-initiated architectural case study on optimizing rapid indexation, Google Discover pickup, author E-E-A-T entity graphs, and crawl budget for high-frequency publishing.",
-      tools: ["Google Search Console", "Google News Producer", "Log File Analyzer", "Schema.org", "Cloudflare"],
+      summary: "A publishing SEO case study exploring crawl efficiency, Google News readiness, NewsArticle schema, author E-E-A-T signals, and technical performance for a fast-moving news website.",
+      tools: ["Google Search Console", "Screaming Frog", "Schema.org", "PageSpeed Insights"],
       details: {
-        overview: "A research project examining how fast-paced editorial sites can minimize indexing latency and satisfy both Google News criteria and generative AI retrieval pipelines.",
+        overview: "A publishing SEO case study exploring crawl efficiency, Google News readiness, article schema, internal linking, and technical performance for a fast-moving news website.",
         problemsIdentified: [
-          "Indexation delay post-publication, missing early trending search volume during breaking news cycles.",
-          "Improper NewsArticle schema missing verified author entity references and editorial timestamps.",
-          "Crawl budget wasted on low-value taxonomy archive pages, tag parameters, and paginated internal search URLs.",
-          "Cumulative Layout Shift (CLS) caused by dynamic ad placement rendering."
+          "Indexation delay after publication, causing missed search interest during early news cycles.",
+          "Missing or incomplete NewsArticle schema without proper author references and update timestamps.",
+          "Search engine crawl budget spent on low-value tag archives, duplicate author pages, and search result URLs.",
+          "Cumulative Layout Shift (CLS) issues caused by dynamic ad containers loading without reserved dimensions."
         ],
         keywordStrategy: [
-          "Established headline structuring guidelines balancing editorial clarity with entity-focused semantic keywords.",
-          "Built content cluster workflows mapping evergreen background articles to breaking news topics."
+          "Developed headline best practices balancing journalistic clarity with primary search entities.",
+          "Created topic cluster internal linking connecting breaking news updates back to evergreen background explainer pages."
         ],
         geoStrategy: [
-          "Integrated detailed author entity schema linked to authoritative profiles to reinforce topical authority and E-E-A-T.",
-          "Structured 'Key Takeaways' and factual summary boxes at article headers for rapid LLM citation."
+          "Configured author schema linked to professional profiles to clearly communicate author expertise and editorial accountability.",
+          "Added 'Key Takeaways' summary boxes at the top of long-form articles to make content easy for AI search summaries to extract."
         ],
         technicalImprovements: [
-          "Configured real-time XML News Sitemaps with automated webhook updates.",
-          "Standardized robots.txt disallows and noindex directives on tag parameter URLs to preserve bot crawl budget.",
-          "Stabilized ad container aspect ratios, resolving layout shift issues."
+          "Recommended optimized XML News Sitemaps to notify search engines immediately when new articles publish.",
+          "Applied noindex and robots.txt rules on internal search and duplicate tag pages to focus bot attention on real articles.",
+          "Reserved fixed aspect ratio dimensions for ad slots to eliminate visual layout shifts."
         ],
         outcomesPlaceholder: {
-          headline: "Crawl Latency & Discover Optimization",
+          headline: "Key Learnings & Success Criteria",
           metrics: [
-            { label: "Indexation Readiness", value: "Sub-5 Minute Target Architecture" },
-            { label: "E-E-A-T Author Schema", value: "100% Validated Entity Graph" },
-            { label: "Crawl Efficiency", value: "Eliminated Parameter Waste" },
-            { label: "Visual Stability", value: "CLS &lt; 0.02 Score Target" }
+            { label: "Index Speed Goal", value: "Target: Rapid Discovery for Time-Sensitive Content" },
+            { label: "Author Schema", value: "Valid Author Entity Markup Supporting E-E-A-T" },
+            { label: "Crawl Efficiency", value: "Preserved Crawl Budget by Excluding Thin Archives" },
+            { label: "Visual Stability", value: "Target: CLS < 0.1 for Core Web Vitals 'Good' Range" }
           ]
         }
       }

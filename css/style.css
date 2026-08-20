@@ -717,12 +717,26 @@ code, .code-tag {
   flex-direction: column;
   transition: all var(--transition-smooth);
   box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.project-card-link-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .project-card:hover {
   border-color: var(--border-card-hover);
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
+}
+
+.project-card:hover .project-title a {
+  color: var(--accent-primary);
 }
 
 .project-media-wrap {
@@ -750,6 +764,7 @@ code, .code-tag {
   left: 12px;
   display: flex;
   gap: 8px;
+  z-index: 2;
 }
 
 .project-category-badge {
@@ -782,12 +797,20 @@ code, .code-tag {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  position: relative;
+  z-index: 2;
 }
 
 .project-title {
   font-size: 1.28rem;
   margin-bottom: 6px;
   color: #FFFFFF;
+}
+
+.project-title a {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 .project-subtitle {
@@ -811,6 +834,8 @@ code, .code-tag {
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .tool-chip {
@@ -829,6 +854,8 @@ code, .code-tag {
   justify-content: space-between;
   padding-top: 16px;
   border-top: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 2;
 }
 
 /* ==========================================================================

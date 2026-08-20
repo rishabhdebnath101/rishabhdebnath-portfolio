@@ -111,9 +111,11 @@ function initProjectsRender() {
 
   container.innerHTML = PORTFOLIO_DATA.projects
     .map((p) => {
+      const projectUrl = p.url || `work/${p.slug || p.id}/`;
       const toolsHtml = p.tools.map((t) => `<span class="tool-chip">${t}</span>`).join("");
       return `
-      <article class="project-card" data-project-id="${p.id}">
+      <article class="project-card" data-project-id="${p.id || p.slug}">
+        <a href="${projectUrl}" class="project-card-link-overlay" aria-label="View case study on ${p.title}"></a>
         <div class="project-media-wrap">
           <img src="${p.image}" alt="${p.title} - ${p.projectType}" loading="lazy" />
           <div class="project-badge-group">
@@ -122,29 +124,23 @@ function initProjectsRender() {
           </div>
         </div>
         <div class="project-body">
-          <h3 class="project-title">${p.title}</h3>
+          <h3 class="project-title">
+            <a href="${projectUrl}">${p.title}</a>
+          </h3>
           <p class="project-subtitle">${p.subtitle}</p>
           <p class="project-summary">${p.summary}</p>
           <div class="project-tools">${toolsHtml}</div>
           <div class="project-footer">
-            <button class="btn btn-secondary btn-sm open-case-study" data-id="${p.id}">
-              <span>View Methodology</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </button>
+            <a href="${projectUrl}" class="btn btn-secondary btn-sm">
+              <span>View Case Study</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
         </div>
       </article>
     `;
     })
     .join("");
-
-  // Attach event listener for modal open
-  container.querySelectorAll(".open-case-study").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const id = e.currentTarget.getAttribute("data-id");
-      openCaseStudyModal(id);
-    });
-  });
 }
 
 /* --------------------------------------------------------------------------
@@ -304,87 +300,13 @@ function initModals() {
   });
 }
 
-function openCaseStudyModal(id) {
-  const project = PORTFOLIO_DATA.projects.find((p) => p.id === id);
-  if (!project) return;
-
-  const modal = document.getElementById("case-study-modal");
-  const titleEl = document.getElementById("case-modal-title");
-  const subtitleEl = document.getElementById("case-modal-subtitle");
-  const bodyEl = document.getElementById("case-modal-body");
-
-  titleEl.textContent = project.title;
-  subtitleEl.textContent = `${project.projectType} • ${project.category}`;
-
-  const d = project.details;
-
-  const problemsList = d.problemsIdentified.map((i) => `<li>${i}</li>`).join("");
-  const keywordList = d.keywordStrategy.map((i) => `<li>${i}</li>`).join("");
-  const geoList = d.geoStrategy.map((i) => `<li>${i}</li>`).join("");
-  const techList = d.technicalImprovements.map((i) => `<li>${i}</li>`).join("");
-
-  const metricsHtml = d.outcomesPlaceholder.metrics
-    .map(
-      (m) => `
-    <div class="modal-metric-card">
-      <div class="modal-metric-val">${m.value}</div>
-      <div class="modal-metric-lbl">${m.label}</div>
-    </div>
-  `
-    )
-    .join("");
-
-  bodyEl.innerHTML = `
-    <div class="case-section-block">
-      <h4 class="case-block-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-        Scenario & Problem Diagnostics
-      </h4>
-      <p>${d.overview}</p>
-      <ul class="case-list">${problemsList}</ul>
-    </div>
-
-    <div class="case-section-block">
-      <h4 class="case-block-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        Keyword & Intent Strategy
-      </h4>
-      <ul class="case-list">${keywordList}</ul>
-    </div>
-
-    <div class="case-section-block">
-      <h4 class="case-block-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
-        GEO & Entity Schema Architecture
-      </h4>
-      <ul class="case-list">${geoList}</ul>
-    </div>
-
-    <div class="case-section-block">
-      <h4 class="case-block-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        Technical Implementation & Performance
-      </h4>
-      <ul class="case-list">${techList}</ul>
-    </div>
-
-    <div class="case-section-block">
-      <h4 class="case-block-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        Demonstration Learnings & Target Benchmarks
-      </h4>
-      <div class="modal-metrics-grid">${metricsHtml}</div>
-    </div>
-  `;
-
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
+/* Resume Modal Function */
 function openResumeModal() {
   const modal = document.getElementById("resume-modal");
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+  if (modal) {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
 }
 
 /* --------------------------------------------------------------------------

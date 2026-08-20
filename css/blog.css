@@ -3,12 +3,29 @@
    Scalable, SEO & GEO-Optimized Article Layout
    ========================================================================== */
 
-/* Article Page Layout Container */
+/* ==========================================================================
+   GLOBAL OVERFLOW SAFEGUARD
+   Prevents any child from causing the page to scroll horizontally.
+   Applies to all current and future articles via this shared stylesheet.
+   ========================================================================== */
+.article-page,
+.article-page *,
+.article-page *::before,
+.article-page *::after {
+  /* Nothing inside an article page should ever escape max-width. */
+  box-sizing: border-box;
+}
+
+/* Hard page-level overflow lock */
 .article-page {
   padding-top: calc(var(--header-height) + 32px);
   padding-bottom: 80px;
   position: relative;
   z-index: 1;
+  /* Prevent any child from blowing out horizontal bounds */
+  overflow-x: hidden;
+  /* Safari containment safety */
+  max-width: 100vw;
 }
 
 /* Breadcrumb Navigation */
@@ -158,11 +175,18 @@
   grid-template-columns: minmax(0, 1fr) 280px;
   gap: 48px;
   align-items: start;
+  /* min-width: 0 is critical — CSS Grid children default to min-width: auto
+     which allows them to overflow their column boundary */
+  min-width: 0;
 }
 
 .article-main-column {
   max-width: 780px;
   width: 100%;
+  /* Must have min-width: 0 or the grid column cannot shrink below content size */
+  min-width: 0;
+  /* Extra safety: contain horizontal overflow at column level */
+  overflow-x: hidden;
 }
 
 /* Key Takeaways Box (GEO / AI Highlight) */
@@ -174,6 +198,9 @@
   padding: 24px 28px;
   margin-bottom: 36px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  /* Prevent content inside from escaping */
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .takeaways-header {
@@ -210,6 +237,9 @@
   font-size: 0.94rem;
   line-height: 1.6;
   color: #E2E8F0;
+  /* Allow long strings (URLs, code) to break safely */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .takeaways-list li::before {
@@ -226,6 +256,10 @@
 .article-sidebar {
   position: sticky;
   top: calc(var(--header-height) + 24px);
+  /* Fixed width sidebar — must not grow or shrink beyond column */
+  min-width: 0;
+  max-width: 280px;
+  width: 100%;
 }
 
 .toc-card {
@@ -287,6 +321,10 @@
   color: #CBD5E1;
   font-size: 1.04rem;
   line-height: 1.8;
+  /* Critical: prevent any prose content from overflowing the column */
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .article-body h2 {
@@ -301,6 +339,9 @@
   padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   scroll-margin-top: calc(var(--header-height) + 24px);
+  /* Long headings must wrap, not expand */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .article-body h2:first-of-type {
@@ -318,10 +359,15 @@
   margin-bottom: 14px;
   line-height: 1.4;
   scroll-margin-top: calc(var(--header-height) + 24px);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .article-body p {
   margin-bottom: 22px;
+  /* Paragraphs must wrap — especially those containing inline code or URLs */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .article-body ul, 
@@ -333,6 +379,9 @@
 .article-body li {
   margin-bottom: 8px;
   line-height: 1.7;
+  /* List items with long code spans or URLs must wrap */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .article-body strong {
@@ -346,6 +395,9 @@
   text-underline-offset: 3px;
   text-decoration-color: rgba(0, 230, 184, 0.4);
   transition: all var(--transition-fast);
+  /* Long anchor text / URLs must wrap safely */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .article-body a:hover {
@@ -361,6 +413,10 @@
   border-radius: var(--radius-md);
   padding: 20px 24px;
   margin: 28px 0;
+  /* Callout must not escape column */
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .article-callout-title {
@@ -374,13 +430,34 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  /* Long title text should wrap, not overflow */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-wrap: wrap;
+}
+
+.article-callout p {
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .article-callout p:last-child {
   margin-bottom: 0;
 }
 
-/* Code & Syntax Styling */
+/* ==========================================================================
+   CODE BLOCK & INLINE CODE — OVERFLOW PREVENTION
+   
+   Philosophy:
+   A) Inline <code> — always wraps. Never expands the paragraph.
+   B) <pre><code> (explanatory snippets) — wraps with pre-wrap so content
+      remains readable without forcing a horizontal scrollbar on the page.
+   C) The <pre> container itself gets overflow-x: auto so long exact-whitespace
+      code CAN scroll, but only inside its own box — the page never scrolls.
+   D) In all cases: max-width: 100%, min-width: 0.
+   ========================================================================== */
+
+/* Inline code — wraps safely inside paragraphs, list items, headings */
 .article-body code {
   font-family: var(--font-mono);
   font-size: 0.88em;
@@ -389,17 +466,31 @@
   padding: 2px 6px;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Wrap at character boundaries — prevents inline code from
+     expanding its parent paragraph beyond container width */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  /* Keeps inline: doesn't force a new line unless necessary */
+  display: inline;
 }
 
+/* Code block container — scrolls internally only, never the page */
 .article-body pre {
   background-color: #05080E;
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
   padding: 20px;
   margin: 28px 0;
+  /* Hard boundaries — code blocks stay inside the column */
+  max-width: 100%;
+  min-width: 0;
+  /* If content truly needs scrolling, only THIS box scrolls */
   overflow-x: auto;
+  /* Contain the box — don't let it be a source of page overflow */
+  overflow-y: visible;
 }
 
+/* Code block content — explanatory SEO/JSON snippets wrap naturally */
 .article-body pre code {
   background: transparent;
   padding: 0;
@@ -407,20 +498,47 @@
   color: #E2E8F0;
   font-size: 0.86rem;
   line-height: 1.6;
+  /* pre-wrap preserves line breaks and indentation (essential for
+     JSON-LD, canonical examples, config snippets) while ALSO allowing
+     wrapping at natural break points. This eliminates horizontal page
+     overflow for most explanatory code — keeping it readable. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  /* Reset display to block within pre */
+  display: block;
+  /* Full width of the pre container */
+  max-width: 100%;
 }
 
-/* Data Comparison Tables */
+/* ==========================================================================
+   DATA COMPARISON TABLES — RESPONSIVE ISOLATION
+   
+   Tables are isolated inside a scrollable wrapper so wide tables
+   scroll within their own box, never causing page-level overflow.
+   ========================================================================== */
 .article-table-wrap {
+  /* Fill column width exactly */
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  /* Wide tables scroll inside this wrapper only */
   overflow-x: auto;
+  /* Smooth momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
   margin: 32px 0;
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
   background-color: var(--bg-card);
+  /* Show a subtle scroll indicator shadow on overflow */
+  box-shadow: inset -8px 0 8px -8px rgba(0,0,0,0.3);
 }
 
 .article-table {
+  /* min-content width so narrow tables don't stretch unnecessarily,
+     but wide tables can grow and be scrolled within the wrapper */
   width: 100%;
+  min-width: 600px; /* table starts scrolling before columns collapse */
   border-collapse: collapse;
   font-size: 0.9rem;
   text-align: left;
@@ -433,12 +551,22 @@
   font-weight: 600;
   padding: 14px 18px;
   border-bottom: 1px solid var(--border-subtle);
+  /* Prevent long header text from making columns too wide */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  /* Minimum readable width per column */
+  min-width: 120px;
+  white-space: normal;
 }
 
 .article-table td {
   padding: 14px 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--text-secondary);
+  /* Cell content must wrap, not expand the table horizontally */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .article-table tr:last-child td {
@@ -529,6 +657,9 @@
   border-radius: var(--radius-lg);
   padding: 30px;
   margin-top: 48px;
+  /* Author box must not exceed column width */
+  min-width: 0;
+  max-width: 100%;
 }
 
 .author-bio-avatar {
@@ -549,6 +680,10 @@
 
 .author-bio-content {
   flex-grow: 1;
+  /* Prevent content from exceeding available flex space */
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .author-bio-header {
@@ -565,12 +700,14 @@
   font-size: 1.15rem;
   font-weight: 700;
   color: #FFFFFF;
+  overflow-wrap: break-word;
 }
 
 .author-bio-role {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--accent-primary);
+  overflow-wrap: break-word;
 }
 
 .author-bio-desc {
@@ -578,10 +715,13 @@
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 14px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .author-bio-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   font-size: 0.84rem;
   font-family: var(--font-mono);
@@ -594,6 +734,8 @@
   align-items: center;
   gap: 5px;
   transition: color var(--transition-fast);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .author-bio-links a:hover {
@@ -605,6 +747,9 @@
   margin-top: 64px;
   padding-top: 48px;
   border-top: 1px solid var(--border-subtle);
+  /* Related section must not escape its column */
+  min-width: 0;
+  max-width: 100%;
 }
 
 .related-header {
@@ -626,12 +771,16 @@
   font-size: 1.6rem;
   font-weight: 700;
   color: #FFFFFF;
+  overflow-wrap: break-word;
 }
 
 .related-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* minmax(0, 1fr) instead of minmax(280px, 1fr) on narrow screens
+     prevents grid items from escaping on 390px viewports */
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 24px;
+  min-width: 0;
 }
 
 /* Article CTA Block */
@@ -682,7 +831,11 @@
   gap: 14px;
 }
 
-/* Responsive Media Queries */
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* ≤ 992px: Collapse to single column, TOC moves above content */
 @media (max-width: 992px) {
   .article-layout-grid {
     grid-template-columns: 1fr;
@@ -693,13 +846,22 @@
     position: static;
     order: -1;
     margin-bottom: 24px;
+    /* Sidebar becomes full-width on mobile */
+    max-width: 100%;
+    width: 100%;
   }
 
   .toc-card {
     background-color: var(--bg-card);
   }
+
+  /* On mobile, tables with min-width can still scroll in their wrapper */
+  .article-table {
+    min-width: 480px;
+  }
 }
 
+/* ≤ 768px: Tablet adjustments */
 @media (max-width: 768px) {
   .article-page {
     padding-top: calc(var(--header-height) + 16px);
@@ -719,10 +881,14 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 24px;
+    /* Ensure the stacked author box does not create overflow */
+    min-width: 0;
+    width: 100%;
   }
 
   .article-cta-box {
     padding: 30px 20px;
+    min-width: 0;
   }
 
   .article-h1 {
@@ -731,5 +897,97 @@
 
   .article-body h2 {
     font-size: 1.35rem;
+  }
+
+  .key-takeaways-card {
+    padding: 20px 18px;
+  }
+
+  .article-callout {
+    padding: 16px 18px;
+  }
+}
+
+/* ≤ 430px: Small mobile (iPhone Plus, Pixel) */
+@media (max-width: 430px) {
+  .article-h1 {
+    font-size: 1.55rem;
+  }
+
+  /* Reduce padding inside code blocks so they have more room */
+  .article-body pre {
+    padding: 14px;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Slightly smaller inline code at small breakpoint */
+  .article-body code {
+    font-size: 0.82em;
+  }
+
+  .article-table-wrap {
+    margin: 20px 0;
+    border-radius: var(--radius-sm);
+  }
+
+  .article-table {
+    /* At very narrow widths, allow tighter min-width */
+    min-width: 400px;
+  }
+
+  .author-bio-avatar {
+    width: 52px;
+    height: 52px;
+    font-size: 1.2rem;
+  }
+
+  .related-grid {
+    /* At very small widths, force single column */
+    grid-template-columns: 1fr;
+  }
+
+  .article-cta-box {
+    padding: 24px 16px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ≤ 390px: Smallest common viewport — ZERO page overflow required */
+@media (max-width: 390px) {
+  .article-body {
+    font-size: 0.97rem;
+  }
+
+  /* Tightest padding for list items with code */
+  .article-body ul,
+  .article-body ol {
+    padding-left: 18px;
+  }
+
+  .takeaways-list li {
+    font-size: 0.88rem;
+  }
+
+  .faq-question {
+    padding: 14px 16px;
+    font-size: 0.94rem;
+  }
+
+  .faq-answer {
+    padding: 0 16px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding-bottom: 16px;
   }
 }

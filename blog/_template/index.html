@@ -1,4 +1,38 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  BLOG ARTICLE TEMPLATE — Rishabh Debnath Portfolio
+  ============================================================
+  HOW TO USE THIS TEMPLATE:
+  
+  1. COPY this file to a new directory:
+       /blog/your-article-slug/index.html
+  
+  2. FIND & REPLACE all @@PLACEHOLDER@@ values below.
+  
+  3. ADD your article to /js/blog-data.js (the central registry).
+  
+  4. ADD the URL to /sitemap.xml.
+  
+  5. GIT COMMIT & PUSH — Hostinger deploys automatically.
+  
+  ============================================================
+  PUBLISHING WORKFLOW QUICK REFERENCE:
+  
+  - Slug:          Short, hyphenated URL identifier
+  - Canonical URL: https://rishabhdebnath.com/blog/@@SLUG@@/
+  - Published:     ISO date: 2026-MM-DD
+  - Updated:       ISO date: 2026-MM-DD (update on edits)
+  - Read Time:     Estimate ~200 words/minute
+  
+  ============================================================
+  OVERFLOW NOTE:
+  All code blocks, tables, inline code, and long URLs are
+  handled automatically by /css/blog.css. No article-specific
+  overflow fixes are needed. Just use the standard HTML
+  elements (<pre>, <code>, .article-table-wrap, etc.).
+  ============================================================
+-->
 <html lang="en">
 
 <head>
@@ -13,32 +47,48 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Technical SEO Audit Checklist for Modern Web Architecture | Rishabh Debnath</title>
-  <meta name="description"
-    content="A rigorous technical SEO diagnostic checklist covering crawl efficiency, canonical governance, Core Web Vitals, and indexation controls for modern web applications." />
-  <meta name="keywords"
-    content="Technical SEO Audit, Crawl Budget, Core Web Vitals, Screaming Frog, Canonical Tags, Robots.txt, XML Sitemap, INP, LCP, CLS, Log File Analysis" />
+
+  <!-- ============================================================
+       SEO META — Replace all @@PLACEHOLDERS@@
+       ============================================================ -->
+
+  <!-- Page title: Primary keyword + "| Rishabh Debnath" -->
+  <title>@@ARTICLE TITLE@@ | Rishabh Debnath</title>
+
+  <!-- Meta description: 120–160 characters, summarizes the article -->
+  <meta name="description" content="@@META DESCRIPTION (120–160 chars)@@" />
+
+  <!-- Keywords: comma-separated (descriptive, not stuffed) -->
+  <meta name="keywords" content="@@KEYWORD 1@@, @@KEYWORD 2@@, @@KEYWORD 3@@" />
+
   <meta name="author" content="Rishabh Debnath" />
-  <link rel="canonical" href="https://rishabhdebnath.com/blog/technical-seo-audit-checklist/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical URL — must be absolute, matches the slug directory -->
+  <link rel="canonical" href="https://rishabhdebnath.com/blog/@@SLUG@@/" />
+
   <link rel="icon" type="image/svg+xml" href="../../assets/images/logo.svg" />
 
-  <!-- Open Graph / Social Meta -->
+  <!-- ============================================================
+       OPEN GRAPH — Replace all @@PLACEHOLDERS@@
+       ============================================================ -->
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Technical SEO Audit Checklist for Modern Web Architecture" />
-  <meta property="og:description"
-    content="Step-by-step diagnostic workflow to detect crawl bloat, resolve redirect chains, audit Core Web Vitals, and guarantee pristine indexation." />
-  <meta property="og:url" content="https://rishabhdebnath.com/blog/technical-seo-audit-checklist/" />
+  <meta property="og:title" content="@@ARTICLE TITLE@@" />
+  <meta property="og:description" content="@@OG DESCRIPTION (max 200 chars)@@" />
+  <meta property="og:url" content="https://rishabhdebnath.com/blog/@@SLUG@@/" />
   <meta property="og:image" content="https://rishabhdebnath.com/assets/images/logo.svg" />
-  <meta property="article:published_time" content="2026-08-05T09:00:00+00:00" />
-  <meta property="article:modified_time" content="2026-08-19T17:00:00+00:00" />
+  <!-- If you add a unique hero image: use an absolute URL above -->
+  <meta property="article:published_time" content="@@YYYY-MM-DDTHH:MM:SS+00:00@@" />
+  <meta property="article:modified_time" content="@@YYYY-MM-DDTHH:MM:SS+00:00@@" />
   <meta property="article:author" content="https://rishabhdebnath.com/#person" />
-  <meta property="article:section" content="Technical SEO" />
+  <meta property="article:section" content="@@ARTICLE CATEGORY@@" />
 
-  <!-- Twitter Meta -->
+  <!-- ============================================================
+       TWITTER CARD — Replace all @@PLACEHOLDERS@@
+       ============================================================ -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Technical SEO Audit Checklist for Modern Web Architecture" />
-  <meta name="twitter:description"
-    content="A practical diagnostic workflow for auditing crawl budget, Core Web Vitals, and indexation governance." />
+  <meta name="twitter:title" content="@@ARTICLE TITLE@@" />
+  <meta name="twitter:description" content="@@TWITTER DESCRIPTION (max 200 chars)@@" />
   <meta name="twitter:image" content="https://rishabhdebnath.com/assets/images/logo.svg" />
 
   <!-- Typography: Google Fonts (Sora, Inter, IBM Plex Mono) -->
@@ -48,12 +98,16 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
     rel="stylesheet" />
 
-  <!-- Stylesheets -->
+  <!-- Stylesheets — do not change these paths for blog articles -->
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="../../css/blog.css" />
 
-  <!-- Structured Data: Schema.org (JSON-LD) -->
+  <!-- ============================================================
+       STRUCTURED DATA — JSON-LD Schema.org
+       
+       Replace @@PLACEHOLDERS@@ — delete FAQPage block if no FAQ.
+       ============================================================ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -81,7 +135,7 @@
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://rishabhdebnath.com/blog/technical-seo-audit-checklist/#breadcrumb",
+        "@id": "https://rishabhdebnath.com/blog/@@SLUG@@/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -98,69 +152,64 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Technical SEO Audit Checklist",
-            "item": "https://rishabhdebnath.com/blog/technical-seo-audit-checklist/"
+            "name": "@@SHORT ARTICLE TITLE@@",
+            "item": "https://rishabhdebnath.com/blog/@@SLUG@@/"
           }
         ]
       },
       {
         "@type": "BlogPosting",
-        "@id": "https://rishabhdebnath.com/blog/technical-seo-audit-checklist/#article",
+        "@id": "https://rishabhdebnath.com/blog/@@SLUG@@/#article",
         "isPartOf": {
           "@id": "https://rishabhdebnath.com/#website"
         },
-        "headline": "Technical SEO Audit Checklist for Modern Web Architecture",
-        "description": "A rigorous technical SEO diagnostic checklist covering crawl efficiency, canonical governance, Core Web Vitals, and indexation controls for modern web applications.",
-        "datePublished": "2026-08-05T09:00:00+00:00",
-        "dateModified": "2026-08-19T17:00:00+00:00",
-        "mainEntityOfPage": "https://rishabhdebnath.com/blog/technical-seo-audit-checklist/",
+        "headline": "@@FULL ARTICLE TITLE@@",
+        "description": "@@META DESCRIPTION@@",
+        "datePublished": "@@YYYY-MM-DDTHH:MM:SS+00:00@@",
+        "dateModified": "@@YYYY-MM-DDTHH:MM:SS+00:00@@",
+        "mainEntityOfPage": "https://rishabhdebnath.com/blog/@@SLUG@@/",
         "author": {
           "@id": "https://rishabhdebnath.com/#person"
         },
         "publisher": {
           "@id": "https://rishabhdebnath.com/#person"
         },
-        "articleSection": "Technical SEO",
+        "articleSection": "@@ARTICLE CATEGORY@@",
         "inLanguage": "en-US",
         "keywords": [
-          "Technical SEO Audit",
-          "Crawl Budget Optimization",
-          "Core Web Vitals",
-          "Robots.txt",
-          "Canonical Tags",
-          "Screaming Frog"
+          "@@KEYWORD 1@@",
+          "@@KEYWORD 2@@",
+          "@@KEYWORD 3@@"
         ]
-      },
+      }
+
+      /* ---- OPTIONAL: FAQPage block ----
+         Only include this if the page has a visible FAQ section.
+         Delete this entire block if there is no FAQ.
+      ,
       {
         "@type": "FAQPage",
-        "@id": "https://rishabhdebnath.com/blog/technical-seo-audit-checklist/#faq",
+        "@id": "https://rishabhdebnath.com/blog/@@SLUG@@/#faq",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is the most critical starting point for a technical SEO audit?",
+            "name": "@@QUESTION 1@@",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The foundation of any technical audit is evaluating crawlability and indexation governance: verifying robots.txt directives, inspecting XML sitemap hygiene, and checking HTTP status codes to ensure bots can discover canonical 200-status URLs without hitting redirect loops or 4xx/5xx bottlenecks."
+              "text": "@@ANSWER 1@@"
             }
           },
           {
             "@type": "Question",
-            "name": "How does Core Web Vitals performance affect SEO rankings?",
+            "name": "@@QUESTION 2@@",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Core Web Vitals (Largest Contentful Paint, Interaction to Next Paint, and Cumulative Layout Shift) are direct page experience ranking signals in Google. Fast-loading, responsive pages retain visitors, reduce bounce rates, and allow search crawlers to fetch resources with minimal server overhead."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How often should technical site audits be conducted?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Comprehensive technical audits should be conducted quarterly, with lightweight weekly automated crawls to catch broken internal links, accidental noindex tags, or redirect regressions immediately following code deployments."
+              "text": "@@ANSWER 2@@"
             }
           }
         ]
       }
+      ---- END FAQPage block ---- */
     ]
   }
   </script>
@@ -171,7 +220,9 @@
   <!-- Technical Ambient Grid Overlay -->
   <div class="bg-grid-overlay" aria-hidden="true"></div>
 
-  <!-- Header / Sticky Navigation -->
+  <!-- ============================================================
+       HEADER — do not modify (consistent across all pages)
+       ============================================================ -->
   <header class="site-header" id="site-header">
     <div class="container header-container">
       <a href="../../" class="brand-link" aria-label="Rishabh Debnath Home">
@@ -182,7 +233,6 @@
         </div>
       </a>
 
-      <!-- Center Navigation -->
       <nav class="main-nav" aria-label="Main Navigation">
         <a href="../../" class="nav-link">Home</a>
         <a href="../../#about" class="nav-link">About</a>
@@ -193,7 +243,6 @@
         <a href="../../resume.html" class="nav-link">Resume</a>
       </nav>
 
-      <!-- Header Right CTA -->
       <div class="header-actions">
         <a href="../../#contact" class="btn btn-primary btn-sm">Let's Talk</a>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Open mobile menu">
@@ -234,34 +283,43 @@
     </div>
   </aside>
 
-  <!-- Main Article Content -->
+  <!-- ============================================================
+       MAIN ARTICLE CONTENT
+       ============================================================ -->
   <main class="article-page">
     <div class="container">
 
-      <!-- Breadcrumbs -->
+      <!-- Breadcrumbs — replace @@ARTICLE TITLE SHORT@@ -->
       <nav class="breadcrumb-nav" aria-label="Breadcrumb">
         <a href="../../">Home</a>
         <span class="breadcrumb-separator">/</span>
         <a href="../../#blog">Blog</a>
         <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current" aria-current="page">Technical SEO Audit Checklist</span>
+        <span class="breadcrumb-current" aria-current="page">@@ARTICLE TITLE SHORT@@</span>
       </nav>
 
-      <!-- Article Header -->
+      <!-- Article Header — replace all @@PLACEHOLDERS@@ -->
       <header class="article-header">
+
+        <!-- Category Badge — choose: Generative Engine Optimization | Semantic SEO | Technical SEO | AI Search Optimization -->
         <div class="article-category-badge">
+          <!-- Replace the SVG icon if desired (options used in existing articles) -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="12 6 12 12 16 14"></polygon>
           </svg>
-          <span>Technical SEO</span>
+          <span>@@ARTICLE CATEGORY@@</span>
         </div>
-        <h1 class="article-h1">Technical SEO Audit Checklist for Modern Web Architecture</h1>
+
+        <!-- H1 — unique per article, includes primary keyword naturally -->
+        <h1 class="article-h1">@@FULL ARTICLE TITLE@@</h1>
+
+        <!-- Introduction paragraph — 2–4 sentences, answer-first -->
         <p class="article-lead">
-          Without pristine crawl paths and sound indexation architecture, even the highest-quality content remains invisible. Here is a diagnostic checklist to audit modern web applications from server response to structured data.
+          @@INTRODUCTORY PARAGRAPH — concise, direct, states what the reader will learn@@
         </p>
 
-        <!-- Article Metadata Bar -->
+        <!-- Metadata Bar -->
         <div class="article-meta-bar">
           <div class="author-meta-group">
             <div class="author-avatar">RD</div>
@@ -278,26 +336,30 @@
                 <line x1="8" y1="2" x2="8" y2="6"></line>
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
-              <span>Published: Aug 5, 2026</span>
+              <!-- Example: "Published: Aug 20, 2026" -->
+              <span>Published: @@MONTH DD, YYYY@@</span>
             </div>
             <div class="timestamp-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              <span>8 min read</span>
+              <!-- Example: "7 min read" -->
+              <span>@@X min read@@</span>
             </div>
           </div>
         </div>
       </header>
 
-      <!-- Layout Grid (Main Column + Sticky TOC) -->
+      <!-- Main Layout Grid: Content + Sticky TOC Sidebar -->
       <div class="article-layout-grid">
-        
-        <!-- Main Column -->
+
+        <!-- ============================================================
+             MAIN CONTENT COLUMN
+             ============================================================ -->
         <article class="article-main-column">
 
-          <!-- Key Takeaways Box -->
+          <!-- Key Takeaways Box (keep this near the top, great for GEO/AI citations) -->
           <div class="key-takeaways-card">
             <div class="takeaways-header">
               <span class="takeaways-icon">
@@ -305,162 +367,144 @@
                   <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                 </svg>
               </span>
+              <!-- h2 with inline style to override article-body h2 border — do not change -->
               <h2 class="takeaways-title" style="margin: 0; border: none; padding: 0;">Key Takeaways</h2>
             </div>
             <ul class="takeaways-list">
-              <li><strong>Crawl Depth Governance:</strong> All critical indexable pages must reside within a 3-click hierarchy from the homepage.</li>
-              <li><strong>Canonical Hygiene:</strong> Self-referencing canonicals prevent duplicate parameter URLs and consolidate PageRank equity.</li>
-              <li><strong>Core Web Vitals Benchmarks:</strong> Target Sub-2.5s LCP, Sub-200ms INP, and Sub-0.1 CLS on real mobile field data.</li>
-              <li><strong>Semantic Crawl Compatibility:</strong> Maintain standard <code>&lt;a href="..."&gt;</code> HTML anchors rather than JS-bound click events.</li>
+              <li><strong>@@TAKEAWAY 1 BOLD LABEL@@:</strong> @@Takeaway 1 explanation. Can include <a href="../@@related-slug@@/">internal links</a>.@@</li>
+              <li><strong>@@TAKEAWAY 2 BOLD LABEL@@:</strong> @@Takeaway 2 explanation.@@</li>
+              <li><strong>@@TAKEAWAY 3 BOLD LABEL@@:</strong> @@Takeaway 3 explanation.@@</li>
+              <!-- Add or remove <li> as needed -->
             </ul>
           </div>
 
-          <!-- Prose Article Body -->
+          <!-- ============================================================
+               ARTICLE BODY — main prose content
+               ============================================================ -->
           <div class="article-body">
-            <h2 id="crawlability-and-bot-access">1. Crawlability &amp; Bot Access Control</h2>
+
+            <!-- ==== SECTION 1 ==== -->
+            <!-- id must match the TOC href (e.g., href="#section-one-slug") -->
+            <h2 id="@@section-1-slug@@">1. @@Section 1 Heading@@</h2>
             <p>
-              A technical SEO audit always begins with bot access. If Googlebot, Bingbot, or AI retrieval crawlers cannot reach your content without encountering barriers, your keyword and entity strategies cannot bear fruit.
+              @@Paragraph text. Direct, factual, answer-first. No filler.@@
             </p>
 
+            <!-- Optional: Callout box for definitions or critical notes -->
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                @@Callout Label (e.g., "Core Definition: Entity-Based SEO")@@
+              </div>
+              <p>@@Callout content — concise, high-density definition or warning.@@</p>
+            </div>
+
+            <!-- ==== SECTION 2 ==== -->
+            <h2 id="@@section-2-slug@@">2. @@Section 2 Heading@@</h2>
+            <p>@@Section 2 paragraph.@@</p>
+
+            <!-- Optional: Responsive comparison table
+                 IMPORTANT: always wrap <table> in .article-table-wrap
+                 This isolates table scroll from the page scroll. -->
             <div class="article-table-wrap">
               <table class="article-table">
                 <thead>
                   <tr>
-                    <th>Checkpoint</th>
-                    <th>Audit Method</th>
-                    <th>Healthy Benchmark</th>
+                    <th>@@Column A@@</th>
+                    <th>@@Column B@@</th>
+                    <th>@@Column C@@</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Robots.txt Directives</strong></td>
-                    <td>Check root <code>/robots.txt</code> for accidental disallows on CSS, JS, or <code>/blog/</code> paths.</td>
-                    <td>Clean syntax with absolute <code>Sitemap:</code> declaration.</td>
+                    <td><strong>@@Row 1 A@@</strong></td>
+                    <td>@@Row 1 B@@</td>
+                    <td>@@Row 1 C@@</td>
                   </tr>
                   <tr>
-                    <td><strong>XML Sitemap Hygiene</strong></td>
-                    <td>Validate via Google Search Console. Ensure no 301 redirects, 404s, or noindexed URLs exist in the file.</td>
-                    <td>100% 200-OK canonical URLs with updated <code>&lt;lastmod&gt;</code> timestamps.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>HTTP Status Codes</strong></td>
-                    <td>Run Screaming Frog crawl simulation.</td>
-                    <td>Zero 4xx/5xx errors on internal links; 301 redirect chains resolved to single hops.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>AI Crawler Permissions</strong></td>
-                    <td>Review rules for <code>GPTBot</code>, <code>PerplexityBot</code>, <code>Google-Extended</code>.</td>
-                    <td>Allowed if targeting <a href="../the-shift-from-traditional-seo-to-geo/">GEO &amp; AI Citations</a>.</td>
+                    <td><strong>@@Row 2 A@@</strong></td>
+                    <td>@@Row 2 B@@</td>
+                    <td>@@Row 2 C@@</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <h2 id="indexation-and-canonical-architecture">2. Indexation &amp; Canonical Architecture</h2>
-            <p>
-              Search engines budget a finite amount of crawl resources per domain. Index bloat—caused by faceted filters, tracking parameters, and uncanonicalized staging mirrors—dilutes domain authority.
-            </p>
+            <!-- ==== SECTION 3 ==== -->
+            <h2 id="@@section-3-slug@@">3. @@Section 3 Heading@@</h2>
+            <p>@@Section 3 paragraph.@@</p>
 
-            <div class="article-callout">
-              <div class="article-callout-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                  <line x1="12" y1="9" x2="12" y2="13"></line>
-                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-                Crucial Rule: Canonical Tag Implementation
-              </div>
-              <p>
-                Every published page must include a self-referencing absolute canonical tag in the <code>&lt;head&gt;</code>: <code>&lt;link rel="canonical" href="https://domain.com/path/" /&gt;</code>. Never use relative URLs in canonical headers.
-              </p>
-            </div>
+            <!-- Optional: Code / explanatory snippet block
+                 Use pre-wrap (handled by blog.css) for SEO/JSON-LD examples.
+                 Content wraps naturally. No horizontal page overflow. -->
+            <pre><code>// @@EXAMPLE TITLE@@
+@@Line 1@@
+@@Line 2@@
+@@Line 3@@</code></pre>
 
-            <h2 id="core-web-vitals-benchmarking">3. Core Web Vitals &amp; Rendering Performance</h2>
-            <p>
-              Page experience directly influences user retention and crawl efficiency. Google measures three core metrics in its Chrome User Experience Report (CrUX):
-            </p>
+            <!-- ==== SECTION 4 ==== -->
+            <h2 id="@@section-4-slug@@">4. @@Section 4 Heading@@</h2>
+            <p>@@Section 4 paragraph with an <a href="../@@related-slug@@/">internal link to a related article</a>.@@</p>
 
-            <pre><code>// 2026 Core Web Vitals Targets:
-1. Largest Contentful Paint (LCP)  &lt;= 2.5 seconds (Good)
-2. Interaction to Next Paint (INP)  &lt;= 200 milliseconds (Good)
-3. Cumulative Layout Shift (CLS)    &lt;= 0.10 (Good)</code></pre>
-
-            <p>
-              To satisfy these thresholds:
-            </p>
             <ul>
-              <li><strong>Preload Critical Assets:</strong> Use <code>&lt;link rel="preconnect"&gt;</code> for Google Fonts and critical CDNs.</li>
-              <li><strong>Modern Image Formats:</strong> Convert legacy PNG/JPEG images into responsive SVG or WebP formats with explicit <code>width</code> and <code>height</code> attributes.</li>
-              <li><strong>CSS &amp; JS Hygiene:</strong> Minimize render-blocking CSS stylesheets and defer non-critical scripts.</li>
+              <li><strong>@@Point 1 label@@:</strong> @@Point 1 explanation.@@</li>
+              <li><strong>@@Point 2 label@@:</strong> @@Point 2 explanation.@@</li>
+              <li><strong>@@Point 3 label@@:</strong> @@Point 3 explanation.@@</li>
             </ul>
 
-            <h2 id="structured-data-and-semantic-markup">4. Structured Data &amp; Schema Engineering</h2>
-            <p>
-              Structured data is the communication bridge between your HTML markup and machine Knowledge Graphs. For in-depth entity concepts, see <a href="../entity-based-seo/">Entity-Based SEO: Why Search Engines Care About Things, Not Just Strings</a>.
-            </p>
-            <p>
-              Checklist for schema compliance:
-            </p>
+            <!-- ==== SECTION 5 ==== -->
+            <h2 id="@@section-5-slug@@">5. @@Section 5 Heading@@</h2>
+            <p>@@Section 5 paragraph.@@</p>
+
             <ol>
-              <li>Validate all JSON-LD blocks against the official <strong>Schema.org vocabulary</strong>.</li>
-              <li>Nest author, publisher, and organization entities cleanly inside a unified <code>@graph</code> block.</li>
-              <li>Add <code>BreadcrumbList</code> structured data to reflect site taxonomy.</li>
-              <li>Avoid adding FAQ schema unless visible accordion content is present on the page.</li>
+              <li><strong>@@Step 1@@:</strong> @@Step 1 detail.@@</li>
+              <li><strong>@@Step 2@@:</strong> @@Step 2 detail.@@</li>
+              <li><strong>@@Step 3@@:</strong> @@Step 3 detail.@@</li>
             </ol>
 
-            <h2 id="log-file-analysis-workflow">5. Log File Analysis Workflow</h2>
-            <p>
-              Standard analytics tools (like GA4) only record user sessions. Server log files capture every single request made by Googlebot and AI crawlers.
-            </p>
-            <p>
-              By analyzing server logs with tools like Screaming Frog Log File Analyzer, you can identify:
-            </p>
-            <ul>
-              <li><strong>Orphan Pages:</strong> URLs receiving bot visits that are not linked in current site architecture.</li>
-              <li><strong>Crawl Waste:</strong> Parameterized URLs consuming bot resources.</li>
-              <li><strong>Crawl Frequency Discrepancies:</strong> High-priority revenue pages that are being crawled too infrequently.</li>
-            </ul>
           </div>
+          <!-- END .article-body -->
 
-          <!-- FAQ Section -->
+          <!-- ============================================================
+               FAQ SECTION — OPTIONAL
+               Delete this entire <section> if no FAQ.
+               Only add FAQPage JSON-LD if this section is present.
+               ============================================================ -->
           <section class="faq-section" id="faq">
+            <!-- h2 with inline style to override article-body h2 border — do not change -->
             <h2 class="faq-title" style="border: none; padding: 0; margin-bottom: 20px;">Frequently Asked Questions</h2>
-            
+
+            <!-- FAQ Item 1 (open by default) -->
             <div class="faq-item active">
               <button class="faq-question" aria-expanded="true">
-                <span>What is the most critical starting point for a technical SEO audit?</span>
+                <span>@@Question 1@@</span>
                 <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </button>
               <div class="faq-answer">
-                <p>The foundation of any technical audit is evaluating crawlability and indexation governance: verifying robots.txt directives, inspecting XML sitemap hygiene, and checking HTTP status codes to ensure bots can discover canonical 200-status URLs without hitting redirect loops or 4xx/5xx bottlenecks.</p>
+                <p>@@Answer 1 — direct, factual, 2–5 sentences.@@</p>
               </div>
             </div>
 
+            <!-- FAQ Item 2 -->
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                <span>How does Core Web Vitals performance affect SEO rankings?</span>
+                <span>@@Question 2@@</span>
                 <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </button>
               <div class="faq-answer">
-                <p>Core Web Vitals (Largest Contentful Paint, Interaction to Next Paint, and Cumulative Layout Shift) are direct page experience ranking signals in Google. Fast-loading, responsive pages retain visitors, reduce bounce rates, and allow search crawlers to fetch resources with minimal server overhead.</p>
+                <p>@@Answer 2@@</p>
               </div>
             </div>
 
-            <div class="faq-item">
-              <button class="faq-question" aria-expanded="false">
-                <span>How often should technical site audits be conducted?</span>
-                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
-              <div class="faq-answer">
-                <p>Comprehensive technical audits should be conducted quarterly, with lightweight weekly automated crawls to catch broken internal links, accidental noindex tags, or redirect regressions immediately following code deployments.</p>
-              </div>
-            </div>
+            <!-- Add more FAQ items by duplicating the block above -->
           </section>
 
           <!-- Author Bio Box -->
@@ -492,44 +536,46 @@
           <div class="article-cta-box">
             <h3 class="cta-title">Explore More SEO &amp; AI Search Insights</h3>
             <p class="cta-desc">
-              Need a full diagnostic crawl audit or Core Web Vitals remediation plan for your website? Let's connect.
+              @@CTA description — 1–2 sentences inviting the reader to connect or explore more.@@
             </p>
             <div class="cta-buttons">
-              <a href="../../#contact" class="btn btn-primary btn-sm">Let's Discuss Your Audit</a>
-              <a href="../../#work" class="btn btn-secondary btn-sm">View Technical Case Studies</a>
+              <a href="../../#contact" class="btn btn-primary btn-sm">@@CTA Button 1 Label@@</a>
+              <a href="../../#work" class="btn btn-secondary btn-sm">@@CTA Button 2 Label@@</a>
             </div>
           </div>
 
-          <!-- Related Articles Grid -->
+          <!-- Related Articles — replace slugs and titles -->
           <section class="related-articles-section">
             <div class="related-header">
               <span class="related-tag">Continue Reading</span>
               <h3 class="related-title">Related Notes &amp; Analysis</h3>
             </div>
             <div class="related-grid">
-              
+
+              <!-- Related Article Card 1 -->
               <article class="blog-card">
-                <a href="../the-shift-from-traditional-seo-to-geo/" class="blog-card-link-overlay" aria-label="Read The Shift to GEO article"></a>
+                <a href="../@@related-slug-1@@/" class="blog-card-link-overlay" aria-label="Read @@Related Title 1@@"></a>
                 <div class="blog-meta">
-                  <span class="blog-category">Generative Engine Optimization</span>
-                  <span class="blog-readtime">7 min read</span>
+                  <span class="blog-category">@@Related Category 1@@</span>
+                  <span class="blog-readtime">@@X min read@@</span>
                 </div>
-                <h4 class="blog-title"><a href="../the-shift-from-traditional-seo-to-geo/">The Shift from Traditional SEO to GEO: How LLMs Select Sources</a></h4>
-                <p class="blog-excerpt">An architectural deep-dive into how large language models perform retrieval-augmented generation and score information density.</p>
+                <h4 class="blog-title"><a href="../@@related-slug-1@@/">@@Related Article Title 1@@</a></h4>
+                <p class="blog-excerpt">@@One-sentence excerpt for Related Article 1.@@</p>
                 <div class="blog-link">
                   <span>Read Analysis</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </div>
               </article>
 
+              <!-- Related Article Card 2 -->
               <article class="blog-card">
-                <a href="../optimizing-for-ai-search/" class="blog-card-link-overlay" aria-label="Read Optimizing for AI Search article"></a>
+                <a href="../@@related-slug-2@@/" class="blog-card-link-overlay" aria-label="Read @@Related Title 2@@"></a>
                 <div class="blog-meta">
-                  <span class="blog-category">AI Search Optimization</span>
-                  <span class="blog-readtime">7 min read</span>
+                  <span class="blog-category">@@Related Category 2@@</span>
+                  <span class="blog-readtime">@@X min read@@</span>
                 </div>
-                <h4 class="blog-title"><a href="../optimizing-for-ai-search/">Optimizing for Perplexity, ChatGPT Search &amp; Google AI Overviews</a></h4>
-                <p class="blog-excerpt">Practical tactics to structure content for direct passage retrieval and citation acquisition in conversational AI engines.</p>
+                <h4 class="blog-title"><a href="../@@related-slug-2@@/">@@Related Article Title 2@@</a></h4>
+                <p class="blog-excerpt">@@One-sentence excerpt for Related Article 2.@@</p>
                 <div class="blog-link">
                   <span>Read Analysis</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -540,8 +586,12 @@
           </section>
 
         </article>
+        <!-- END .article-main-column -->
 
-        <!-- Sidebar Sticky Table of Contents -->
+        <!-- ============================================================
+             STICKY TABLE OF CONTENTS SIDEBAR
+             Update hrefs to match your section IDs above.
+             ============================================================ -->
         <aside class="article-sidebar">
           <div class="toc-card">
             <div class="toc-title">
@@ -556,21 +606,28 @@
               <span>Table of Contents</span>
             </div>
             <ul class="toc-list">
-              <li><a href="#crawlability-and-bot-access" class="toc-link">1. Crawlability &amp; Bot Access</a></li>
-              <li><a href="#indexation-and-canonical-architecture" class="toc-link">2. Indexation &amp; Canonicals</a></li>
-              <li><a href="#core-web-vitals-benchmarking" class="toc-link">3. Core Web Vitals Benchmarking</a></li>
-              <li><a href="#structured-data-and-semantic-markup" class="toc-link">4. Structured Data &amp; Schema</a></li>
-              <li><a href="#log-file-analysis-workflow" class="toc-link">5. Log File Analysis Workflow</a></li>
+              <!-- href must match the id on the corresponding h2 -->
+              <li><a href="#@@section-1-slug@@" class="toc-link">1. @@Section 1 Short Label@@</a></li>
+              <li><a href="#@@section-2-slug@@" class="toc-link">2. @@Section 2 Short Label@@</a></li>
+              <li><a href="#@@section-3-slug@@" class="toc-link">3. @@Section 3 Short Label@@</a></li>
+              <li><a href="#@@section-4-slug@@" class="toc-link">4. @@Section 4 Short Label@@</a></li>
+              <li><a href="#@@section-5-slug@@" class="toc-link">5. @@Section 5 Short Label@@</a></li>
+              <!-- Include only if FAQ section is present -->
               <li><a href="#faq" class="toc-link">Frequently Asked Questions</a></li>
             </ul>
           </div>
         </aside>
 
       </div>
+      <!-- END .article-layout-grid -->
+
     </div>
+    <!-- END .container -->
   </main>
 
-  <!-- Footer -->
+  <!-- ============================================================
+       FOOTER — do not modify (consistent across all pages)
+       ============================================================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
@@ -616,15 +673,19 @@
     </div>
   </footer>
 
-  <!-- Page Interactivity Script -->
+  <!-- ============================================================
+       PAGE INTERACTIVITY — do not modify (copy as-is)
+       ============================================================ -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Header scroll glass effect
       const header = document.getElementById("site-header");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 30) header?.classList.add("scrolled");
         else header?.classList.remove("scrolled");
       }, { passive: true });
 
+      // Mobile Drawer
       const mobileToggle = document.getElementById("mobile-toggle");
       const mobileDrawer = document.getElementById("mobile-drawer");
       const drawerBackdrop = document.getElementById("drawer-backdrop");
@@ -646,10 +707,12 @@
       closeDrawerBtn?.addEventListener("click", () => toggleDrawer(false));
       drawerBackdrop?.addEventListener("click", () => toggleDrawer(false));
 
+      // Back to Top
       document.getElementById("back-to-top")?.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
+      // FAQ Accordion
       document.querySelectorAll(".faq-question").forEach((btn) => {
         btn.addEventListener("click", () => {
           const item = btn.closest(".faq-item");
@@ -659,6 +722,7 @@
         });
       });
 
+      // TOC Active ScrollSpy (highlights the current section in the sidebar)
       const headings = document.querySelectorAll(".article-body h2[id], .faq-section[id]");
       const tocLinks = document.querySelectorAll(".toc-link");
 
