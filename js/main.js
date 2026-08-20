@@ -316,28 +316,100 @@ function initContactForm() {
   const form = document.getElementById("portfolio-contact-form");
   if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const btnSpan = submitBtn ? submitBtn.querySelector("span") : null;
+  const originalBtnText = btnSpan ? btnSpan.textContent : "Send Message";
+  const statusDiv = document.getElementById("form-status");
+
+  let isSubmitting = false;
+
+  function setStatus(message, type) {
+    if (!statusDiv) return;
+    statusDiv.textContent = message;
+    statusDiv.className = `form-status ${type}`;
+    statusDiv.style.display = "flex";
+  }
+
+  function clearStatus() {
+    if (!statusDiv) return;
+    statusDiv.textContent = "";
+    statusDiv.className = "form-status";
+    statusDiv.style.display = "none";
+  }
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = form.querySelector("#contact-name").value.trim();
-    const email = form.querySelector("#contact-email").value.trim();
-    const subject = form.querySelector("#contact-subject").value.trim();
-    const message = form.querySelector("#contact-message").value.trim();
+    // Prevent duplicate submissions
+    if (isSubmitting) return;
 
+    clearStatus();
+
+    const nameInput = form.querySelector("#contact-name");
+    const emailInput = form.querySelector("#contact-email");
+    const messageInput = form.querySelector("#contact-message");
+
+    const name = nameInput ? nameInput.value.trim() : "";
+    const email = emailInput ? emailInput.value.trim() : "";
+    const message = messageInput ? messageInput.value.trim() : "";
+
+    // Client-side validation
     if (!name || !email || !message) {
+      setStatus("Please fill in all required fields.", "error");
       showToast("Please fill in all required fields.");
       return;
     }
 
-    const mailtoLink = `mailto:rishabhdebnath101@gmail.com?subject=${encodeURIComponent(
-      subject || "SEO / GEO Opportunity Inquiry"
-    )}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setStatus("Please enter a valid email address.", "error");
+      showToast("Please enter a valid email address.");
+      return;
+    }
 
-    showToast("Message prepared! Opening your email client...", "success");
-    setTimeout(() => {
-      window.location.href = mailtoLink;
-      form.reset();
-    }, 800);
+    // Set submitting state
+    isSubmitting = true;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (btnSpan) btnSpan.textContent = "Sending...";
+    }
+
+    try {
+      const endpoint = form.action || "https://formspree.io/f/YOUR_FORM_ID";
+      const formData = new FormData(form);
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        form.reset();
+        setStatus("Message sent successfully. I'll get back to you soon.", "success");
+        showToast("Message sent successfully!");
+      } else {
+        setStatus(
+          "Something went wrong. Please try again or email me directly at rishabhdebnath101@gmail.com.",
+          "error"
+        );
+        showToast("Unable to send message.");
+      }
+    } catch (err) {
+      setStatus(
+        "Something went wrong. Please try again or email me directly at rishabhdebnath101@gmail.com.",
+        "error"
+      );
+      showToast("Network error. Please try again.");
+    } finally {
+      isSubmitting = false;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (btnSpan) btnSpan.textContent = originalBtnText;
+      }
+    }
   });
 }
 
