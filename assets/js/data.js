@@ -254,24 +254,24 @@ const PORTFOLIO_DATA = {
     {
       title: "HubSpot Digital Marketing Certification",
       issuer: "HubSpot Academy",
-      date: "Completed Course",
-      badge: "HubSpot Certified",
+      date: "Completed",
+      badge: "Completed",
       summary: "Foundational training in search-driven content strategy, inbound methodology, and conversion optimization.",
       skills: ["Inbound Strategy", "Content Marketing", "Search Fundamentals"]
     },
     {
       title: "Google Analytics 4 (GA4) Certification",
       issuer: "Google Skillshop",
-      date: "Completed Course",
-      badge: "Google Skillshop",
+      date: "Currently Pursuing",
+      badge: "In Progress",
       summary: "Measurement foundations, custom event configuration, user journey analysis, and organic traffic attribution.",
       skills: ["GA4 Analytics", "Conversion Tracking", "Event Measurement"]
     },
     {
-      title: "Semrush Academy Technical SEO & Toolkit",
+      title: "Semrush Technical SEO & Keyword Research",
       issuer: "Semrush Academy",
-      date: "Completed Course",
-      badge: "Semrush Academy",
+      date: "Currently Pursuing",
+      badge: "In Progress",
       summary: "Practical training in technical site audits, competitive keyword research, and on-page optimization workflows.",
       skills: ["Technical SEO", "Competitive Audits", "Keyword Intelligence"]
     },
