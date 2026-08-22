@@ -8,15 +8,15 @@ const PORTFOLIO_DATA = {
     name: "Rishabh Debnath",
     title: "SEO & Generative Engine Optimization (GEO) Specialist",
     tagline: "I help businesses get discovered across Google Search and AI platforms.",
-    supportingText: "I combine technical SEO, content strategy, and Generative Engine Optimization to improve how brands are understood by search engines and AI systems.",
+    supportingText: "I build clean website architecture, clear structured data, and search strategies designed to improve organic visibility and make brands easier to discover across search engines and AI platforms.",
     badge: "Open to SEO & Digital Marketing Opportunities",
     email: "rishabhdebnath101@gmail.com",
     location: "Available for Remote & International Roles",
     github: "https://github.com/rishabhdebnath101",
     aboutNarrative: [
-      "I started with language before I started with search. Studying English taught me how meaning, context, and structure influence communication. SEO became a natural extension of that curiosity — understanding how humans search and how machines interpret information.",
-      "As search systems evolved from simple keyword matching toward Knowledge Graphs, semantic vector indexing, and generative AI models, my focus shifted toward technical architecture and entity optimization.",
-      "Today, discovery happens in two complementary spaces: traditional search engines like Google and Bing, and generative AI engines like ChatGPT Search, Perplexity, and Google AI Overviews. My work focuses on bridging both worlds through clean crawl paths, rigorous Schema markup, and clear information hierarchy."
+      "I started with language before I got into SEO. Studying English taught me how subtle nuances in words, context, and structure shape human communication. Transitioning into search was a natural fit — it is all about understanding what real people are looking for and helping search engines connect them with the right answers.",
+      "Over the years, search systems have evolved from simple keyword matching toward understanding real-world concepts, entities, and relationships. That is why my focus is on solid technical foundations: fast-loading pages, clean site architecture, and clear structured data that leaves no room for confusion.",
+      "Today, getting found online means showing up in two complementary places: traditional search engines like Google and Bing, and conversational AI platforms like ChatGPT, Perplexity, and Google AI Overviews. My goal is to make sure your website excels in both."
     ]
   },
 
@@ -24,23 +24,23 @@ const PORTFOLIO_DATA = {
     {
       step: "01",
       title: "Research",
-      desc: "Understanding search intent, competitors, and users.",
-      details: "Analyzing real search queries, search engine result page (SERP) features, user mental models, and content gaps before implementing technical or structural changes.",
-      tags: ["Intent Mapping", "Competitor Analysis", "SERP Analysis"]
+      desc: "Understanding what your customers actually search for.",
+      details: "Analyzing real search queries, studying competitor strengths and weaknesses, and identifying high-intent topics that potential customers use before making a decision.",
+      tags: ["Intent Research", "Competitor Gaps", "Search Trends"]
     },
     {
       step: "02",
       title: "Optimization",
-      desc: "Improving technical structure, content, and discoverability.",
-      details: "Remediating crawl errors, optimizing Core Web Vitals, structuring unambiguous Schema.org JSON-LD entities, and formatting content for both web crawlers and LLM extraction.",
-      tags: ["Crawl Efficiency", "Schema Engineering", "Content Architecture"]
+      desc: "Fixing technical roadblocks and organizing content.",
+      details: "Resolving crawl errors, speeding up page load times, adding clean Schema.org structured data, and formatting content so both Google crawlers and AI tools can read it effortlessly.",
+      tags: ["Technical Fixes", "Structured Data", "Clear Layouts"]
     },
     {
       step: "03",
       title: "Measurement",
-      desc: "Tracking performance and refining strategies.",
-      details: "Monitoring organic impressions, indexing status, search visibility trends in GSC/GA4, and testing brand citation presence across generative AI platforms.",
-      tags: ["Search Console", "GA4 Analytics", "AI Citations"]
+      desc: "Tracking real visibility and continuous improvement.",
+      details: "Monitoring organic impressions, indexing health, and traffic trends in Search Console and GA4, while testing how often your business is cited in modern AI answer engines.",
+      tags: ["Traffic Analytics", "Search Console", "AI Citations"]
     }
   ],
 
@@ -50,41 +50,41 @@ const PORTFOLIO_DATA = {
       slug: "german-regional-b2b-seo",
       url: "work/german-regional-b2b-seo/",
       title: "German Regional B2B Website",
-      subtitle: "Multilingual Technical SEO & Regional Search Architecture",
+      subtitle: "Multilingual SEO & Multi-Country Architecture",
       projectType: "Self-Initiated Case Study",
       category: "Technical SEO · International SEO",
       tags: ["Technical SEO", "DACH Region", "Hreflang", "Structured Data", "Screaming Frog"],
       image: "assets/images/projects/project-german.svg",
-      summary: "A practical study exploring how a regional German B2B engineering site could improve search visibility across Germany, Austria, and Switzerland through proper hreflang, German keyword intent mapping, and structured data.",
+      summary: "A practical study showing how a regional engineering company can organize its German, Austrian, and Swiss pages so local business buyers find the right localized pricing and contact details without duplicate content confusion.",
       tools: ["Screaming Frog", "Semrush (DE)", "Google Search Console", "PageSpeed Insights"],
       details: {
-        overview: "A self-initiated SEO case study exploring how a regional German B2B website could improve multilingual search visibility across Germany, Austria, and Switzerland.",
+        overview: "A self-initiated SEO case study exploring how a regional German B2B website can improve search visibility across Germany, Austria, and Switzerland through clean hreflang and localized intent mapping.",
         problemsIdentified: [
-          "Improper hreflang tag setup causing regional duplicate content confusion between de-DE, de-AT, and de-CH pages.",
-          "German compound noun search terms misaligned with real user search intent and query phrasing.",
-          "Slow server response times (TTFB > 1.2s) caused by unoptimized assets and server configuration.",
-          "Missing Organization and ProfessionalService Schema.org structured data to help search engines understand the business."
+          "Incorrect hreflang tags causing Google to show German (de-DE) pages to visitors searching from Austria (de-AT) and Switzerland (de-CH).",
+          "Technical engineering terms misaligned with the natural search phrases business buyers actually type into Google.",
+          "Slow server response times (TTFB > 1.2s) causing search crawlers to slow down and visitors to leave.",
+          "Missing Organization and ProfessionalService structured data to help search engines verify business credentials."
         ],
         keywordStrategy: [
-          "Mapped high-intent German compound terms and industry-specific keywords across technical service lines.",
-          "Grouped technical documentation and ISO standard guides separately from commercial service pages to prevent intent mismatch."
+          "Researched high-intent German B2B search phrases and mapped them to dedicated service landing pages.",
+          "Separated technical documentation and ISO standards from sales inquiry pages so each page had a single, clear goal."
         ],
         geoStrategy: [
-          "Structured JSON-LD data linking company services, key personnel, and certifications clearly for search engines and AI tools.",
-          "Formatted key case takeaways with clear problem-solution summaries to make content easy for search engines and AI assistants to extract."
+          "Added clear Schema.org JSON-LD linking company services, key personnel, and certifications for Google and AI tools.",
+          "Formatted key takeaways with clear problem-solution summaries to make content easy for search engines and AI assistants to extract."
         ],
         technicalImprovements: [
-          "Audited internal links and redirect chains using Screaming Frog to identify crawl bottlenecks.",
-          "Designed reciprocal hreflang annotations across language and regional variants.",
+          "Audited internal links and redirect chains using Screaming Frog to remove crawl bottlenecks.",
+          "Implemented reciprocal hreflang annotations across language and regional variants.",
           "Recommended caching rules and asset compression to bring server response times into healthy ranges."
         ],
         outcomesPlaceholder: {
           headline: "Key Learnings & Success Criteria",
           metrics: [
-            { label: "Target Keyword Visibility", value: "Clear DACH Regional Intent Coverage" },
+            { label: "Regional Search Focus", value: "Clear DACH Multi-Country Coverage" },
             { label: "Crawl Health Target", value: "Clean Hreflang & Canonical Signals" },
-            { label: "Performance Goal", value: "Target: Sub-300ms Server Response (TTFB)" },
-            { label: "Information Structure", value: "Unambiguous Schema.org Entity Data" }
+            { label: "Page Speed Goal", value: "Target: Sub-300ms Server Response (TTFB)" },
+            { label: "Business Clarity", value: "Verified Schema.org Company Data" }
           ]
         }
       }
@@ -99,19 +99,19 @@ const PORTFOLIO_DATA = {
       category: "Local SEO · GEO",
       tags: ["Local SEO", "Google Business Profile", "Citations", "LocalBusiness Schema", "AI Discovery"],
       image: "assets/images/projects/project-olympia.svg",
-      summary: "A local SEO case study exploring how Olympia Fitness Studio could improve visibility in Google Maps, local organic search, and AI-powered recommendations through profile optimization, review signals, and LocalBusiness schema.",
+      summary: "Exploring how a neighborhood fitness studio could strengthen its Google Maps presence, local organic visibility, and AI search readiness through Google Business Profile optimization, local signals, and structured business data.",
       tools: ["Google Search Console", "Google Business Profile", "Ahrefs", "Schema.org"],
       details: {
         overview: "A local SEO case study exploring how Olympia Fitness Studio could improve visibility in Google Maps, local search, and AI-powered recommendations.",
         problemsIdentified: [
-          "Inconsistent NAP (Name, Address, Phone) citations across local business directories creating confusion for search engines.",
-          "Google Business Profile missing key service attributes, secondary categories, and structured Q&A.",
-          "Thin localized landing pages with duplicate meta descriptions and no structured LocalBusiness schema.",
-          "Limited presence in conversational AI tools (Perplexity, ChatGPT Search) when users ask for local gym recommendations."
+          "Inconsistent Name, Address, and Phone (NAP) details across local directories, confusing search engines.",
+          "Google Business Profile missing key service attributes, secondary categories, and structured customer Q&As.",
+          "Thin localized landing pages with duplicate descriptions and no structured LocalBusiness schema.",
+          "Limited presence in AI tools (like Perplexity and ChatGPT) when users ask for local workout and training recommendations."
         ],
         keywordStrategy: [
           "Researched local search queries such as 'strength training studio near me' and neighborhood-specific fitness phrases.",
-          "Structured question-and-answer FAQs matching common questions people ask before joining a local gym."
+          "Created straightforward FAQ sections answering the most common questions people ask before signing up for a gym."
         ],
         geoStrategy: [
           "Authored ExerciseGym and LocalBusiness JSON-LD schema with exact coordinates, opening hours, and offered services.",
@@ -124,8 +124,8 @@ const PORTFOLIO_DATA = {
         outcomesPlaceholder: {
           headline: "Key Learnings & Success Criteria",
           metrics: [
-            { label: "Google Maps Goal", value: "Target: Top-3 Local Map Pack Visibility" },
-            { label: "Citation Quality", value: "Goal: 100% NAP Consistency Across Core Directories" },
+            { label: "Google Maps Target", value: "Target: Stronger Local Map Pack Visibility" },
+            { label: "Citation Quality", value: "Goal: Consistent Contact Info Across Core Directories" },
             { label: "AI Search Citability", value: "Clear Structure for Perplexity & AI Summaries" },
             { label: "User Experience", value: "Frictionless Class Booking & Inquiry Pathway" }
           ]
@@ -137,24 +137,24 @@ const PORTFOLIO_DATA = {
       slug: "ecommerce-technical-seo",
       url: "work/ecommerce-technical-seo/",
       title: "Specialty D2C E-commerce Catalog",
-      subtitle: "Faceted Navigation, Canonical Strategy & Product Schema",
+      subtitle: "Faceted Navigation, Canonical Rules & Product Schema",
       projectType: "Self-Initiated Case Study",
       category: "E-commerce SEO · Technical SEO",
       tags: ["E-commerce", "Faceted Navigation", "Product Schema", "Internal Linking", "Ahrefs"],
       image: "assets/images/projects/project-ecommerce.svg",
-      summary: "A technical SEO research project focused on common e-commerce indexing problems such as faceted navigation crawl bloat, product variant canonicalization, rich Product schema, and category internal linking.",
+      summary: "A technical SEO project focused on cleaning up thousands of duplicate filter pages (size, color, price) in an online store so search engines focus crawl time on important product and category pages with stronger commercial value.",
       tools: ["Ahrefs", "Google Search Console", "Screaming Frog", "Schema.org", "Shopify/Liquid"],
       details: {
         overview: "A technical SEO research project focused on common e-commerce indexing problems such as faceted navigation, duplicate URLs, canonicalization, product schema, and internal linking.",
         problemsIdentified: [
-          "Faceted navigation filters generated hundreds of duplicate parameterized URLs that wasted crawl budget.",
-          "Product color and size variants competing with main category and product pages for search rankings.",
-          "Missing or incomplete Product, Offer, and MerchantReturnPolicy structured data.",
-          "Informational blog guides failed to pass internal link equity to high-priority product category pages."
+          "Product filters (color, size, price) generated thousands of duplicate URLs that wasted search engine crawl time.",
+          "Product color and size variants competing with main category pages for search rankings.",
+          "Missing or incomplete Product, Offer, and Return Policy structured data for Google rich snippets.",
+          "Informational blog guides failed to link back to high-priority product category pages."
         ],
         keywordStrategy: [
-          "Audited search demand to index only high-value facet combinations (e.g., Category + Brand) while canonicalizing thin filter permutations.",
-          "Structured category and subcategory landing pages for specific product buyer search intents."
+          "Audited search demand to index only high-value filter combinations (e.g., Brand + Category) while preventing indexation of thin filters.",
+          "Structured category and subcategory landing pages to match buyer search intent."
         ],
         geoStrategy: [
           "Implemented comprehensive Product schema with pricing, stock status, product specs, and return policies.",
@@ -180,23 +180,23 @@ const PORTFOLIO_DATA = {
       slug: "digital-publishing-seo",
       url: "work/digital-publishing-seo/",
       title: "Digital Publishing & News Portal",
-      subtitle: "Crawl Efficiency, Google News Readiness & NewsArticle Schema",
+      subtitle: "Fast News Indexing, Google News & Article Schema",
       projectType: "Self-Initiated Case Study",
       category: "Publishing SEO · Technical SEO",
       tags: ["News SEO", "Google News", "Crawl Efficiency", "NewsArticle Schema", "Core Web Vitals"],
       image: "assets/images/projects/project-news.svg",
-      summary: "A publishing SEO case study exploring crawl efficiency, Google News readiness, NewsArticle schema, author E-E-A-T signals, and technical performance for a fast-moving news website.",
+      summary: "Exploring how a fast-paced news website can improve crawl efficiency and support faster discovery of time-sensitive articles while keeping low-value tag and archive pages from wasting crawl resources.",
       tools: ["Google Search Console", "Screaming Frog", "Schema.org", "PageSpeed Insights"],
       details: {
         overview: "A publishing SEO case study exploring crawl efficiency, Google News readiness, article schema, internal linking, and technical performance for a fast-moving news website.",
         problemsIdentified: [
-          "Indexation delay after publication, causing missed search interest during early news cycles.",
-          "Missing or incomplete NewsArticle schema without proper author references and update timestamps.",
-          "Search engine crawl budget spent on low-value tag archives, duplicate author pages, and search result URLs.",
-          "Cumulative Layout Shift (CLS) issues caused by dynamic ad containers loading without reserved dimensions."
+          "Delays in getting new articles indexed, missing out on search traffic during early news cycles.",
+          "Incomplete NewsArticle schema without author credentials, verified bios, or update timestamps.",
+          "Search crawlers wasting resources on low-value tag pages and internal search results.",
+          "Visual layout jumps caused by ads loading without reserved space, frustrating mobile readers."
         ],
         keywordStrategy: [
-          "Developed headline best practices balancing journalistic clarity with primary search entities.",
+          "Developed headline best practices balancing journalistic clarity with primary search topics.",
           "Created topic cluster internal linking connecting breaking news updates back to evergreen background explainer pages."
         ],
         geoStrategy: [
@@ -212,7 +212,7 @@ const PORTFOLIO_DATA = {
           headline: "Key Learnings & Success Criteria",
           metrics: [
             { label: "Index Speed Goal", value: "Target: Rapid Discovery for Time-Sensitive Content" },
-            { label: "Author Schema", value: "Valid Author Entity Markup Supporting E-E-A-T" },
+            { label: "Author Trust", value: "Valid Author Entity Markup Supporting E-E-A-T" },
             { label: "Crawl Efficiency", value: "Preserved Crawl Budget by Excluding Thin Archives" },
             { label: "Visual Stability", value: "Target: CLS < 0.1 for Core Web Vitals 'Good' Range" }
           ]
@@ -223,30 +223,30 @@ const PORTFOLIO_DATA = {
 
   skills: {
     technical: [
-      { name: "Technical Audits", level: "Technical SEO", desc: "Comprehensive diagnostic auditing for crawl errors, redirect loops, and server response issues." },
-      { name: "Crawl Analysis", level: "SEO Implementation", desc: "Log file evaluation, Screaming Frog crawl configuration, and crawl budget optimization." },
-      { name: "Indexation Control", level: "Technical SEO", desc: "Robots.txt directives, canonical tag hierarchy, XML sitemaps, and noindex governance." },
-      { name: "Core Web Vitals", level: "Working Knowledge", desc: "Optimizing LCP, INP, and CLS metrics, critical rendering path analysis, and WebP compression." }
+      { name: "Technical Audits", level: "Technical SEO", desc: "Finding and fixing crawl roadblocks, broken redirect chains, and server speed issues." },
+      { name: "Crawl & Indexing", level: "SEO Implementation", desc: "Using Screaming Frog and log analysis to ensure search bots focus on your most important pages." },
+      { name: "Indexation Control", level: "Technical SEO", desc: "Managing robots.txt, canonical tags, and XML sitemaps to prevent duplicate content." },
+      { name: "Page Speed (CWV)", level: "Working Knowledge", desc: "Optimizing loading speed, mobile interactivity, and image formats (WebP/SVG) for Core Web Vitals." }
     ],
     content: [
-      { name: "Keyword Research", level: "Practical Experience", desc: "Search volume analysis, commercial keyword mapping, and long-tail query clustering." },
-      { name: "Search Intent", level: "Working Knowledge", desc: "Classifying informational, commercial, and transactional intent to guide page structure." },
-      { name: "Content Structure", level: "SEO Implementation", desc: "Heading hierarchy, entity-rich paragraphs, and readable information-dense formatting." },
-      { name: "Internal Linking", level: "Technical SEO", desc: "Hub-and-spoke topical clustering, contextual anchor text, and PageRank equity flow." }
+      { name: "Keyword Research", level: "Practical Experience", desc: "Finding the exact phrases customers use and grouping them by purchase intent." },
+      { name: "Search Intent", level: "Working Knowledge", desc: "Matching page content to what searchers actually want (learning, comparing, or buying)." },
+      { name: "Content Structure", level: "SEO Implementation", desc: "Structuring pages with clear headings, bullet points, and quick answers that humans and AI can skim." },
+      { name: "Internal Linking", level: "Technical SEO", desc: "Connecting related articles to product pages to guide visitors and pass search authority." }
     ],
     geo: [
-      { name: "Entity Optimization", level: "Working Knowledge", desc: "Connecting brand and content entities to recognized knowledge graphs (Wikidata, DBpedia)." },
-      { name: "Schema Markup", level: "SEO Implementation", desc: "Handcrafted JSON-LD structured data (Organization, LocalBusiness, Product, Article, FAQ)." },
-      { name: "AI Citation Readiness", level: "Practical Experience", desc: "Structuring factual statements and bulleted summaries for reliable LLM retrieval." },
-      { name: "LLM Visibility", level: "Working Knowledge", desc: "Testing and tracking brand presence across Perplexity, ChatGPT Search, and Google AI Overviews." }
+      { name: "Structured Data (Schema)", level: "SEO Implementation", desc: "Writing JSON-LD code for businesses, products, and articles so Google shows rich search snippets." },
+      { name: "Entity Optimization", level: "Working Knowledge", desc: "Connecting your brand and author credentials to recognized Knowledge Graphs (Wikidata)." },
+      { name: "AI Citation Readiness", level: "Practical Experience", desc: "Formatting facts, definitions, and data tables so tools like ChatGPT and Perplexity cite your site." },
+      { name: "AI Search Monitoring", level: "Working Knowledge", desc: "Testing and tracking how often your business appears in AI Overviews and AI search tools." }
     ],
     tools: [
-      { name: "Google Search Console", level: "Practical Experience", desc: "Performance tracking, coverage diagnostics, URL inspection, and sitemap validation." },
-      { name: "Google Analytics 4 (GA4)", level: "Working Knowledge", desc: "Event-based measurement, user journey tracking, and organic channel attribution." },
-      { name: "Semrush", level: "Practical Experience", desc: "Competitive domain benchmarking, keyword gap analysis, and position tracking." },
-      { name: "Ahrefs", level: "Working Knowledge", desc: "Backlink profile diagnostics, content exploration, and keyword difficulty analysis." },
-      { name: "Screaming Frog", level: "Technical SEO", desc: "Deep site crawling, custom XPath extraction, and JavaScript rendering audits." },
-      { name: "PageSpeed Insights", level: "Practical Experience", desc: "Core Web Vitals auditing, render-blocking script detection, and performance benchmarks." }
+      { name: "Google Search Console", level: "Practical Experience", desc: "Tracking real Google traffic, indexing coverage, and keyword rankings." },
+      { name: "Google Analytics 4 (GA4)", level: "Working Knowledge", desc: "Measuring user actions, conversion pathways, and organic traffic channels." },
+      { name: "Semrush", level: "Practical Experience", desc: "Analyzing competitor keywords, search volumes, and domain visibility." },
+      { name: "Ahrefs", level: "Working Knowledge", desc: "Auditing backlink profiles, content gaps, and search ranking difficulty." },
+      { name: "Screaming Frog", level: "Technical SEO", desc: "Simulating search engine crawls to find broken links, missing tags, and redirect loops." },
+      { name: "PageSpeed Insights", level: "Practical Experience", desc: "Measuring real-world loading speed and diagnosing performance bottlenecks." }
     ]
   },
 
