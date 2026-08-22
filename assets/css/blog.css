@@ -25,7 +25,7 @@
   /* Prevent any child from blowing out horizontal bounds */
   overflow-x: hidden;
   /* Safari containment safety */
-  max-width: 100vw;
+  max-width: 100%;
 }
 
 /* Breadcrumb Navigation */

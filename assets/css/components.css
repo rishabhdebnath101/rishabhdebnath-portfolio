@@ -10,8 +10,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(4, 7, 12, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -240,21 +242,26 @@
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
-  right: -320px;
-  width: 300px;
+  right: 0;
+  transform: translateX(100%);
+  visibility: hidden;
+  width: 280px;
+  max-width: 85vw;
   height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-card);
   border-left: 1px solid var(--border-subtle);
   z-index: 2100;
   display: flex;
   flex-direction: column;
   padding: 24px;
-  transition: right var(--transition-smooth);
+  transition: transform var(--transition-smooth), visibility var(--transition-smooth);
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
 }
 
 .mobile-nav-drawer.active {
-  right: 0;
+  transform: translateX(0);
+  visibility: visible;
 }
 
 .mobile-drawer-header {
@@ -299,8 +306,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   z-index: 2050;
