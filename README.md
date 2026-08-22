@@ -1,4 +1,4 @@
-# Hi, I'm Rishabh Debnath 👋
+# Hi, I'm Rishabh Debnath 
 ### SEO & Generative Engine Optimization (GEO) Specialist
 
 [![Website](https://img.shields.io/badge/Live_Portfolio-rishabhdebnath.com-00E6B8?style=for-the-badge&logo=google-chrome&logoColor=black)](https://rishabhdebnath.com)
@@ -47,7 +47,6 @@ I’m an SEO and GEO specialist focused on helping websites become more discover
 
 * **Completed (Verified):**
   * HubSpot Digital Marketing Certification
-* **Currently Pursuing / Active Roadmap:**
   * HubSpot SEO Certification
   * HubSpot Content Marketing Certification
   * Google Analytics 4 (GA4) Certification
