@@ -553,9 +553,12 @@ footer .brand-logo img,
   background-color: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  padding: 14px;
+  padding: 12px;
   box-shadow: var(--shadow-card);
   transition: border-color var(--transition-smooth);
+  max-width: 360px;
+  width: 100%;
+  justify-self: end;
 }
 
 .hero-visual-card:hover {
@@ -568,11 +571,14 @@ footer .brand-logo img,
   overflow: hidden;
   background-color: #070B12;
   border: 1px solid var(--border-subtle);
+  aspect-ratio: 4 / 5;
 }
 
 .hero-visual-frame img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
   display: block;
 }
 
@@ -739,9 +745,49 @@ footer .brand-logo img,
   color: var(--accent-primary);
 }
 
+.project-card-header {
+  padding: 14px 18px 12px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 2;
+}
+
+.project-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-category-badge {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background-color: rgba(0, 230, 184, 0.08);
+  border: 1px solid rgba(0, 230, 184, 0.22);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.01em;
+}
+
+.project-type-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
 .project-media-wrap {
   position: relative;
-  height: 210px;
+  height: 200px;
   background-color: #070B12;
   border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
@@ -756,40 +802,6 @@ footer .brand-logo img,
 
 .project-card:hover .project-media-wrap img {
   transform: scale(1.02);
-}
-
-.project-badge-group {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  display: flex;
-  gap: 8px;
-  z-index: 2;
-}
-
-.project-category-badge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: #FFFFFF;
-  background-color: rgba(7, 11, 18, 0.88);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--border-subtle);
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-}
-
-.project-type-badge {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  background-color: rgba(0, 230, 184, 0.12);
-  border: 1px solid rgba(0, 230, 184, 0.25);
-  padding: 3px 8px;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 .project-body {
@@ -1448,7 +1460,7 @@ textarea.form-control {
     gap: 36px;
   }
   .hero-visual-card {
-    max-width: 480px;
+    max-width: 320px;
     margin: 0 auto;
   }
   .hero-fast-facts {
@@ -1534,6 +1546,9 @@ textarea.form-control {
 }
 
 @media (max-width: 480px) {
+  .hero-visual-card {
+    max-width: 270px;
+  }
   .container {
     padding-left: 16px;
     padding-right: 16px;

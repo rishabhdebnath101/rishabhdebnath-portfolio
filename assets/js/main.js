@@ -116,12 +116,14 @@ function initProjectsRender() {
       return `
       <article class="project-card" data-project-id="${p.id || p.slug}">
         <a href="${projectUrl}" class="project-card-link-overlay" aria-label="View case study on ${p.title}"></a>
-        <div class="project-media-wrap">
-          <img src="${p.image}" alt="${p.title} - ${p.projectType}" loading="lazy" />
+        <div class="project-card-header">
           <div class="project-badge-group">
             <span class="project-category-badge">${p.category}</span>
             <span class="project-type-badge">${p.projectType}</span>
           </div>
+        </div>
+        <div class="project-media-wrap">
+          <img src="${p.image}" alt="${p.title} - ${p.category}" loading="lazy" />
         </div>
         <div class="project-body">
           <h3 class="project-title">
