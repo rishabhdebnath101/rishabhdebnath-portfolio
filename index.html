@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,12 +47,17 @@
   <meta name="twitter:image" content="https://rishabhdebnath.com/assets/images/brand/og-image-1200x630.png" />
   <meta name="twitter:image:alt" content="Rishabh Debnath — SEO &amp; GEO Specialist">
 
+  <!-- Preload Critical LCP Asset -->
+  <link rel="preload" as="image" href="assets/images/profile/rishabh-debnath-portrait.webp" type="image/webp" fetchpriority="high" />
+
   <!-- Typography: Google Fonts (Sora, Inter, IBM Plex Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
-    rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" />
+  </noscript>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/assets/css/style.css?v=1.1" />
@@ -120,7 +125,7 @@
   <header class="site-header" id="site-header">
     <div class="container header-container">
       <a href="/" class="brand-logo" aria-label="Rishabh Debnath — Home">
-        <img src="/assets/images/brand/logo-mark.png" alt="Rishabh Debnath" width="40" height="40" />
+        <img src="/assets/images/brand/logo.svg" alt="Rishabh Debnath" width="40" height="40" />
       </a>
 
       <!-- Center Navigation: Home, About, Work, Approach, Skills, Blog, Resume -->
@@ -153,7 +158,7 @@
   <aside class="mobile-nav-drawer" id="mobile-drawer" aria-label="Mobile Menu">
     <div class="mobile-drawer-header">
       <a href="/" class="brand-logo" aria-label="Rishabh Debnath — Home">
-        <img src="/assets/images/brand/logo-mark.png" alt="Rishabh Debnath" width="36" height="36" />
+        <img src="/assets/images/brand/logo.svg" alt="Rishabh Debnath" width="36" height="36" />
       </a>
       <button class="modal-close-btn" id="close-drawer" aria-label="Close menu">✕</button>
     </div>
@@ -613,7 +618,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="/" class="brand-logo" aria-label="Rishabh Debnath — Home">
-            <img src="/assets/images/brand/logo-mark.png" alt="Rishabh Debnath" width="48" height="48" />
+            <img src="/assets/images/brand/logo.svg" alt="Rishabh Debnath" width="48" height="48" />
           </a>
           <div class="footer-meta">
             <span class="footer-brand-name">Rishabh Debnath</span>
@@ -749,9 +754,9 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/blog-data.js?v=2026082402"></script>
-  <script src="assets/js/data.js?v=2026082402"></script>
-  <script src="assets/js/main.js?v=2026082402"></script>
+  <script defer src="assets/js/blog-data.js?v=2026082403"></script>
+  <script defer src="assets/js/data.js?v=2026082403"></script>
+  <script defer src="assets/js/main.js?v=2026082403"></script>
 </body>
 
 </html>
