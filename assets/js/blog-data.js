@@ -9,6 +9,18 @@
 const BLOG_DATA = {
   articles: [
     {
+      slug: "how-to-rank-on-google-and-ai-search",
+      title: "How to Rank on Google and AI Search: A Practical Guide to Modern SEO",
+      category: "Search Strategy",
+      readTime: "7 min read",
+      publishedDate: "2026-08-24",
+      updatedDate: "2026-08-24",
+      url: "blog/how-to-rank-on-google-and-ai-search/",
+      featured: true,
+      excerpt: "Search is no longer just about 10 blue links. Learn how to optimize your website to earn organic Google rankings and get cited by AI answer engines like ChatGPT and Perplexity.",
+      tags: ["SEO Fundamentals", "GEO", "AI Search", "Intent Mapping", "Free SEO Tools"]
+    },
+    {
       slug: "the-shift-from-traditional-seo-to-geo",
       title: "SEO vs GEO: What Actually Changes in AI Search?",
       category: "GEO",
