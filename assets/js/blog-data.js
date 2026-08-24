@@ -9,6 +9,18 @@
 const BLOG_DATA = {
   articles: [
     {
+      slug: "keyword-research-for-geo",
+      title: "Keyword Research in the Age of AI: How to Find Topics That Rank on Google and Get Cited by ChatGPT",
+      category: "Search Strategy",
+      readTime: "8 min read",
+      publishedDate: "2026-08-24",
+      updatedDate: "2026-08-24",
+      url: "blog/keyword-research-for-geo/",
+      featured: true,
+      excerpt: "Keyword research has changed. Learn how to find topics that rank on Google and get cited by ChatGPT and Perplexity — with practical steps and free tools.",
+      tags: ["Keyword Research", "Search Intent", "Topical Authority", "GEO", "Free SEO Tools"]
+    },
+    {
       slug: "how-to-rank-on-google-and-ai-search",
       title: "How to Rank on Google and AI Search: A Practical Guide to Modern SEO",
       category: "Search Strategy",
