@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -382,12 +382,22 @@
               LLM context windows and attention mechanisms prioritize <strong>information density</strong>: the proportion of verifiable, factual claims per sentence relative to conversational padding. When a transformer model generates token embeddings for a passage, paragraphs loaded with introspective filler, repetitive adverbs, and rhetorical questions receive lower semantic weight during the re-ranking phase.
             </p>
 
-            <pre><code>// Example: High-Density vs Low-Density Passage Structuring
-// LOW DENSITY (Filtered out by RAG re-rankers):
-"In this modern day and age, everyone knows that speed is very crucial for your digital website, and you should always think about making things faster."
-
-// HIGH DENSITY (Selected for citation):
-"Largest Contentful Paint (LCP) measures perceived loading speed, requiring a threshold under 2.5 seconds to pass Google Core Web Vitals criteria."</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Comparison: Low-Density vs. High-Density Writing
+              </div>
+              <p>
+                <strong>Low-Density (Filtered out by AI re-rankers):</strong> <em>"In this modern day and age, everyone knows that speed is very crucial for your digital website, and you should always think about making things faster."</em>
+              </p>
+              <p style="margin-top: 10px; margin-bottom: 0;">
+                <strong>High-Density (Selected for citation):</strong> <em>"Largest Contentful Paint (LCP) measures perceived loading speed, requiring a threshold under 2.5 seconds to pass Google Core Web Vitals criteria."</em>
+              </p>
+            </div>
 
             <h2 id="entity-authority-and-knowledge-graphs">4. Entity Authority and Knowledge Graphs</h2>
             <p>
