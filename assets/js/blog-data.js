@@ -9,6 +9,18 @@
 const BLOG_DATA = {
   articles: [
     {
+      slug: "how-schema-markup-helps-ai-search",
+      title: "How Does Schema Markup Actually Help AI Search Engines Understand Your Website?",
+      category: "Structured Data",
+      readTime: "8 min read",
+      publishedDate: "2026-08-26",
+      updatedDate: "2026-08-26",
+      url: "blog/how-schema-markup-helps-ai-search/",
+      featured: true,
+      excerpt: "Learn how Schema.org structured data helps LLMs, ChatGPT Search, and Google AI Overviews extract facts, resolve entity ambiguity, and cite your website.",
+      tags: ["Schema.org", "Structured Data", "JSON-LD", "Knowledge Graph", "GEO", "AI Citations"]
+    },
+    {
       slug: "keyword-research-for-geo",
       title: "Keyword Research in the Age of AI: How to Find Topics That Rank on Google and Get Cited by ChatGPT",
       category: "Search Strategy",
