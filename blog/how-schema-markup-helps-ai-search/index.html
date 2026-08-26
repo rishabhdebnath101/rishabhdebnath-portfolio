@@ -422,41 +422,17 @@
               Many websites output three separate <code>&lt;script type="application/ld+json"&gt;</code> tags on a single page—one for the breadcrumbs, one for the author, and one for the article. To a search engine crawler, these look like three disconnected islands of information.
             </p>
             <p>
-              The modern standard for structured data architecture is to use a single <strong><code>@graph</code> array</strong> that explicitly references entities using the <strong><code>@id</code> property</strong> (a Unique Resource Identifier). Here is a real-world example:
+              The modern standard for structured data architecture is to use a single <strong><code>@graph</code> array</strong> that explicitly references entities using unique <strong><code>@id</code> properties</strong>:
             </p>
 
-            <pre><code>{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://rishabhdebnath.com/#person",
-      "name": "Rishabh Debnath",
-      "jobTitle": "SEO & GEO Specialist",
-      "sameAs": [
-        "https://github.com/rishabhdebnath101"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://rishabhdebnath.com/#website",
-      "url": "https://rishabhdebnath.com",
-      "name": "Rishabh Debnath Portfolio",
-      "publisher": { "@id": "https://rishabhdebnath.com/#person" }
-    },
-    {
-      "@type": "BlogPosting",
-      "@id": "https://rishabhdebnath.com/blog/how-schema-markup-helps-ai-search/#article",
-      "isPartOf": { "@id": "https://rishabhdebnath.com/#website" },
-      "headline": "How Does Schema Markup Help AI Search Engines?",
-      "author": { "@id": "https://rishabhdebnath.com/#person" },
-      "publisher": { "@id": "https://rishabhdebnath.com/#person" }
-    }
-  ]
-}</code></pre>
+            <ul>
+              <li><strong>Author Entity (<code>#person</code>):</strong> Defines the author once with their official name, expertise, and verified profile links.</li>
+              <li><strong>Website Entity (<code>#website</code>):</strong> Defines your domain and explicitly links the publisher back to your author ID.</li>
+              <li><strong>Article Entity (<code>#article</code>):</strong> Points directly to <code>{"@id": "#person"}</code> as the author, instead of duplicating details repeatedly.</li>
+            </ul>
 
             <p>
-              Notice how the <code>BlogPosting</code> object does not duplicate all the author details. Instead, it points directly to <code>{"@id": "https://rishabhdebnath.com/#person"}</code>. This tells the search algorithm: <em>"The person who wrote this article is the exact same established entity defined in our sitewide profile."</em> This eliminates redundancy and builds compounding entity authority across your entire domain.
+              This tells the search algorithm: <em>"The person who wrote this article is the exact same established entity defined in our sitewide profile."</em> This eliminates redundancy, prevents AI confusion, and builds compounding entity authority across your entire domain.
             </p>
 
             <!-- Section 4 -->
