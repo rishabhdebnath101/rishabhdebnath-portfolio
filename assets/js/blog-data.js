@@ -9,6 +9,18 @@
 const BLOG_DATA = {
   articles: [
     {
+      slug: "information-gain-in-seo",
+      title: "Information Gain in SEO: How to Create Content AI Cannot Duplicate or Summarize Away",
+      category: "Content Strategy",
+      readTime: "8 min read",
+      publishedDate: "2026-08-27",
+      updatedDate: "2026-08-27",
+      url: "blog/information-gain-in-seo/",
+      featured: true,
+      excerpt: "Learn how Google's Information Gain patent works and how to engineer unique, non-commoditized content that earns organic rankings and AI search citations.",
+      tags: ["Information Gain", "Google Patent", "Content Strategy", "GEO", "E-E-A-T", "AI Citations"]
+    },
+    {
       slug: "how-schema-markup-helps-ai-search",
       title: "How Does Schema Markup Actually Help AI Search Engines Understand Your Website?",
       category: "Structured Data",
