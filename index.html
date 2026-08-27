@@ -47,8 +47,8 @@
   <meta name="twitter:image" content="https://rishabhdebnath.com/assets/images/brand/og-image-1200x630.png" />
   <meta name="twitter:image:alt" content="Rishabh Debnath — SEO &amp; GEO Specialist">
 
-  <!-- Preload Critical LCP Asset -->
-  <link rel="preload" as="image" href="assets/images/profile/rishabh-debnath-portrait.webp" type="image/webp" fetchpriority="high" />
+  <!-- Preload Desktop Hero LCP Asset (Large screens only) -->
+  <link rel="preload" as="image" href="assets/images/profile/rishabh-debnath-portrait.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
 
   <!-- Typography: Google Fonts (Sora, Inter, IBM Plex Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -255,8 +255,11 @@
           <!-- Hero Visual Frame: Portrait Photo -->
           <div class="hero-visual-card">
             <div class="hero-visual-frame">
-              <img src="assets/images/profile/rishabh-debnath-portrait.webp" alt="Rishabh Debnath, SEO and GEO specialist" width="540"
-                height="675" fetchpriority="high" />
+              <img src="assets/images/profile/rishabh-debnath-portrait.webp"
+                srcset="assets/images/profile/rishabh-debnath-portrait-320w.webp 320w, assets/images/profile/rishabh-debnath-portrait.webp 768w"
+                sizes="(max-width: 768px) 320px, 540px"
+                alt="Rishabh Debnath, SEO and GEO specialist" width="540"
+                height="675" fetchpriority="auto" />
             </div>
           </div>
         </div>
