@@ -445,6 +445,24 @@
   margin-bottom: 0;
 }
 
+.article-callout ul,
+.article-callout ol {
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.article-callout li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.article-callout li:last-child {
+  margin-bottom: 0;
+}
+
 /* ==========================================================================
    CODE BLOCK & INLINE CODE — OVERFLOW PREVENTION
    

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -364,49 +364,50 @@
               Google News requires an XML sitemap containing only articles published within the last 48 hours. By automating this feed to update immediately upon hitting "Publish", search engines are pinged within seconds:
             </p>
 
-            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"&gt;
-  &lt;url&gt;
-    &lt;loc&gt;https://example-news.com/tech/ai-search-milestone/&lt;/loc&gt;
-    &lt;news:news&gt;
-      &lt;news:publication&gt;
-        &lt;news:name&gt;Tech Editorial Times&lt;/news:name&gt;
-        &lt;news:language&gt;en&lt;/news:language&gt;
-      &lt;/news:publication&gt;
-      &lt;news:publication_date&gt;2026-08-20T14:30:00+00:00&lt;/news:publication_date&gt;
-      &lt;news:title&gt;How AI Search Systems Are Changing Information Discovery&lt;/news:title&gt;
-    &lt;/news:news&gt;
-  &lt;/url&gt;
-&lt;/urlset&gt;</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Google News XML Feed Architecture
+              </div>
+              <p>
+                The automated news sitemap ensures instant indexing for breaking journalism through four critical specifications:
+              </p>
+              <ul>
+                <li><strong>Rolling 48-Hour Ingestion Window:</strong> Automatically filters out entries older than two days to maintain a lightweight, high-priority crawl target for Googlebot-News.</li>
+                <li><strong>Publication Namespace Validation:</strong> Declares official publication metadata (<code>Tech Editorial Times</code>) and language code (<code>en</code>) corresponding to Google News Publisher Center records.</li>
+                <li><strong>ISO-8601 Timestamps:</strong> Transmits release and modification timestamps with timezone precision to ensure proper sorting in Google Discover feeds.</li>
+                <li><strong>Automated Ping Webhooks:</strong> Sends instantaneous ping notifications to search engine indexing APIs when articles transition from draft to published status.</li>
+              </ul>
+            </div>
 
             <h3 id="news-schema">B. Rich NewsArticle &amp; Author Entity Schema</h3>
             <p>
               Adding <code>NewsArticle</code> JSON-LD establishes unambiguous author expertise, verified publisher identity, and accurate timestamps:
             </p>
 
-            <pre><code>{
-  "@context": "https://schema.org",
-  "@type": "NewsArticle",
-  "headline": "How AI Search Systems Are Changing Information Discovery",
-  "image": ["https://example-news.com/images/hero-16x9.jpg"],
-  "datePublished": "2026-08-20T14:30:00+00:00",
-  "dateModified": "2026-08-20T16:15:00+00:00",
-  "author": {
-    "@type": "Person",
-    "name": "Jane Doe",
-    "jobTitle": "Senior Technology Reporter",
-    "sameAs": "https://example-news.com/authors/jane-doe/"
-  },
-  "publisher": {
-    "@type": "NewsMediaOrganization",
-    "name": "Tech Editorial Times",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://example-news.com/assets/logo.png"
-    }
-  }
-}</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Editorial Entity &amp; E-E-A-T Architecture
+              </div>
+              <p>
+                The structured data framework connects editorial articles directly to recognized journalistic trust signals:
+              </p>
+              <ul>
+                <li><strong>NewsArticle Classification:</strong> Classifies content explicitly as news rather than general blog copy, unlocking Top Stories carousel eligibility.</li>
+                <li><strong>Verified Author Entity (<code>Person</code>):</strong> Links the journalist (Jane Doe, Senior Technology Reporter) directly to their author profile and verified social credentials.</li>
+                <li><strong>Publisher Credibility (<code>NewsMediaOrganization</code>):</strong> Defines the publishing house with official SVG logo assets and organization IDs.</li>
+                <li><strong>Freshness Timestamps:</strong> Supplies exact <code>datePublished</code> and <code>dateModified</code> metadata to verify article timeliness.</li>
+              </ul>
+            </div>
 
             <h3 id="cls-fix">C. Core Web Vitals &amp; Ad Container Stability</h3>
             <p>

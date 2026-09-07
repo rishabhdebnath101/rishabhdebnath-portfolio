@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -366,34 +366,25 @@
               Adding structured JSON-LD data to the website provides search engines and AI assistants with unambiguous business facts:
             </p>
 
-            <pre><code>{
-  "@context": "https://schema.org",
-  "@type": "ExerciseGym",
-  "name": "Olympia Fitness Studio",
-  "image": "https://example.com/images/studio.jpg",
-  "telephone": "+1-555-019-2834",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "124 Market Street",
-    "addressLocality": "City Center",
-    "postalCode": "90210",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 34.0522,
-    "longitude": -118.2437
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "06:00",
-      "closes": "21:00"
-    }
-  ],
-  "priceRange": "$$"
-}</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Local Entity Schema Architecture
+              </div>
+              <p>
+                Rather than relying on crawler heuristics, explicit structured data guarantees direct ingestion of location facts into local search systems:
+              </p>
+              <ul>
+                <li><strong>Specific Entity Type:</strong> Uses <code>ExerciseGym</code> (a specialized subtype of <code>LocalBusiness</code>) for maximum relevance in local fitness and gym pack queries.</li>
+                <li><strong>NAP Verification:</strong> Programmatically anchors the verified Name (Olympia Fitness Studio), physical Address (124 Market Street), and primary phone line.</li>
+                <li><strong>Exact Geo-Coordinates:</strong> Embeds precise latitude and longitude (<code>34.0522, -118.2437</code>) to empower proximity-based mobile search ranking.</li>
+                <li><strong>Operating Hours &amp; Pricing:</strong> Feeds machine-readable weekly schedules (Mon–Fri: 06:00–21:00) and pricing tiers (<code>$$</code>) directly to generative AI engines like Google Gemini and Perplexity.</li>
+              </ul>
+            </div>
 
             <h3 id="conversational-faq">C. Conversational FAQ Structuring for AI Discovery</h3>
             <p>

@@ -365,40 +365,48 @@
               When a product exists in multiple colors or sizes, the best approach is to consolidate all variant variations onto the main parent product URL using a self-referencing canonical tag, unless a specific color variant has substantial standalone search volume:
             </p>
 
-            <pre><code>&lt;!-- On variant URL: /products/trail-runner?variant=394821 --&gt;
-&lt;link rel="canonical" href="https://example-shop.com/products/trail-runner/" /&gt;</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Variant Canonicalization Blueprint
+              </div>
+              <p>
+                Consolidating parameterized product URLs preserves crawl budget and pools ranking signals:
+              </p>
+              <ul>
+                <li><strong>Master URL Consolidation:</strong> Parameterized URLs (e.g., <code>?variant=394821</code>) serve a canonical tag resolving directly back to the clean root parent URL (<code>/products/trail-runner/</code>).</li>
+                <li><strong>Index Bloat Elimination:</strong> Prevents thousands of thin near-duplicate pages from degrading indexing performance and diluting page rank.</li>
+                <li><strong>Authority Aggregation:</strong> Focuses all incoming backlinks, customer reviews, and engagement signals onto a single authoritative product listing.</li>
+              </ul>
+            </div>
 
             <h3 id="product-schema">B. Rich Product &amp; Merchant Schema</h3>
             <p>
               Implementing structured JSON-LD with pricing, stock status, ratings, and return policy satisfies Google's Rich Result requirements and prepares the catalog for AI shopping assistants:
             </p>
 
-            <pre><code>{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Men's All-Weather Trail Runner",
-  "image": "https://example-shop.com/images/trail-runner.jpg",
-  "description": "Durable all-weather running shoes with reinforced traction grip.",
-  "sku": "TR-4092",
-  "brand": {
-    "@type": "Brand",
-    "name": "Apex Athletics"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://example-shop.com/products/trail-runner/",
-    "priceCurrency": "USD",
-    "price": "139.00",
-    "availability": "https://schema.org/InStock",
-    "itemCondition": "https://schema.org/NewCondition",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "US",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 30
-    }
-  }
-}</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Merchant Center &amp; Rich Result Schema Architecture
+              </div>
+              <p>
+                Comprehensive product schema feeds commercial data directly to Google Shopping and AI search agents:
+              </p>
+              <ul>
+                <li><strong>Core Product Identity:</strong> Binds the product name, visual assets, unique SKU (<code>TR-4092</code>), and brand entity (Apex Athletics).</li>
+                <li><strong>Offer &amp; Availability Data:</strong> Outlines current price (<code>$139.00 USD</code>), item condition (New), and live inventory status (<code>InStock</code>) to qualify for Google rich snippet search badges.</li>
+                <li><strong>Merchant Return Policy:</strong> Programmatically declares return parameters (30-day return window for the US market), satisfying Google's mandatory merchant experience requirements.</li>
+              </ul>
+            </div>
 
             <h3 id="internal-linking">C. Hub-and-Spoke Internal Linking</h3>
             <p>

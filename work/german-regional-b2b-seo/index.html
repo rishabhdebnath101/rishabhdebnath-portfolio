@@ -358,32 +358,52 @@
 
             <h3 id="hreflang-fix">A. Reciprocal Hreflang Architecture</h3>
             <p>
-              Every regional page must reference itself and every other regional alternative. Below is an example of the clean, reciprocal structure designed for the core service templates:
+              Every regional page must reference itself and every other regional alternative to ensure search engines serve the correct localized edition without cannibalizing rankings:
             </p>
 
-            <pre><code>&lt;!-- Reciprocal Hreflang Implementation for DACH Region --&gt;
-&lt;link rel="alternate" hreflang="de-DE" href="https://example-b2b.de/leistungen/fertigung/" /&gt;
-&lt;link rel="alternate" hreflang="de-AT" href="https://example-b2b.de/at/leistungen/fertigung/" /&gt;
-&lt;link rel="alternate" hreflang="de-CH" href="https://example-b2b.de/ch/leistungen/fertigung/" /&gt;
-&lt;link rel="alternate" hreflang="x-default" href="https://example-b2b.de/leistungen/fertigung/" /&gt;</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                DACH Regional Hreflang Mapping
+              </div>
+              <p>
+                To achieve seamless international routing across Germany, Austria, and Switzerland, the core service templates follow a reciprocal linking blueprint:
+              </p>
+              <ul>
+                <li><strong>Germany (<code>de-DE</code>):</strong> Directs German search queries to the primary German root directory (<code>/leistungen/fertigung/</code>).</li>
+                <li><strong>Austria (<code>de-AT</code>):</strong> Directs Austrian localized queries to the regional folder (<code>/at/leistungen/fertigung/</code>).</li>
+                <li><strong>Switzerland (<code>de-CH</code>):</strong> Routes Swiss visitors to the dedicated Swiss portal (<code>/ch/leistungen/fertigung/</code>).</li>
+                <li><strong>Global Fallback (<code>x-default</code>):</strong> Serves unsegmented international visitors with the primary European version.</li>
+              </ul>
+            </div>
 
             <h3 id="structured-data">B. Structured Data Implementation</h3>
             <p>
               Adding <code>Organization</code> and <code>ProfessionalService</code> JSON-LD markup helps search engines accurately identify company locations, certifications, and service categories without ambiguity:
             </p>
 
-            <pre><code>{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "B2B Engineering Services",
-  "url": "https://example-b2b.de",
-  "areaServed": ["DE", "AT", "CH"],
-  "knowsAbout": [
-    "Precision Engineering",
-    "Automation Technology",
-    "ISO 9001 Compliance"
-  ]
-}</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Structured Knowledge Graph Entity Specification
+              </div>
+              <p>
+                The structured schema connects the company's regional digital presence into Google's Knowledge Graph with clear entity attributes:
+              </p>
+              <ul>
+                <li><strong>Entity Classification:</strong> Modeled as <code>ProfessionalService</code> and <code>Organization</code> to trigger local pack eligibility and knowledge panels.</li>
+                <li><strong>Target Territories:</strong> Explicitly declares regional jurisdiction across the DACH cluster (<code>["DE", "AT", "CH"]</code>).</li>
+                <li><strong>Topical Authority (<code>knowsAbout</code>):</strong> Formally binds core enterprise competencies including Precision Engineering, Automation Technology, and ISO 9001 Compliance.</li>
+              </ul>
+            </div>
 
             <h3 id="performance">C. Performance &amp; Crawl Efficiency</h3>
             <p>
