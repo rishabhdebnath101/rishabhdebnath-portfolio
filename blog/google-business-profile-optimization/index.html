@@ -465,37 +465,25 @@
               As covered in our breakdown on <a href="../how-schema-markup-helps-ai-search/">how Schema markup helps search engines</a>, your website's homepage or location landing page must host matching <code>LocalBusiness</code> or specific subtype markup (e.g., <code>ExerciseGym</code>, <code>LegalService</code>, <code>HVACBusiness</code>).
             </p>
 
-            <h3 id="nap-schema-alignment">Connecting the Dots: The SameAs Entity Link</h3>
-            <p>
-              Your JSON-LD schema should explicitly declare your Google Maps CID or profile URL in the <code>sameAs</code> array:
-            </p>
-
-            <pre><code>&lt;script type="application/ld+json"&gt;
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Your Local Business Name",
-  "telephone": "+1-360-555-0199",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "400 Capitol Way S",
-    "addressLocality": "Olympia",
-    "addressRegion": "WA",
-    "postalCode": "98501",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 47.0425,
-    "longitude": -122.9007
-  },
-  "sameAs": [
-    "https://maps.google.com/?cid=YOUR_CID_NUMBER",
-    "https://www.facebook.com/yourbrand",
-    "https://www.linkedin.com/company/yourbrand"
-  ]
-}
-&lt;/script&gt;</code></pre>
+            <div class="article-callout">
+              <div class="article-callout-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Local Entity Schema Architecture &amp; CID Linking
+              </div>
+              <p>
+                Rather than relying on crawler heuristics, explicit structured data guarantees direct ingestion of location facts into local search systems:
+              </p>
+              <ul>
+                <li><strong>Entity Type Classification:</strong> Declare <code>LocalBusiness</code> or specific subcategories (such as <code>ExerciseGym</code>, <code>LegalService</code>, or <code>HVACBusiness</code>) to match your primary GBP category.</li>
+                <li><strong>Verified NAP Consistency:</strong> Programmatically bind the official registered name, street address, and primary telephone number to match GBP verbatim.</li>
+                <li><strong>Precise Geo-Coordinates:</strong> Embed exact latitude and longitude values corresponding directly to your verified physical Google Maps pin.</li>
+                <li><strong>Authoritative <code>sameAs</code> Anchors:</strong> Link directly to your verified Google Maps CID URL, state business registries, and verified social entity nodes.</li>
+              </ul>
+            </div>
 
             <p>
               For a comprehensive pre-launch checklist of site-wide technical audits, refer to our <a href="../technical-seo-audit-checklist/">technical SEO audit checklist</a>.
