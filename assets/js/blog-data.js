@@ -9,6 +9,18 @@
 const BLOG_DATA = {
   articles: [
     {
+      slug: "google-business-profile-optimization",
+      title: "Google Business Profile Optimization: Step-by-Step Guide to Ranking in the Local 3-Pack",
+      category: "Local SEO",
+      readTime: "9 min read",
+      publishedDate: "2026-09-09",
+      updatedDate: "2026-09-09",
+      url: "blog/google-business-profile-optimization/",
+      featured: true,
+      excerpt: "Master Google Business Profile optimization to dominate the Google Maps 3-Pack. Actionable guide covering primary categories, entity signals, reviews, and AI search.",
+      tags: ["Google Business Profile", "Local SEO", "Google Maps", "Local 3-Pack", "Entity SEO", "GEO"]
+    },
+    {
       slug: "information-gain-in-seo",
       title: "Information Gain in SEO: How to Create Content AI Cannot Duplicate or Summarize Away",
       category: "Content Strategy",
